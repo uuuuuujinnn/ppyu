@@ -218,6 +218,7 @@
       if (FB.book && !(FB.book.members || {})[user.uid]) return kicked();
       if (window.FB.render) window.FB.render();
     }, (e) => { if (e.code === 'permission-denied') kicked(); });
+    FB.afterOpen();
     return shim;
   };
   async function kicked() {
@@ -303,6 +304,8 @@
     const t = ev.target.closest('[data-act^="fb-"], [data-fb]'); if (!t) return;
     const act = t.dataset.act || t.dataset.fb;
     if (act === 'close') { closeBar(); return; }
+    if (act === 'install' || act === 'fb-install') { install(); return; }
+    if (act === 'install-later') { try { localStorage.setItem('ppyu.installLater', String(Date.now())); } catch (e) {} hideBanner(); return; }
     if (act === 'fb-autome') {
       const on = !FB.autoMe(); FB.prefs = { ...(FB.prefs || {}), autoMe: on }; t.setAttribute('aria-checked', String(on));
       fs.doc('users/' + user.uid).set({ autoMe: on }, { merge: true }).catch(() => note('저장하지 못했어요.'));
@@ -332,7 +335,7 @@
       catch (e) { const box = document.querySelector('#fb-bar [style*="user-select"]'); if (box) { const r = document.createRange(); r.selectNodeContents(box); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } t.textContent = '길게 눌러 복사'; }
       return;
     }
-    if (act === 'share') { try { await navigator.share({ title: '쀼 가계부 초대', text: '쀼 가계부에 초대할게요. 링크를 열고 구글 계정으로 로그인해 주세요.', url: FB.lastLink }); } catch (e) {} return; }
+    if (act === 'share') { try { await navigator.share({ title: '쀼 가계부 초대', text: '쀼 가계부에 초대할게요. 링크를 열고 구글 계정으로 로그인한 뒤, 화면 아래 \'설치\'를 누르면 앱처럼 쓸 수 있어요.', url: FB.lastLink }); } catch (e) {} return; }
 
     if (act === 'fb-kick') {
       FB.kick = t.dataset.v;
@@ -390,6 +393,32 @@
       catch (e) { note('불러오지 못했어요. (' + esc(e.code || e.message) + ')'); }
     }
   });
+
+  // ---------- 앱으로 설치하기 ----------
+  let installEvt = null;
+  const standalone = () => matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: fullscreen)').matches || navigator.standalone === true;
+  const UA = navigator.userAgent;
+  const browser = /SamsungBrowser/i.test(UA) ? 'samsung' : /iPhone|iPad|iPod/i.test(UA) ? 'ios' : /Chrome|CriOS/i.test(UA) ? 'chrome' : 'other';
+  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installEvt = e; maybeBanner(); });
+  window.addEventListener('appinstalled', () => { installEvt = null; hideBanner(); if (FB.render) FB.render(); });
+  FB.canInstall = () => !standalone();
+  function dismissed() { try { const t = +localStorage.getItem('ppyu.installLater') || 0; return Date.now() - t < 7 * 864e5; } catch (e) { return false; } }
+  function hideBanner() { const b = document.getElementById('fb-install'); if (b) b.remove(); document.body.classList.remove('has-install'); }
+  function maybeBanner() {
+    if (standalone() || dismissed() || !bookId || document.getElementById('fb-install')) return;
+    const b = document.createElement('div'); b.id = 'fb-install'; b.className = 'fb-install'; b.setAttribute('role', 'region'); b.setAttribute('aria-label', '앱 설치');
+    b.innerHTML = `<img src="icon-192.png" alt=""><span class="grow"><b>앱으로 설치할까요?</b><br><span class="sub">홈 화면 아이콘으로 바로 열려요.</span></span><button class="fb-btn dark" data-fb="install">설치</button><button class="fb-x" data-fb="install-later" aria-label="닫기">✕</button>`;
+    document.body.appendChild(b); document.body.classList.add('has-install');
+  }
+  async function install() {
+    if (installEvt) { installEvt.prompt(); const r = await installEvt.userChoice.catch(() => null); installEvt = null; if (r && r.outcome === 'accepted') hideBanner(); return; }
+    const how = browser === 'samsung' ? '아래쪽 메뉴(≡) → <b>현재 페이지 추가</b> → <b>앱스</b> 또는 <b>홈 화면</b>을 눌러 주세요.<br>주소창 오른쪽에 설치 아이콘이 보이면 그걸 눌러도 돼요.'
+      : browser === 'ios' ? '아래쪽 <b>공유</b> 버튼 → <b>홈 화면에 추가</b>를 눌러 주세요.'
+      : browser === 'chrome' ? '오른쪽 위 메뉴(⋮) → <b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 눌러 주세요.'
+      : '브라우저 메뉴에서 <b>홈 화면에 추가</b>를 찾아 눌러 주세요.';
+    bar(`<div><b>앱으로 설치하기</b><br>${how}<br><span class="sub">설치한 뒤에는 홈 화면이나 앱스의 쀼 가계부 아이콘으로 열면 돼요.</span></div><div class="fb-row"><button class="fb-btn" data-fb="close">알겠어요</button></div>`);
+  }
+  FB.afterOpen = () => setTimeout(maybeBanner, 1500);
 
   // ---------- 오프라인 실행, 새 버전 받기 ----------
   if ('serviceWorker' in navigator) window.addEventListener('load', () => {
