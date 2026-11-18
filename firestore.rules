@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function me() { return request.auth.uid; }
+    function bookData(b) { return get(/databases/$(database)/documents/books/$(b)).data; }
+    function isMember(b) { return signedIn() && me() in bookData(b).members; }
+    function isOwner(b) { return signedIn() && bookData(b).owner == me(); }
+    function inviteData(b, c) { return get(/databases/$(database)/documents/books/$(b)/invites/$(c)).data; }
+
+    // 내 계정이 어떤 가계부에 들어가 있는지
+    match /users/{uid} {
+      allow read, write: if signedIn() && me() == uid;
+    }
+
+    // 가계부 (구성원 명단)
+    match /books/{b} {
+      allow read: if signedIn() && (resource == null || me() in resource.data.members);
+      allow create: if signedIn()
+        && request.resource.data.owner == me()
+        && request.resource.data.members.keys().hasOnly([me()]);
+      allow update: if signedIn() && (
+        // 주인: 이름 바꾸기, 구성원 빼기
+        (resource.data.owner == me()
+          && request.resource.data.owner == me()
+          && me() in request.resource.data.members)
+        // 구성원: 스스로 나가기
+        || (me() in resource.data.members
+          && resource.data.owner != me()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['members'])
+          && resource.data.members.diff(request.resource.data.members).affectedKeys().hasOnly([me()])
+          && !(me() in request.resource.data.members))
+        // 초대받은 사람: 아직 안 쓴, 만료 전 초대 코드로 참여
+        || (!(me() in resource.data.members)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['members'])
+          && request.resource.data.members.diff(resource.data.members).affectedKeys().hasOnly([me()])
+          && request.resource.data.members[me()].role == 'member'
+          && inviteData(b, request.resource.data.members[me()].invite).used == false
+          && inviteData(b, request.resource.data.members[me()].invite).expires > request.time)
+      );
+
+      // 초대 링크
+      match /invites/{code} {
+        allow read, delete: if isOwner(b);
+        allow create: if isOwner(b)
+          && request.resource.data.by == me()
+          && request.resource.data.used == false
+          && request.resource.data.expires < request.time + duration.value(2, 'd');
+        allow update: if signedIn()
+          && resource.data.used == false
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['used', 'usedBy'])
+          && request.resource.data.used == true
+          && request.resource.data.usedBy == me()
+          && me() in getAfter(/databases/$(database)/documents/books/$(b)).data.members;
+      }
+
+      // 가계부 내용: 구성원만
+      match /{col}/{doc} {
+        allow read, write: if col in ['meta', 'tx', 'inbox'] && isMember(b);
+      }
+    }
+  }
+}
