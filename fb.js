@@ -412,7 +412,7 @@
   }
   async function install() {
     if (installEvt) { installEvt.prompt(); const r = await installEvt.userChoice.catch(() => null); installEvt = null; if (r && r.outcome === 'accepted') hideBanner(); return; }
-    const how = browser === 'samsung' ? `${/Mobile/i.test(UA) ? '아래쪽' : '오른쪽 위'} 메뉴(⋮) → <b>다운로드</b>를 눌러 주세요.<br>주소창 오른쪽에 설치 아이콘이 보이면 그걸 눌러도 돼요.`
+    const how = browser === 'samsung' ? `주소창에서 <b>새로고침 버튼 왼쪽의 다운로드 모양(⬇) 버튼</b>을 눌러 주세요.<br>버튼이 안 보이면 ${/Mobile/i.test(UA) ? '아래쪽' : '오른쪽 위'} 메뉴(⋮) → <b>다운로드</b>를 눌러도 돼요.`
       : browser === 'ios' ? '아래쪽 <b>공유</b> 버튼 → <b>홈 화면에 추가</b>를 눌러 주세요.'
       : browser === 'chrome' ? '오른쪽 위 메뉴(⋮) → <b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 눌러 주세요.'
       : '브라우저 메뉴에서 <b>홈 화면에 추가</b>를 찾아 눌러 주세요.';
