@@ -273,6 +273,7 @@
 
   // ---------- 백업 ----------
   function stamp() { const d = new Date(); const p = (n) => String(n).padStart(2, '0'); return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}`; }
+  const hasData = () => !!(FB.state && (Object.keys(FB.state.raw || {}).length || (FB.state.assets || []).length));
   function makeBackup() {
     const S = FB.state; const docs = {};
     if (S.cfg) docs['meta/config'] = S.cfg;
@@ -371,15 +372,21 @@
         const n = Object.keys(data.docs).filter((k) => k.startsWith('tx/')).reduce((s, k) => s + ((data.docs[k].rows || []).length), 0);
         const nb = Object.keys(data.docs).filter((k) => k.startsWith('inbox/')).length;
         const when = data.savedAt ? new Date(data.savedAt).toLocaleString('ko-KR') : '';
-        bar(`<div><b>백업을 불러올까요?</b><br>${when ? esc(when) + '에 만든 백업 · ' : ''}내역 ${n.toLocaleString('ko-KR')}건, 알림함 ${nb}묶음<br><span style="color:var(--danger)">지금 가계부 데이터는 모두 이 백업 내용으로 바뀌어요.</span></div>
+        bar(`<div><b>백업을 불러올까요?</b><br>${when ? esc(when) + '에 만든 백업 · ' : ''}내역 ${n.toLocaleString('ko-KR')}건, 알림함 ${nb}묶음<br><span style="color:var(--danger)">지금 가계부 데이터는 모두 이 백업 내용으로 바뀌어요.</span>${hasData() ? '<br><span class="sub">불러오기 전에 지금 데이터를 백업 파일로 먼저 저장해 둘게요.</span>' : ''}</div>
           <div class="fb-row"><button class="fb-btn" data-fb="close">취소</button><button class="fb-btn dark" data-fb="restore-ok">불러오기</button></div>`);
       };
       inp.click(); return;
     }
     if (act === 'restore-ok') {
       const data = FB.pending; if (!data) return;
+      const hadData = hasData();
+      if (hadData) {
+        // 덮어쓰기 전에 지금 상태를 파일로 먼저 받아 둬요
+        try { await FB.downloads.save({ filename: `쀼가계부_불러오기전_자동백업_${stamp()}.json`, data: new Blob([JSON.stringify(makeBackup())], { type: 'application/json' }) }); }
+        catch (e) { note('자동 백업을 저장하지 못해서 불러오기를 멈췄어요.'); return; }
+      }
       bar('<div><b>불러오는 중이에요…</b><br>창을 닫지 말고 잠시만 기다려 주세요.</div>');
-      try { const r = await restore(data); FB.pending = null; note(`다 불러왔어요. 문서 ${r.set}개를 옮겼어요.`); }
+      try { const r = await restore(data); FB.pending = null; note(`다 불러왔어요. 문서 ${r.set}개를 옮겼어요.${hadData ? '<br>불러오기 전 데이터는 다운로드 폴더에 저장해 뒀어요.' : ''}`); }
       catch (e) { note('불러오지 못했어요. (' + esc(e.code || e.message) + ')'); }
     }
   });
