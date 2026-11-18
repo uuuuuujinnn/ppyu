@@ -251,14 +251,14 @@
     return null;
   };
   const isOwner = () => !!(FB.book && user && FB.book.owner === user.uid);
-  FB.autoMeHtml = () => `<div class="card" style="padding:0 16px;margin-top:12px"><div class="row" style="min-height:64px;gap:12px">
-      <span class="grow" style="display:flex;flex-direction:column;gap:2px"><span>쓴 사람을 나로 자동 선택</span><span class="faint">새 내역을 적을 때 내가 '쓴 사람'으로<br>미리 골라져요. 내 계정에만 적용돼요.</span></span>
+  FB.autoMeHtml = () => `<div class="card" style="padding:0 16px;margin-top:12px"><div class="row" style="min-height:56px;gap:12px">
+      <span class="grow">쓴 사람을 나로 자동 선택</span>
       <button class="switch" role="switch" aria-checked="${FB.autoMe()}" aria-label="쓴 사람을 나로 자동 선택" data-act="fb-autome"></button></div></div>`;
   FB.inviteHtml = function () {
     if (!isOwner()) return '';
     return `<h2 class="sub" style="font-size:13px;margin:20px 4px 8px">가족 초대</h2>
     <div class="card" style="padding:0 16px"><button class="row" data-act="fb-invite" style="width:100%;border:0;background:transparent;min-height:56px;padding:8px 0;text-align:left;gap:12px;color:var(--ink)"><span style="color:var(--sub);display:flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6"/></svg></span><span class="grow">가족 초대하기</span></button></div>
-    <p class="faint" style="margin:8px 4px 0;line-height:1.6">구글 계정으로 로그인해서 같이 쓸 가족을 불러요.<br>초대받은 사람은 내역을 함께 보고 적을 수 있어요.<br>초대 링크는 24시간 동안 한 명만 쓸 수 있어요.</p>`;
+`;
   };
   FB.memberAccountHtml = function (spId) {
     const a = FB.accountOf(spId); if (!a) return '';

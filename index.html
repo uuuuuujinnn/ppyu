@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="쀼 가계부">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="lib/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -17,6 +18,7 @@
 body{margin:0;font-size:14px;font-family:system-ui,-apple-system,sans-serif}
 img{max-width:100%}
 [hidden]{display:none!important}
+@font-face{font-family:'Pretendard';src:url(lib/PretendardVariable.woff2) format('woff2-variations'),url(lib/PretendardVariable.woff2) format('woff2');font-weight:45 920;font-style:normal;font-display:swap}
 .fb-gate{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;line-height:1.6}
 .fb-gate img{width:72px;height:72px;border-radius:18px}
 .fb-gate h1{margin:0;font-size:22px}
@@ -37,8 +39,6 @@ body.has-install .fab{bottom:calc(176px + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
 /* 레이아웃: 휴대폰 한 화면 앱. 가운데 480px 기둥 + 아래 탭, 시트는 아래에서 올라옴 */
 :root{
@@ -49,7 +49,7 @@ body.has-install .fab{bottom:calc(176px + env(safe-area-inset-bottom,0px))}
   --accent:#2576EB; --accent-soft:#EAF2FE; --on-accent:#FFFFFF; --card-shadow:0 2px 8px rgba(0,0,0,.05),0 0 2px rgba(0,0,0,.06);
   --on-ink:#FFFFFF; --scrim:rgba(48,51,54,.32);
   --p1:#0F766E; --p2:#C2410C; --p3:#6D28D9;
-  --font:'Noto Sans KR',system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --font:'Pretendard','Noto Sans KR',system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0F1216; --surface:#191D23; --ink:#EEF1F4; --ink2:#D3D8DE; --sub:#9AA4B0; --faint:#7D8792;
@@ -113,6 +113,9 @@ h2{margin:0;font-size:15px;font-weight:700}
 .statrow svg{color:var(--faint)}
 .day.sel{color:var(--ink);font-weight:700}
 .day.sel span:first-child{background:var(--soft);border-radius:8px;padding:2px 8px;margin-left:-8px}
+/* 달력 칸 금액은 줄 맞출 필요가 없어서 숫자 폭을 글자마다 다르게 (1 앞이 벌어져 보이지 않게) */
+.calc{font-variant-numeric:proportional-nums;letter-spacing:0!important}
+input[type="date"],input[type="time"]{min-width:0;font-size:14px}
 .calg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px}
 .calw{text-align:center;font-size:12px;color:var(--sub);padding:4px 0 6px}
 .calc{min-height:58px;border:0;border-radius:10px;background:transparent;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;font-size:10px;line-height:1.25;min-width:0;overflow:hidden;letter-spacing:-.3px}
@@ -227,8 +230,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.18-1735";</script>
-<script src="fb.js?v=2026.11.18-1735"></script>
+window.APP_VERSION = "2026.11.18-1752";</script>
+<script src="fb.js?v=2026.11.18-1752"></script>
 <script>
 (() => {
 'use strict';
@@ -1406,22 +1409,20 @@ function viewSettings() {
   ${sec('구성원')}
   <div class="card" style="padding:0 16px">${members().map((m) => { const acc = FBX('accountOf', m.id); return `<button class="row" data-act="mem-edit" data-v="${esc(m.id)}" style="width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;min-height:60px;padding:8px 0;text-align:left;gap:12px">${av(m.id, 'lg')}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:2px"><span>${esc(nm(m.id))}${acc && acc.me ? ' <span class="faint">(나)</span>' : ''}${acc && acc.role === 'owner' ? ' <span class="tag">주인</span>' : ''}</span>${window.FB ? `<span class="faint" style="overflow-wrap:anywhere">${acc ? esc(acc.email) : '계정 없음'}</span>` : ''}</span>${CHEV}</button>`; }).join('')}
     <button class="row" data-act="mem-new" style="width:100%;border:0;background:transparent;min-height:56px;padding:8px 0;text-align:left;gap:12px;color:var(--sub)"><span class="av lg" style="background:var(--soft);color:var(--sub);border-color:var(--line2)">${svg('M12 5v14M5 12h14', 18, 2)}</span><span class="grow">구성원 추가</span></button></div>
-  <p class="faint" style="margin:8px 4px 0;line-height:1.6">구성원은 내역의 '쓴 사람'으로 표시돼요. 연결된 계정 없이도 만들 수 있어요.</p>
   ${FBX('autoMeHtml') || ''}
   ${FBX('inviteHtml') || ''}
   ${sec('환율')}
   <div class="card" style="padding:0 16px"><div class="row" style="min-height:60px;gap:12px"><span style="color:var(--sub);display:flex">${svg('M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6')}</span><span class="grow">1달러</span><input id="set-rate" class="pill" style="width:110px;text-align:right" inputmode="decimal" value="${rate()}" data-act="set-rate" aria-label="1달러 환율"><span>원</span></div></div>
-  <p class="faint" style="margin:8px 4px 0;line-height:1.6">달러 자산을 순자산에 더하고, 달러 내역의 원화 금액을 채울 때 써요.</p>
   ${sec('데이터')}
   <div class="card" style="padding:0 16px">
     <div class="row" style="min-height:60px;gap:12px;border-bottom:1px solid var(--line)"><span style="color:var(--sub);display:flex">${svg('M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01')}</span><span class="grow">내역</span><span class="sub">${won(S.rows.length)}건${first ? ` · ${first.slice(0, 4)}년 ${+first.slice(4, 6)}월부터` : ''}</span></div>
     ${rowBtn('export-all', 'M12 4v11M7 10l5 5 5-5M5 20h14', '전체 내역 엑셀로 받기', '')}
-    ${rowBtn('fb-backup', 'M12 4v11M7 10l5 5 5-5M5 20h14', '백업 파일 받기', '모든 데이터를 파일 하나로')}
-    ${rowBtn('fb-restore', 'M12 20V9M7 14l5-5 5 5M5 4h14', '백업 파일 불러오기', '지금 데이터를 백업 내용으로 바꿔요')}
+    ${rowBtn('fb-backup', 'M12 4v11M7 10l5 5 5-5M5 20h14', '백업 파일 받기', '')}
+    ${rowBtn('fb-restore', 'M12 20V9M7 14l5-5 5 5M5 4h14', '백업 파일 불러오기', '')}
   </div>
   ${sec('계정')}
   <div class="card" style="padding:0 16px">
-    ${window.FB.canInstall() ? rowBtn('fb-install', 'M12 4v11M7 10l5 5 5-5M5 20h14', '앱으로 설치하기', '홈 화면 아이콘으로 바로 열려요') : ''}
+    ${window.FB.canInstall() ? rowBtn('fb-install', 'M12 4v11M7 10l5 5 5-5M5 20h14', '앱으로 설치하기', '') : ''}
     ${rowBtn('fb-logout', 'M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10', '로그아웃', '')}
   </div>
   <p class="faint" style="margin:12px 4px 0">버전 ${esc(window.APP_VERSION)}</p>`;

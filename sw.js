@@ -1,6 +1,6 @@
 /* 쀼 가계부 서비스 워커: 앱 화면은 인터넷 먼저(실패하면 저장본), 아이콘·라이브러리는 저장본 먼저 */
-const CACHE = 'ppyu-2026.11.18-1735';
-const SHELL = ['./', 'index.html', 'fb.js?v=2026.11.18-1735', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'lib/xlsx.full.min.js', 'lib/firebase-app-compat.js', 'lib/firebase-auth-compat.js', 'lib/firebase-firestore-compat.js'];
+const CACHE = 'ppyu-2026.11.18-1752';
+const SHELL = ['./', 'index.html', 'fb.js?v=2026.11.18-1752', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'lib/xlsx.full.min.js', 'lib/firebase-app-compat.js', 'lib/firebase-auth-compat.js', 'lib/firebase-firestore-compat.js', 'lib/PretendardVariable.woff2'];
 const LIB_HOSTS = ['cdnjs.cloudflare.com', 'www.gstatic.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
