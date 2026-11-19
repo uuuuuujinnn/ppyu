@@ -66,7 +66,7 @@
     const android = /Android/i.test(navigator.userAgent);
     const intent = /KAKAOTALK/i.test(navigator.userAgent) ? 'kakaotalk://web/openExternal?url=' + encodeURIComponent(url)
       : 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;action=android.intent.action.VIEW;end';
-    gate(`<h1>쀼 가계부</h1><p class="sub" style="margin:0">지금은 다른 앱 안에서 열려 있어요.<br>이 화면에서는 구글 로그인과 앱 설치가 안 돼요.<br><b style="color:var(--ink)">삼성 인터넷이나 크롬에서 열어 주세요.</b></p>
+    gate(`<h1>쀼 가계부</h1><p class="sub" style="margin:0">지금은 다른 앱 안에서 열려 있어요.<br>이 화면에서는 구글 로그인과 앱 설치가 안 돼요.<br><b style="color:var(--ink)">다른 인터넷 브라우저에서 열어 주세요.</b></p>
       ${android || /KAKAOTALK/i.test(navigator.userAgent) ? `<a class="fb-btn dark" href="${esc(intent)}" style="text-decoration:none">다른 브라우저로 열기</a>` : ''}
       <input id="fb-url" readonly value="${esc(url)}" style="width:min(320px,100%);min-height:40px;border:1px solid var(--field);border-radius:10px;padding:0 10px;font:inherit;font-size:13px;color:var(--sub);background:var(--surface);text-align:center">
       <button class="fb-btn" id="fb-copy">주소 복사</button>
@@ -87,7 +87,7 @@
       try { await auth.signInWithPopup(p); location.reload(); }
       catch (e) {
         if (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment') { try { await auth.signInWithRedirect(p); } catch (e2) { showLogin('로그인하지 못했어요. (' + e2.code + ')'); } }
-        else if (e.code === 'auth/unauthorized-domain') showLogin('이 주소가 Firebase 로그인 허용 도메인에 없어요.');
+        else if (e.code === 'auth/unauthorized-domain') showLogin('이 주소에서는 로그인할 수 없어요. 원래 주소로 다시 열어 주세요.');
         else if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') showLogin('로그인하지 못했어요. (' + e.code + ')');
       }
     };
