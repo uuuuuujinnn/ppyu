@@ -444,7 +444,7 @@
       : '브라우저 메뉴에서 <b>홈 화면에 추가</b>를 찾아 눌러 주세요.';
     bar(`<div><b>앱으로 설치하기</b><br>${how}<br><span class="sub">설치한 뒤에는 홈 화면이나 앱스의 쀼 가계부 아이콘으로 열면 돼요.</span></div><div class="fb-row"><button class="fb-btn" data-fb="close">알겠어요</button></div>`);
   }
-  // ---------- 정기 백업 알림: 마지막 백업 뒤 30일이 지나면 한 번 알려줘요 (닫으면 7일 뒤 다시) ----------
+  // ---------- 정기 백업 알림: 마지막 백업 뒤 30일이 지나면 한 번 알려줘요 (닫으면 30일 뒤 다시) ----------
   const DAY = 864e5;
   function hideNudge() { const b = document.getElementById('fb-nudge'); if (b) b.remove(); if (!document.getElementById('fb-install')) document.body.classList.remove('has-install'); }
   function maybeNudge() {
@@ -454,7 +454,7 @@
     if (n < 20) return; // 막 시작한 가계부에는 띄우지 않아요
     if (!p.lastBackup && !p.backupBase) { FB.prefs = { ...p, backupBase: now }; fs.doc('users/' + user.uid).set({ backupBase: now }, { merge: true }).catch(() => {}); return; }
     const base = p.lastBackup || p.backupBase;
-    if (now - base < 30 * DAY || (p.backupSnooze && now - p.backupSnooze < 7 * DAY)) return;
+    if (now - base < 30 * DAY || (p.backupSnooze && now - p.backupSnooze < 30 * DAY)) return;
     const days = Math.floor((now - base) / DAY);
     const b = document.createElement('div'); b.id = 'fb-nudge'; b.className = 'fb-install'; b.setAttribute('role', 'region'); b.setAttribute('aria-label', '백업 알림');
     b.innerHTML = `<span style="width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span><span class="grow" style="word-break:keep-all"><b>백업해 둘까요?</b><br><span class="sub">${p.lastBackup ? `마지막 백업 ${days}일 전` : '아직 백업한 적이 없어요'}</span></span><button class="fb-btn dark" data-act="fb-backup">받기</button><button class="fb-x" data-fb="nudge-later" aria-label="닫기">✕</button>`;
