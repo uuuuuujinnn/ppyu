@@ -150,6 +150,9 @@ h2{margin:0;font-size:15px;font-weight:700}
 .mp-grid button{min-height:52px;border-radius:12px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;position:relative;cursor:pointer}
 .mp-grid button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
 .mp-grid button.now:not([aria-pressed=true]){border-color:var(--accent);color:var(--accent)}
+.fx-rules{margin:0;padding:0 4px 0 22px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.55;color:var(--sub)}
+.fx-rules b{color:var(--ink);font-weight:600}
+.cur-pill{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 8px 0 10px;border-radius:15px;border:1px solid var(--field);background:var(--surface);color:var(--sub);font:inherit;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0;margin-left:6px}
 .rq-grid{display:grid;gap:6px}
 .rq-grid button{height:38px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;cursor:pointer;padding:0}
 .rq-grid button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
@@ -313,8 +316,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.19-1331";</script>
-<script src="fb.js?v=2026.11.19-1331"></script>
+window.APP_VERSION = "2026.11.19-1338";</script>
+<script src="fb.js?v=2026.11.19-1338"></script>
 <script>
 (() => {
 'use strict';
@@ -390,7 +393,7 @@ const DEBT_KINDS = ['credit', 'loan'];
 const kindsOrd = () => S.cfg.kinds.filter((k) => !DEBT_KINDS.includes(k.id)).concat(S.cfg.kinds.filter((k) => DEBT_KINDS.includes(k.id)));
 const byKind = (list) => { const ix = {}; kindsOrd().forEach((k, i) => { ix[k.id] = i; }); return list.map((a, i) => [a, i]).sort((x, y) => (ix[x[0].gid] ?? 99) - (ix[y[0].gid] ?? 99) || x[1] - y[1]).map((x) => x[0]); };
 const ownerKey = (o) => (o.length > 1 ? '공동' : o[0]);
-const toObj = (r) => ({ id: r[0], ts: r[1], t: r[2], a: r[3], to: r[4], c: r[5], s: r[6], amt: r[7], ct: r[8] || '', m: r[9] || '', sp: r[10] || firstMem(), fx: +r[11] || 0, fee: +r[12] || 0 });
+const toObj = (r) => ({ id: r[0], ts: r[1], t: r[2], a: r[3], to: r[4], c: r[5], s: r[6], amt: r[7], ct: r[8] || '', m: r[9] || '', sp: r[10] || firstMem(), fx: +r[11] || 0, fee: +r[12] || 0, fxc: r[13] || '' });
 // 외화: [코드, 이름, 짧은 이름, 기호, 표시 단위, 소수 자리, 기본 환율(1단위당 원)]
 const CURS = [['USD', '미국 달러', '달러', '$', 1, 2, 1380], ['JPY', '일본 엔', '엔', '¥', 100, 0, 9.0], ['EUR', '유로', '유로', '€', 1, 2, 1500], ['CNY', '중국 위안', '위안', 'CN¥', 1, 2, 190], ['GBP', '영국 파운드', '파운드', '£', 1, 2, 1800], ['HKD', '홍콩 달러', '홍콩달러', 'HK$', 1, 2, 177], ['TWD', '대만 달러', '대만달러', 'NT$', 1, 0, 43], ['VND', '베트남 동', '동', '₫', 100, 0, 0.053], ['THB', '태국 바트', '바트', '฿', 1, 2, 41], ['PHP', '필리핀 페소', '페소', '₱', 1, 2, 24], ['SGD', '싱가포르 달러', '싱가포르달러', 'S$', 1, 2, 1060], ['AUD', '호주 달러', '호주달러', 'A$', 1, 2, 900], ['CAD', '캐나다 달러', '캐나다달러', 'C$', 1, 2, 990]];
 const CUR = Object.fromEntries(CURS.map(([c, n, sh, sym, unit, dec, d]) => [c, { c, n, sh, sym, unit, dec, d }]));
@@ -405,7 +408,8 @@ function rateAt(cur, ym) {
   return k ? +h[k][cur] : rate(cur);
 }
 const isFx = (id) => curOf(id) !== 'KRW';
-const edCur = (e) => (isFx(e.a) ? curOf(e.a) : curOf(e.to));
+const edCur = (e) => (isFx(e.a) ? curOf(e.a) : e.t === 'x' && isFx(e.to) ? curOf(e.to) : (CUR[e.fxc] ? e.fxc : 'KRW'));
+const canPickCur = (e) => !isFx(e.a) && !(e.t === 'x' && isFx(e.to));
 const fmtCur = (n, cur) => { const c = CUR[cur]; if (!c) return won(n) + '원'; return (n < 0 ? '-' : '') + c.sym + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: c.dec, maximumFractionDigits: c.dec }); };
 const rateText = (cur) => { const c = CUR[cur]; return `${c.unit}${c.sh} ${(Math.round(rate(cur) * c.unit * 100) / 100).toLocaleString('ko-KR')}원`; };
 // 달러 자산 쪽에서 움직인 양(달러), 원화 자산 쪽은 원
@@ -415,7 +419,7 @@ const feeCat = () => { for (const c of (S.cfg.categories.expense || [])) { const
 const recvAmt = (r, id) => { const v = sideAmt(r, id); return r.fee ? (isFx(id) ? r2(v - r.fee / rate(curOf(id))) : v - r.fee) : v; };
 const krwOf = (id) => (isFx(id) ? Math.round((S.bal[id] || 0) * rate(curOf(id))) : (S.bal[id] || 0));
 const balText = (id) => (isFx(id) ? fmtCur(S.bal[id] || 0, curOf(id)) : sgn(S.bal[id] || 0).replace('+', ''));
-const toArr = (o) => { const a = [o.id, o.ts, o.t, o.a, o.to || '', o.c || '', o.s || '', Math.round(o.amt), o.ct || '', o.m || '', o.sp || firstMem()]; if (o.fx || o.fee) a.push(o.fx ? r2(o.fx) : 0); if (o.fee && o.t === 'x') a.push(Math.round(o.fee)); return a; };
+const toArr = (o) => { const a = [o.id, o.ts, o.t, o.a, o.to || '', o.c || '', o.s || '', Math.round(o.amt), o.ct || '', o.m || '', o.sp || firstMem()]; if (o.fx || o.fee || o.fxc) a.push(o.fx ? r2(o.fx) : 0); if ((o.fee && o.t === 'x') || o.fxc) a.push(o.fee && o.t === 'x' ? Math.round(o.fee) : 0); if (o.fxc) a.push(o.fxc); return a; };
 const catLabel = (r) => { if (r.t === 'x') return '이체'; if (r.t === 'a') return '잔고 맞춤'; const c = CAT[r.c]; if (!c) return '미분류'; return c.n + (r.s && SUB[r.s] ? ' › ' + SUB[r.s].n : ''); };
 
 function rebuild() {
@@ -568,7 +572,7 @@ async function runRecurring() {
       if (r.on === false || !A(r.a)) continue;
       const ds = rpDates(r, r.last || ymdOf(new Date(dOf(r.start).getTime() - 864e5)), today);
       if (!ds.length) continue;
-      ds.forEach((k, i) => { const fr = r.inst ? feeRowOf(r, (r.n || 0) + i + 1, k) : null; if (fr && !have.has(fr.id)) adds.push(fr); const id = 'R_' + r.id + '_' + k; const ins = r.inst ? instRow(r, (r.n || 0) + i + 1) : null; if (!have.has(id)) adds.push({ id, ts: k + (r.time || '0900'), t: r.t, a: r.a, to: r.to || '', c: r.c || '', s: r.s || '', amt: ins ? ins.amt : r.amt, ct: ins ? ins.ct : r.ct || '', m: r.m || '', sp: r.sp, fx: r.fx || 0, fee: r.fee || 0 }); });
+      ds.forEach((k, i) => { const fr = r.inst ? feeRowOf(r, (r.n || 0) + i + 1, k) : null; if (fr && !have.has(fr.id)) adds.push(fr); const id = 'R_' + r.id + '_' + k; const ins = r.inst ? instRow(r, (r.n || 0) + i + 1) : null; if (!have.has(id)) adds.push({ id, ts: k + (r.time || '0900'), t: r.t, a: r.a, to: r.to || '', c: r.c || '', s: r.s || '', amt: ins ? ins.amt : r.amt, ct: ins ? ins.ct : r.ct || '', m: r.m || '', sp: r.sp, fx: r.fx || 0, fee: r.fee || 0, fxc: r.fxc || '' }); });
       upd[r.id] = { last: ds[ds.length - 1], n: (r.n || 0) + ds.length };
     }
     if (!Object.keys(upd).length) return;
@@ -748,7 +752,7 @@ function txRow(r, showDate) {
   return `<button class="tx" data-act="edit" data-id="${r.id}" data-ym="${r.ts.slice(0, 6)}">
     <span class="ic"><span class="bubble">${svg(icon)}</span>${spFace(r.sp)}</span>
     <span class="grow"><span class="t1" style="display:block">${esc(r.ct || catLabel(r))}${r.id.startsWith('R_') ? `<span class="rp-mark" aria-label="반복 내역">${svg(REPEAT, 13, 2)}</span>` : ''}</span><span class="t2" style="display:block">${showDate ? `${d.getMonth() + 1}.${d.getDate()} · ` : ''}${esc(sub)}${r.m ? ' · ' + esc(r.m) : ''}</span></span>
-    <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${cls}">${amt}</span>${fxRow ? `<span class="faint" style="font-size:12px">${won(r.amt)}원</span>` : r.t === 'x' && r.fx ? `<span class="faint" style="font-size:12px">${fmtCur(r.fx, isFx(r.a) ? curOf(r.a) : curOf(r.to))}</span>` : r.t === 'x' && r.fee ? `<span class="faint" style="font-size:12px">수수료 ${won(r.fee)}원</span>` : ''}</span></button>`;
+    <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${cls}">${amt}</span>${fxRow ? `<span class="faint" style="font-size:12px">${won(r.amt)}원</span>` : r.fxc && r.fx && CUR[r.fxc] && r.t !== 'x' ? `<span class="faint" style="font-size:12px">${fmtCur(r.fx, r.fxc)}</span>` : r.t === 'x' && r.fx ? `<span class="faint" style="font-size:12px">${fmtCur(r.fx, isFx(r.a) ? curOf(r.a) : curOf(r.to))}</span>` : r.t === 'x' && r.fee ? `<span class="faint" style="font-size:12px">수수료 ${won(r.fee)}원</span>` : ''}</span></button>`;
 }
 
 // ---------- 내역 ----------
@@ -869,7 +873,7 @@ async function exportRows(rows, name) {
   const T = { i: '수입', e: '지출', x: '이체', a: '잔고 맞춤' };
   const aoa = [['날짜', '시간', '구분', '대분류', '소분류', '내용', '금액', '외화', '자산', '받는 자산', '쓴 사람', '메모', '수수료']].concat(rows.map((r) => {
     const d = tsDate(r.ts); const c = CAT[r.c];
-    return [`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, `${pad(d.getHours())}:${pad(d.getMinutes())}`, T[r.t], r.t === 'x' ? '' : c ? c.n : '', SUB[r.s] ? SUB[r.s].n : '', r.ct, r.amt, r.fx || '', aName(r.a), r.to ? aName(r.to) : '', sps(r.sp).map(nm).join('·'), r.m, r.fee || ''];
+    return [`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, `${pad(d.getHours())}:${pad(d.getMinutes())}`, T[r.t], r.t === 'x' ? '' : c ? c.n : '', SUB[r.s] ? SUB[r.s].n : '', r.ct, r.amt, r.fx ? fmtCur(r.fx, r.fxc || (isFx(r.a) ? curOf(r.a) : curOf(r.to))) : '', aName(r.a), r.to ? aName(r.to) : '', sps(r.sp).map(nm).join('·'), r.m, r.fee || ''];
   }));
   const ws = XLSX.utils.aoa_to_sheet(aoa); ws['!cols'] = [{ wch: 11 }, { wch: 6 }, { wch: 6 }, { wch: 10 }, { wch: 10 }, { wch: 28 }, { wch: 12 }, { wch: 9 }, { wch: 22 }, { wch: 22 }, { wch: 6 }, { wch: 20 }];
   const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, '내역');
@@ -899,7 +903,7 @@ const normM = (x) => String(x || '').replace(/\s+/g, '').toLowerCase();
 function openEditor(o, mode, extra) {
   const d = tsDate(o.ts);
   S.ed = Object.assign({ mode, origYm: mode === 'edit' ? o.ts.slice(0, 6) : null, src: o.src || '', id: o.id, t: o.t, sp: o.sp, a: o.a, to: o.to, c: o.c, s: o.s, amt: o.amt, ct: o.ct, m: o.m,
-    fx: o.fx || 0, fee: o.fee || 0, amtTouched: !!(o.fx && o.amt),
+    fx: o.fx || 0, fee: o.fee || 0, fxc: o.fxc || '', amtTouched: !!(o.fx && o.amt),
     date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, time: `${pad(d.getHours())}:${pad(d.getMinutes())}` }, extra || {});
   renderLayer();
 }
@@ -923,7 +927,8 @@ const syncFeeHint = () => { const h = $('#fee-hint'); if (h && S.ed) { const t =
 function viewEditor() {
   const e = S.ed; const isX = e.t === 'x';
   const P = members().map((m) => m.id);
-  const showFx = isFx(e.a) || (isX && isFx(e.to));
+  const showFx = isFx(e.a) || (isX && isFx(e.to)) || (canPickCur(e) && !!CUR[e.fxc]);
+  const curPill = canPickCur(e) ? `<button class="cur-pill" data-act="ed-cur" aria-label="통화 고르기">${CUR[e.fxc] ? CUR[e.fxc].sh : '원'}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l5 5 5-5"/></svg></button>` : '';
   const cat = e.t === 'x' ? '' : (CAT[e.c] ? catLabel(e) : '선택하기');
   const isRule = e.mode === 'rule';
   const title = isRule ? (e.isNewRule ? '반복 내역 추가' : '반복 내역') : e.mode === 'draft' ? '초안 확인' : e.mode === 'new' ? '내역 추가' : '내역';
@@ -936,8 +941,8 @@ function viewEditor() {
       <div class="field"><span class="k">${isX ? '보낸 자산' : '자산'}</span><button class="v" data-act="pick-asset" data-v="a" style="${A(e.a) ? '' : 'color:var(--warn-fg)'}">${A(e.a) ? esc(aName(e.a)) : '선택하기'}${CHEV}</button></div>
       ${isX ? `<div class="field"><span class="k">받는 자산</span><button class="v" data-act="pick-asset" data-v="to">${esc(e.to ? aName(e.to) : '선택하기')}${CHEV}</button></div>`
       : `<div class="field"><span class="k">분류</span><button class="v" data-act="pick-cat" style="${CAT[e.c] ? '' : 'color:var(--warn-fg)'}">${esc(cat)}${CHEV}</button></div>`}
-      ${showFx ? `<div class="field"><span class="k">${CUR[edCur(e)].sh}</span><input id="ed-fx" class="v" style="font-size:17px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}" inputmode="decimal" autocomplete="off" placeholder="${CUR[edCur(e)].dec ? '0.00' : '0'}" value="${e.fx || ''}" data-act="ed-fx"><span style="font-weight:700">${CUR[edCur(e)].sh}</span></div>` : ''}
-      <div class="field"><span class="k">${showFx ? '원화' : e.rp === 'inst' ? '전체 금액' : '금액'}</span>${showFx ? `<span class="faint" style="font-size:12px;white-space:nowrap">${rateText(edCur(e))}</span>` : ''}<input id="ed-amt" class="v" inputmode="numeric" autocomplete="off" placeholder="0" value="${e.amt ? won(e.amt) : ''}" data-act="ed-amt" style="font-size:17px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}"><span style="font-weight:700">원</span></div>
+      ${showFx ? `<div class="field"><span class="k">${curPill ? '금액' : CUR[edCur(e)].sh}</span>${curPill}<input id="ed-fx" class="v" style="font-size:17px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}" inputmode="decimal" autocomplete="off" placeholder="${CUR[edCur(e)].dec ? '0.00' : '0'}" value="${e.fx || ''}" data-act="ed-fx"><span style="font-weight:700">${CUR[edCur(e)].sh}</span></div>` : ''}
+      <div class="field"><span class="k">${showFx ? '원화' : e.rp === 'inst' ? '전체 금액' : '금액'}</span>${showFx ? '' : curPill}${showFx ? `<span class="faint" style="font-size:12px;white-space:nowrap">${rateText(edCur(e))}</span>` : ''}<input id="ed-amt" class="v" inputmode="numeric" autocomplete="off" placeholder="0" value="${e.amt ? won(e.amt) : ''}" data-act="ed-amt" style="font-size:17px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}"><span style="font-weight:700">원</span></div>
       ${isX ? `<div class="field"><span class="k">수수료</span><input id="ed-fee" class="v" inputmode="numeric" autocomplete="off" placeholder="없음" value="${e.fee ? won(e.fee) : ''}" data-act="ed-fee"><span>원</span></div><div id="fee-hint" class="faint" style="font-size:12px;padding:0 0 10px;text-align:right" ${feeHint(e) ? '' : 'hidden'}>${feeHint(e)}</div>` : ''}
       <div class="field"><span class="k">내용</span><input id="ed-ct" class="v" placeholder="${e.t === 'i' ? '어디서 받았나요?' : isX ? '예: 카드값 결제' : '어디에 썼나요?'}" value="${esc(e.ct)}" data-act="ed-f" data-k="ct" autocomplete="off"></div>
       <div id="ct-sug">${sugHtml(e)}</div>
@@ -961,7 +966,7 @@ async function saveEditor() {
     if (o.inst) { const f = instRow(o, 1); e.amt = f.amt; e.ct = f.ct; const fr = feeRowOf(o, 1, o.start); if (fr) setTimeout(() => addRowsBulk([fr]), 400); }
     putRule(o); S._rpDay = null; setTimeout(runRecurring, 300);
   }
-  const showFx = isFx(e.a) || (e.t === 'x' && isFx(e.to));
+  const showFx = isFx(e.a) || (e.t === 'x' && isFx(e.to)) || (canPickCur(e) && !!CUR[e.fxc]);
   if (showFx && !e.fx) { toast(`${CUR[edCur(e)].sh} 금액을 적어 주세요.`); return; }
   if (showFx && !e.amt) e.amt = Math.round(e.fx * rate(edCur(e)));
   if (!A(e.a)) { toast('자산을 골라 주세요.'); return; }
@@ -971,7 +976,7 @@ async function saveEditor() {
   if (e.t !== 'x' && !CAT[e.c]) { toast('분류를 골라 주세요.'); return; }
   const ts = e.date.replace(/-/g, '') + (e.time || '00:00').replace(':', '');
   if (!/^\d{12}$/.test(ts)) { toast('날짜를 확인해 주세요.'); return; }
-  const o = { id: e.mode === 'edit' ? e.id : newId(), ts, t: e.t, a: e.a, to: e.t === 'x' ? e.to : '', c: e.t === 'x' ? '' : e.c, s: e.t === 'x' ? '' : e.s, amt: e.amt, ct: e.ct, m: e.m, sp: e.sp, fx: showFx ? e.fx : 0, fee: e.t === 'x' ? e.fee || 0 : 0 };
+  const o = { id: e.mode === 'edit' ? e.id : newId(), ts, t: e.t, a: e.a, to: e.t === 'x' ? e.to : '', c: e.t === 'x' ? '' : e.c, s: e.t === 'x' ? '' : e.s, amt: e.amt, ct: e.ct, m: e.m, sp: e.sp, fx: showFx ? e.fx : 0, fee: e.t === 'x' ? e.fee || 0 : 0, fxc: showFx && canPickCur(e) ? e.fxc : '' };
   const draft = e.mode === 'draft' ? { batch: e.batch, id: e.id } : null;
   S.ed = null; renderLayer();
   await upsertRow(o, e.origYm);
@@ -1002,25 +1007,45 @@ function viewFx() {
   <header><button class="icon-btn" data-act="fx-close" aria-label="뒤로">${BACK}</button><h1>환율</h1><span style="width:44px"></span></header>
   <div class="body">
     <div class="card" style="padding:0 16px"><div class="row" style="min-height:60px;gap:12px"><span class="grow"><span style="display:block">자동으로 맞추기</span><span class="faint" style="font-size:12px">${auto ? (d ? `${+d.slice(4, 6)}월 ${+d.slice(6)}일 환율` : '인터넷에 연결되면 받아 와요') : '아래 숫자를 직접 적어요'}</span></span><button class="switch" role="switch" aria-checked="${auto}" aria-label="자동으로 맞추기" data-act="fx-auto"></button></div></div>
+    <ul class="fx-rules">
+      <li><b>내역</b>은 적는 날 환율로 원화를 계산해 저장해요. 나중에 환율이 바뀌어도 이미 적은 내역은 그대로예요.</li>
+      <li><b>외화 자산 잔액</b>은 오늘 환율로 원화로 바꿔 보여 줘요.</li>
+      <li><b>순자산 그래프</b>의 지난 달은 그 달 <b>말일 환율</b>로 계산해요. ${auto ? '말일 환율은 자동으로 받아 와요.' : ''}</li>
+      <li><b>직접 입력</b>하면 바꾼 달부터 그 환율을 써요. 그 전 달은 기록해 둔 환율 그대로예요.</li>
+    </ul>
     <div class="card" style="padding:0 16px">${list.map(row).join('')}</div>
-    <p class="faint" style="margin:0 4px;line-height:1.6;font-size:13px">자동이면 하루에 한 번 그날 환율을 받아 와요. 달마다 그 달 환율을 기록해 두고, 순자산 그래프의 지난 달 값은 그 달 환율로 계산해요. 이미 적은 내역의 원화 금액은 바뀌지 않아요.</p>
   </div></div>`;
 }
 // 하루에 한 번 환율 받아 오기 (자동일 때). 받은 값은 그 달 기록으로도 남겨요.
+const FX_DATED = (d) => [`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${d}/v1/currencies/krw.min.json`, `https://${d}.currency-api.pages.dev/v1/currencies/krw.min.json`];
+async function fxFetch(urls) { for (const u of urls) { try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) { const j = await r.json(); if (j && j.krw) return j.krw; } } catch (e) {} } return null; }
+const fxConv = (m) => { const o = {}; CURS.forEach(([c]) => { const x = +m[c.toLowerCase()]; if (x > 0) o[c] = Math.round((1 / x) * 10000) / 10000; }); return o; };
+async function fillMonthEnds() {
+  const nowYm = nowTs().slice(0, 6); const h = (S.cfg && S.cfg.rateHist) || {};
+  const months = Object.keys(S.byYm || {}).filter((ym) => ym < nowYm && !(h[ym] && h[ym]._final) && !(S._fxMiss || {})[ym]).sort().slice(-12);
+  if (!months.length) return false;
+  const got = {};
+  for (const ym of months) {
+    const last = new Date(+ym.slice(0, 4), +ym.slice(4, 6), 0); const d = `${last.getFullYear()}-${pad(last.getMonth() + 1)}-${pad(last.getDate())}`;
+    const m = await fxFetch(FX_DATED(d)); if (m) got[ym] = { ...fxConv(m), _final: true }; else (S._fxMiss = S._fxMiss || {})[ym] = 1;
+  }
+  if (!Object.keys(got).length) return false;
+  const cfg = JSON.parse(JSON.stringify(S.cfg)); cfg.rateHist = { ...(cfg.rateHist || {}), ...got }; S.cfg = cfg; S.db.doc('meta/config').set(cfg).catch(() => {});
+  return true;
+}
 const FX_URLS = ['https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/krw.min.json', 'https://latest.currency-api.pages.dev/v1/currencies/krw.min.json'];
 async function refreshRates(force) {
   const today = ymdOf(new Date());
   if (!S.cfg || S.cfg.rateAuto === false || S._fxBusy || (!force && (S.cfg.rateDate === today || S._fxTried === today))) return;
   S._fxBusy = true; S._fxTried = today;
   try {
-    let j = null;
-    for (const u of FX_URLS) { try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) { j = await r.json(); break; } } catch (e) {} }
-    const m = j && j.krw; if (!m) return;
-    const rates = {}; CURS.forEach(([c]) => { const x = +m[c.toLowerCase()]; if (x > 0) rates[c] = Math.round((1 / x) * 10000) / 10000; });
-    if (!Object.keys(rates).length) return;
+    const m = await fxFetch(FX_URLS);
+    const rates = m ? fxConv(m) : {};
+    if (!Object.keys(rates).length) { if (await fillMonthEnds()) { rebuild(); render(); } return; }
     const ym = today.slice(0, 6);
     const cfg = JSON.parse(JSON.stringify(S.cfg)); cfg.rates = { ...(cfg.rates || {}), ...rates }; cfg.rateDate = today; cfg.rateHist = { ...(cfg.rateHist || {}), [ym]: { ...((cfg.rateHist || {})[ym] || {}), ...rates } };
-    S.cfg = cfg; rebuild(); render(); S.db.doc('meta/config').set(cfg).catch(() => {});
+    S.cfg = cfg; S.db.doc('meta/config').set(cfg).catch(() => {});
+    await fillMonthEnds(); rebuild(); render();
   } finally { S._fxBusy = false; }
 }
 
@@ -1056,7 +1081,7 @@ const edStart = (e) => { const st = (e.date || '').replace(/-/g, ''); return /^\
 const rpOptLabel = (e) => { if (!e.rp || e.rp === 'none') return '안 함'; if (e.rp === 'inst') return `할부 ${+e.instN || 0}개월`; return rpLabel({ start: edStart(e), freq: e.rp, every: e.every, wds: e.wds, mmode: e.mmode, ymode: e.ymode, mdays: e.mdays, ymonths: e.ymonths }); };
 function openRule(r) {
   const s0 = dOf(r.start);
-  openEditor({ id: r.id, ts: r.start + (r.time || '0900'), t: r.t, a: r.a, to: r.to, c: r.c, s: r.s, amt: r.inst ? r.inst.total : r.amt, ct: r.ct, m: r.m, sp: r.sp, fx: r.fx, fee: r.fee }, 'rule',
+  openEditor({ id: r.id, ts: r.start + (r.time || '0900'), t: r.t, a: r.a, to: r.to, c: r.c, s: r.s, amt: r.inst ? r.inst.total : r.amt, ct: r.ct, m: r.m, sp: r.sp, fx: r.fx, fee: r.fee, fxc: r.fxc }, 'rule',
     { isNewRule: !!r.isNew, rp: r.isNew ? 'm' : rpKey(r), every: r.every || 1, wds: r.wds || null, mmode: mmodeOf(r), ymode: r.ymode || 'day', mdays: r.mdays || null, ymonths: r.ymonths || null, instN: r.inst ? r.inst.months : 12, feeMode: r.inst ? r.inst.feeMode || 'none' : 'none', feeRate: r.inst ? r.inst.rate || '' : '', feeTotal: r.inst ? r.inst.feeTotal || '' : '', endKind: r.endKind || 'none', endDate: r.endDate ? `${r.endDate.slice(0, 4)}-${r.endDate.slice(4, 6)}-${r.endDate.slice(6)}` : '', endCount: r.endCount || '', on: r.on !== false, ruleN: r.n || 0, ruleLast: r.last || '', startOrig: r.start, date: `${s0.getFullYear()}-${pad(s0.getMonth() + 1)}-${pad(s0.getDate())}` });
 }
 // 내역 적는 화면의 '반복' 줄 + 고른 반복의 끝/할부 설정
@@ -1140,7 +1165,7 @@ function viewRpSheet() {
 }
 // 편집기 내용으로 반복 규칙 만들기 (틀리면 null)
 function ruleFromEd(e) {
-  const showFx = isFx(e.a) || (e.t === 'x' && isFx(e.to));
+  const showFx = isFx(e.a) || (e.t === 'x' && isFx(e.to)) || (canPickCur(e) && !!CUR[e.fxc]);
   if (showFx && !e.fx) { toast(`${CUR[edCur(e)].sh} 금액을 적어 주세요.`); return null; }
   if (showFx && !e.amt) e.amt = Math.round(e.fx * rate(edCur(e)));
   if (!A(e.a)) { toast('자산을 골라 주세요.'); return null; }
@@ -1155,7 +1180,7 @@ function ruleFromEd(e) {
   if (!inst && e.endKind === 'count' && !(+e.endCount > 0)) { toast('몇 번 넣을지 적어 주세요.'); return null; }
   const freq = inst ? 'm' : e.rp; const every = inst ? 1 : Math.max(1, Math.min(99, +e.every || 1));
   return { id: e.mode === 'rule' && !e.isNewRule ? e.id : 'r' + newId(), on: e.on !== false, t: e.t, a: e.a, to: e.t === 'x' ? e.to : '', c: e.t === 'x' ? '' : e.c, s: e.t === 'x' ? '' : e.s,
-    amt: inst ? Math.floor(e.amt / +e.instN) : e.amt, ct: (e.ct || '').replace(/\s*\(\d+\/\d+\)$/, ''), m: e.m, sp: e.sp, fx: showFx ? e.fx : 0, fee: e.t === 'x' ? e.fee || 0 : 0,
+    amt: inst ? Math.floor(e.amt / +e.instN) : e.amt, ct: (e.ct || '').replace(/\s*\(\d+\/\d+\)$/, ''), m: e.m, sp: e.sp, fx: showFx ? e.fx : 0, fee: e.t === 'x' ? e.fee || 0 : 0, fxc: showFx && canPickCur(e) ? e.fxc : '',
     freq, every, eom: false, wds: !inst && e.rp === 'w' && e.wds && e.wds.length ? e.wds.slice() : null, mmode: !inst && e.rp === 'm' ? e.mmode || 'day' : 'day', ymode: e.rp === 'y' ? e.ymode || 'day' : 'day', mdays: e.rp === 'm' && e.mmode === 'days' && e.mdays && e.mdays.length ? e.mdays.slice() : null, ymonths: e.rp === 'y' && e.ymode === 'months' && e.ymonths && e.ymonths.length ? e.ymonths.slice() : null, start, time: (e.time || '09:00').replace(':', ''),
     endKind: inst ? 'count' : e.endKind || 'none', endDate: !inst && e.endKind === 'date' ? e.endDate.replace(/-/g, '') : '', endCount: inst ? +e.instN : e.endKind === 'count' ? +e.endCount : 0,
     inst: inst ? { total: e.amt, months: +e.instN, feeMode: e.feeMode || 'none', rate: +e.feeRate || 0, feeTotal: +e.feeTotal || 0 } : null, last: '', n: 0 };
@@ -1224,6 +1249,10 @@ function xportRows() {
 
 function viewSheet() {
   const sh = S.sheet;
+  if (sh.kind === 'cur') { const cur = S.ed && CUR[S.ed.fxc] ? S.ed.fxc : 'KRW';
+    return `<div class="sheet-wrap" style="z-index:60"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="통화" style="gap:12px"><span class="handle"></span><h2 style="font-size:17px">어떤 돈으로 썼나요?</h2>
+      <div class="rq-grid" style="grid-template-columns:repeat(3,1fr)">${[['KRW', '원']].concat(CURS.map((x) => [x[0], x[2]])).map(([c, n]) => `<button data-act="ed-cur-set" data-v="${c}" aria-pressed="${cur === c}" style="height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2"><span>${n}</span><small style="font-size:11px;opacity:.7">${c === 'KRW' ? '₩' : CUR[c].sym}</small></button>`).join('')}</div>
+      <p class="faint" style="margin:0;font-size:12px;line-height:1.6">외화를 고르면 그 금액을 적고, 원화는 오늘 환율로 자동 계산돼요. 카드 명세서가 나오면 원화 금액만 실제 청구액으로 고치면 돼요.</p></div></div>`; }
   if (sh.kind === 'multi') return viewMulti(sh);
   if (sh.kind === 'akind') {
     const ed = S.assetEd || {};
@@ -2063,6 +2092,8 @@ document.addEventListener('click', async (ev) => {
     case 'rp-new': { const t = ymdOf(new Date()); openRule({ isNew: true, id: '', start: t, time: '0900', t: 'e', a: lastAssetFor('e'), to: '', c: '', s: '', amt: 0, ct: '', m: '', sp: defaultSp(), freq: 'm', endKind: 'none' }); break; }
     case 'rp-edit': { const r = rules().find((x) => x.id === v); if (r) openRule(r); break; }
     case 'rp-pick': S.sheet = { kind: 'rp' }; renderLayer(); break;
+    case 'ed-cur': S.sheet = { kind: 'cur' }; renderLayer(); break;
+    case 'ed-cur-set': { const nc = v === 'KRW' ? '' : v; if (nc !== (e.fxc || '')) { e.fxc = nc; e.fx = 0; if (nc) { e.amt = 0; e.amtTouched = false; } } S.sheet = null; renderLayer(); setTimeout(() => { const i = $(nc ? '#ed-fx' : '#ed-amt'); if (i) i.focus(); }, 50); break; }
     case 'rp-set': if (e.rp !== v) e.every = 1; e.rp = v; if (v === 'inst' && !e.instN) e.instN = 12; if (!e.endKind) e.endKind = 'none'; renderLayer(); break;
     case 'rp-done': case 'rpx-close': S.sheet = null; renderLayer(); break;
     case 'rp-wd': { const s0 = dOf(edStart(e)); let w = e.wds && e.wds.length ? e.wds.slice() : [s0.getDay()]; const x = +v; w = w.includes(x) ? w.filter((y) => y !== x) : w.concat(x); e.wds = w.length ? w : [x]; renderLayer(); break; }
