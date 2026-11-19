@@ -60,7 +60,25 @@
   const wait = () => new Promise(() => {});
   function gate(html) { const m = main(); if (m) m.innerHTML = `<div class="fb-gate">${icon}${html}</div>`; }
   const GLOGO = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+  // 카카오톡 등 앱 안의 브라우저: 구글이 로그인을 막아요 → 기본 브라우저로 열도록 안내
+  function showInApp() {
+    const url = window.FB_OUTURL();
+    const android = /Android/i.test(navigator.userAgent);
+    const intent = /KAKAOTALK/i.test(navigator.userAgent) ? 'kakaotalk://web/openExternal?url=' + encodeURIComponent(url)
+      : 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;action=android.intent.action.VIEW;end';
+    gate(`<h1>쀼 가계부</h1><p class="sub" style="margin:0">지금은 다른 앱 안에서 열려 있어요.<br>이 화면에서는 구글 로그인과 앱 설치가 안 돼요.<br><b style="color:var(--ink)">삼성 인터넷이나 크롬에서 열어 주세요.</b></p>
+      ${android || /KAKAOTALK/i.test(navigator.userAgent) ? `<a class="fb-btn dark" href="${esc(intent)}" style="text-decoration:none">다른 브라우저로 열기</a>` : ''}
+      <input id="fb-url" readonly value="${esc(url)}" style="width:min(320px,100%);min-height:40px;border:1px solid var(--field);border-radius:10px;padding:0 10px;font:inherit;font-size:13px;color:var(--sub);background:var(--surface);text-align:center">
+      <button class="fb-btn" id="fb-copy">주소 복사</button>
+      <p class="sub" style="margin:0;font-size:13px">복사한 주소를 브라우저 주소창에 붙여 넣어도 돼요.</p>`);
+    document.getElementById('fb-copy').onclick = async () => {
+      const inp = document.getElementById('fb-url');
+      try { await navigator.clipboard.writeText(url); } catch (e) { inp.select(); try { document.execCommand('copy'); } catch (e2) {} }
+      document.getElementById('fb-copy').textContent = '복사했어요';
+    };
+  }
   function showLogin(msg) {
+    if (window.FB_INAPP) return showInApp();
     gate(`<h1>쀼 가계부</h1><p class="sub" style="margin:0">${JOIN ? '가계부에 초대받았어요.<br>구글 계정으로 로그인하면 참여할 수 있어요.' : '구글 계정으로 로그인하면<br>폰·태블릿 어디서나 같은 가계부를 써요.'}</p>
       <button class="fb-btn dark" id="fb-login">${GLOGO}구글 계정으로 로그인</button>
       ${msg ? `<p style="margin:0;color:var(--danger)">${esc(msg)}</p>` : ''}`);
