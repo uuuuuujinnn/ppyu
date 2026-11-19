@@ -70,7 +70,7 @@ button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--expense);outline-offset:2px}
 #app{max-width:480px;margin:0 auto;height:100%;display:flex;flex-direction:column;position:relative}
-main{flex:1;overflow-y:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
+main{flex:1;overflow-y:auto;overflow-x:hidden;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 0 8px;min-height:56px}
 h1{margin:0;font-size:22px;font-weight:700}
 h2{margin:0;font-size:15px;font-weight:700}
@@ -239,8 +239,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.18-2113";</script>
-<script src="fb.js?v=2026.11.18-2113"></script>
+window.APP_VERSION = "2026.11.19-0956";</script>
+<script src="fb.js?v=2026.11.19-0956"></script>
 <script>
 (() => {
 'use strict';
@@ -282,7 +282,7 @@ const defaultSp = () => { const me = window.FB && window.FB.mySpender ? window.F
 const mem = (id) => members().find((m) => m.id === id) || { id, color: '#8B95A1' };
 const nm = (id) => (id === '공동' ? '공동' : mem(id).n || id);
 const mcol = (id) => mem(id).color || '#8B95A1';
-const av = (p, cls = '') => { const m = mem(p); return m.photo ? `<span class="av ${cls}" style="background:${esc(m.color || '#8B95A1')} url('${m.photo}') center/cover"></span>` : `<span class="av ${cls}" style="background:${esc(m.color || '#8B95A1')}">${esc((nm(p) || '?').charAt(0))}</span>`; };
+const av = (p, cls = '') => { const m = mem(p); return m.photo ? `<span class="av ph ${cls}" style="--c:${esc(m.color || '#8B95A1')};background:${esc(m.color || '#8B95A1')} url('${m.photo}') center/cover"></span>` : `<span class="av ${cls}" style="background:${esc(m.color || '#8B95A1')}">${esc((nm(p) || '?').charAt(0))}</span>`; };
 const pair = () => members().slice(0, 2).map((m) => m.id);
 const otag = (a) => `<span class="otag">${avs(a.owner)}</span>`;
 const firstMem = () => (members()[0] ? members()[0].id : '');
@@ -425,29 +425,51 @@ window.addEventListener('resize', () => { const w = window.innerWidth >= 1000; i
   if (window.visualViewport) window.visualViewport.addEventListener('resize', () => keep(document.activeElement));
 })();
 
-/* 달·연도가 있는 화면(내역, 통계)에서 옆으로 밀면 이전/다음 기간으로 */
+/* 달·연도가 있는 화면(내역, 통계): 옆으로 밀면 내용이 손가락을 따라오고, 충분히 밀고 놓으면 이전/다음 기간으로 넘어가요.
+   맨 위 제목줄(제목·달력·검색, 월/년)은 움직이지 않아요. */
 (() => {
   let st = null;
+  const PER = '#main .period [data-act="ym"], #main .period [data-act="sp"]';
+  const panes = () => { const per = $('#main .period'); if (!per) return []; const par = per.parentElement;
+    return par.classList.contains('paneL') ? [par.parentElement] : [...par.children].filter((x) => !x.matches('.top, .fab')); };
+  const put = (els, x, ms, ease) => els.forEach((el) => { el.style.transition = ms ? `transform ${ms}ms ${ease}, opacity ${ms}ms ${ease}` : 'none'; el.style.transform = x ? `translateX(${x}px)` : ''; el.style.opacity = x ? String(Math.max(.35, 1 - Math.abs(x) / st.w * .9)) : ''; });
+  const clear = (els) => els.forEach((el) => { el.style.transition = ''; el.style.transform = ''; el.style.opacity = ''; el.style.willChange = ''; });
   document.addEventListener('touchstart', (e) => {
-    st = null;
+    if (st && st.busy) return; st = null;
     if (e.touches.length !== 1 || navLayers().length || document.querySelector('.crop') || S.search) return;
     const t = e.touches[0], el = e.target;
     if (!el.closest || !el.closest('#main') || el.closest('input, textarea, select, .seg, .chips, .scrollx, [data-noswipe]')) return;
     if (t.clientX < 24 || t.clientX > window.innerWidth - 24) return;
-    if (!$('#main .period [data-act="ym"], #main .period [data-act="sp"]')) return;
-    st = { x: t.clientX, y: t.clientY, t: Date.now() };
+    if (!$(PER)) return;
+    st = { x: t.clientX, y: t.clientY, t: Date.now(), lock: null, dx: 0, w: $('#main').clientWidth || window.innerWidth, els: [] };
   }, { passive: true });
-  document.addEventListener('touchend', (e) => {
-    if (!st) return; const t = e.changedTouches[0]; const dx = t.clientX - st.x, dy = t.clientY - st.y, dt = Date.now() - st.t; st = null;
-    if (Math.abs(dx) < 60 || Math.abs(dx) < 1.6 * Math.abs(dy) || dt > 700) return;
-    const dir = dx < 0 ? 1 : -1;
-    const b = $(`#main .period [data-act="ym"][data-v="${dir}"], #main .period [data-act="sp"][data-v="${dir}"]`); if (!b) return;
-    b.click();
-    // 맨 위 제목줄(제목·달력·검색, 월/년)은 그대로 두고 아래 내용만 살짝 미끄러지게
-    const per = $('#main .period'); if (!per) return; const par = per.parentElement;
-    const els = par.classList.contains('paneL') ? [par.parentElement] : [...par.children].filter((x) => !x.matches('.top, .fab'));
-    els.forEach((x) => { if (x.animate) try { x.animate([{ transform: `translateX(${dir * 28}px)`, opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: 220, easing: 'ease-out' }); } catch (er) {} });
-  }, { passive: true });
+  document.addEventListener('touchmove', (e) => {
+    if (!st || st.busy || st.lock === 'v') return; const t = e.touches[0]; const dx = t.clientX - st.x, dy = t.clientY - st.y;
+    if (!st.lock) {
+      if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+      if (Math.abs(dx) > Math.abs(dy) * 1.2) { st.lock = 'h'; st.x = t.clientX; st.els = panes(); st.els.forEach((el) => { el.style.willChange = 'transform'; }); }
+      else { st.lock = 'v'; return; }
+    }
+    e.preventDefault(); // 옆으로 미는 중에는 위아래 스크롤을 막아요
+    st.dx = t.clientX - st.x; st.lt = Date.now(); put(st.els, st.dx, 0);
+  }, { passive: false });
+  const end = () => {
+    if (!st || st.busy || st.lock !== 'h') { if (st && !st.busy) st = null; return; }
+    const { dx, w, els } = st; const dt = Math.max(1, Date.now() - st.t);
+    const go = Math.abs(dx) > w * 0.25 || (Math.abs(dx) > 40 && Math.abs(dx) / dt > 0.45);
+    const dir = dx < 0 ? 1 : -1; const b = go && $(`#main .period [data-act="ym"][data-v="${dir}"], #main .period [data-act="sp"][data-v="${dir}"]`);
+    if (!b) { put(els, 0, 220, 'cubic-bezier(.2,.8,.2,1)'); setTimeout(() => clear(els), 240); st = null; return; }
+    st.busy = true;
+    put(els, -dir * w, 160, 'cubic-bezier(.4,0,1,1)'); // 지금 달이 끝까지 밀려 나가고
+    setTimeout(() => {
+      b.click(); clear(els);
+      const nw = panes(); // 새 달이 반대쪽에서 들어와요
+      nw.forEach((el) => { if (el.animate) try { el.animate([{ transform: `translateX(${dir * w}px)`, opacity: .35 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' }); } catch (er) {} });
+      st = null;
+    }, 160);
+  };
+  document.addEventListener('touchend', end, { passive: true });
+  document.addEventListener('touchcancel', end, { passive: true });
 })();
 
 function navLayers() { return [...$('#layer').children].filter((el) => el.matches('.screen, .sheet-wrap')); }
