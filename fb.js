@@ -323,6 +323,11 @@
     const act = t.dataset.act || t.dataset.fb;
     if (act === 'close') { closeBar(); return; }
     if (act === 'install' || act === 'fb-install') { install(); return; }
+    if (act === 'nudge-later') {
+      FB.prefs = { ...(FB.prefs || {}), backupSnooze: Date.now() }; hideNudge();
+      fs.doc('users/' + user.uid).set({ backupSnooze: Date.now() }, { merge: true }).catch(() => {});
+      return;
+    }
     if (act === 'install-later') { try { localStorage.setItem('ppyu.installLater', String(Date.now())); } catch (e) {} hideBanner(); return; }
     if (act === 'fb-autome') {
       const on = !FB.autoMe(); FB.prefs = { ...(FB.prefs || {}), autoMe: on }; t.setAttribute('aria-checked', String(on));
@@ -381,7 +386,10 @@
     if (act === 'fb-backup') {
       const data = makeBackup(); const n = Object.values(FB.state.raw || {}).reduce((s, a) => s + a.length, 0);
       await FB.downloads.save({ filename: `쀼가계부_백업_${stamp()}.json`, data: new Blob([JSON.stringify(data)], { type: 'application/json' }) });
-      note(`백업 파일을 저장했어요. (내역 ${n.toLocaleString('ko-KR')}건)`); return;
+      note(`백업 파일을 저장했어요. (내역 ${n.toLocaleString('ko-KR')}건)`);
+      FB.prefs = { ...(FB.prefs || {}), lastBackup: Date.now() }; hideNudge();
+      fs.doc('users/' + user.uid).set({ lastBackup: Date.now() }, { merge: true }).catch(() => {});
+      return;
     }
     if (act === 'fb-restore') {
       const inp = document.createElement('input'); inp.type = 'file'; inp.accept = '.json,application/json';
@@ -436,7 +444,34 @@
       : '브라우저 메뉴에서 <b>홈 화면에 추가</b>를 찾아 눌러 주세요.';
     bar(`<div><b>앱으로 설치하기</b><br>${how}<br><span class="sub">설치한 뒤에는 홈 화면이나 앱스의 쀼 가계부 아이콘으로 열면 돼요.</span></div><div class="fb-row"><button class="fb-btn" data-fb="close">알겠어요</button></div>`);
   }
-  FB.afterOpen = () => setTimeout(maybeBanner, 1500);
+  // ---------- 정기 백업 알림: 마지막 백업 뒤 30일이 지나면 한 번 알려줘요 (닫으면 7일 뒤 다시) ----------
+  const DAY = 864e5;
+  function hideNudge() { const b = document.getElementById('fb-nudge'); if (b) b.remove(); if (!document.getElementById('fb-install')) document.body.classList.remove('has-install'); }
+  function maybeNudge() {
+    if (!bookId || !user || document.getElementById('fb-install') || document.getElementById('fb-nudge')) return;
+    const p = FB.prefs || {}; const now = Date.now();
+    const n = Object.values((FB.state && FB.state.raw) || {}).reduce((s, a) => s + (a ? a.length : 0), 0);
+    if (n < 20) return; // 막 시작한 가계부에는 띄우지 않아요
+    if (!p.lastBackup && !p.backupBase) { FB.prefs = { ...p, backupBase: now }; fs.doc('users/' + user.uid).set({ backupBase: now }, { merge: true }).catch(() => {}); return; }
+    const base = p.lastBackup || p.backupBase;
+    if (now - base < 30 * DAY || (p.backupSnooze && now - p.backupSnooze < 7 * DAY)) return;
+    const days = Math.floor((now - base) / DAY);
+    const b = document.createElement('div'); b.id = 'fb-nudge'; b.className = 'fb-install'; b.setAttribute('role', 'region'); b.setAttribute('aria-label', '백업 알림');
+    b.innerHTML = `<span style="width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span><span class="grow" style="word-break:keep-all"><b>백업해 둘까요?</b><br><span class="sub">${p.lastBackup ? `마지막 백업 ${days}일 전` : '아직 백업한 적이 없어요'}</span></span><button class="fb-btn dark" data-act="fb-backup">받기</button><button class="fb-x" data-fb="nudge-later" aria-label="닫기">✕</button>`;
+    document.body.appendChild(b); document.body.classList.add('has-install');
+  }
+  // ---------- 앱 아이콘 길게 눌러 '내역 추가' ----------
+  function openNewFromShortcut() {
+    if (!/[?&]new=1/.test(location.search)) return;
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+    let tries = 0;
+    const t = setInterval(() => {
+      const b = document.querySelector('[data-act="new"]');
+      if (b && FB.state && FB.state.cfg) { clearInterval(t); b.click(); }
+      else if (++tries > 50) clearInterval(t);
+    }, 200);
+  }
+  FB.afterOpen = () => { openNewFromShortcut(); setTimeout(maybeBanner, 1500); setTimeout(maybeNudge, 3000); };
 
   // ---------- 오프라인 실행, 새 버전 받기 ----------
   if ('serviceWorker' in navigator) window.addEventListener('load', () => {
