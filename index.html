@@ -118,6 +118,10 @@ h2{margin:0;font-size:15px;font-weight:700}
 .av.lg{width:40px;height:40px;border-radius:20px;font-size:15px;border:0}
 .av.xl{width:96px;height:96px;border-radius:48px;font-size:34px;border:0}
 .av.ph{border-style:solid!important;border-color:var(--c)!important;border-width:2px!important}.av.ph.xl{border-width:3px!important}
+.mcolors{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px 6px;width:100%;justify-items:center}
+.mcolors button,.mc-pick{width:100%;max-width:34px;aspect-ratio:1;height:auto;border-radius:50%;border:0;padding:0;cursor:pointer}
+.mc-pick{position:relative;display:inline-flex;align-items:center;justify-content:center;color:#fff;background:conic-gradient(#ef4444,#f59e0b,#84cc16,#06b6d4,#6366f1,#d946ef,#ef4444)}
+.mc-pick input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;border:0;padding:0}
 .av.s{width:18px;height:18px;border-radius:9px;font-size:9px}
 .avs{display:inline-flex}.ic .avs .av{position:static;width:16px;height:16px;font-size:8px;border-width:1.5px}.ic .avs .av+.av{margin-left:-6px}.otag{width:29px;flex-shrink:0;display:inline-flex}.avs .av+.av{margin-left:-7px}
 .amt-i{color:var(--income)}.amt-e{color:var(--expense)}.amt-x{color:var(--sub)}
@@ -257,8 +261,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.19-1016";</script>
-<script src="fb.js?v=2026.11.19-1016"></script>
+window.APP_VERSION = "2026.11.19-1027";</script>
+<script src="fb.js?v=2026.11.19-1027"></script>
 <script>
 (() => {
 'use strict';
@@ -292,7 +296,11 @@ const DOTS = 'M5 12h.01M12 12h.01M19 12h.01';
 const XFER = 'M7 7h11l-3-3M17 17H6l3 3';
 const svg = (d, s = 20, w = 1.8) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const CHEV = svg('M9 6l6 6-6 6', 14, 2), CHECK = `<span class="chk">${svg('M5 12l5 5 9-10', 18, 2.2)}</span>`, BACK = svg('M15 5l-7 7 7 7', 22, 2), CLOSE = svg('M6 6l12 12M18 6L6 18', 22, 2);
-const MCOLORS = ['#0F766E', '#C2410C', '#6D28D9', '#B45309', '#BE185D', '#1D4ED8', '#4D7C0F', '#475569'];
+const MCOLORS = ['#0F766E', '#C2410C', '#6D28D9', '#B45309', '#BE185D', '#1D4ED8', '#4D7C0F', '#475569',
+  '#DC2626', '#E11D48', '#C026D3', '#7C3AED', '#4338CA', '#0284C7', '#0891B2', '#059669',
+  '#FB7185', '#FBBF24', '#84CC16', '#38BDF8', '#A78BFA', '#78350F', '#1F2937'];
+// 밝은 색 위에는 어두운 글자, 어두운 색 위에는 흰 글자
+const onColor = (c) => { const m = /^#?([0-9a-f]{6})$/i.exec(c || ''); if (!m) return '#fff'; const n = parseInt(m[1], 16); const L = (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; return L > 0.62 ? '#1d232b' : '#fff'; };
 const members = () => (S.cfg && S.cfg.spenders) || [];
 // 새 내역의 '쓴 사람' 기본값: 로그인한 사람과 연결된 구성원 (웹앱에서만, 설정에서 끌 수 있어요)
 const FBX = (fn, ...a) => (window.FB && typeof window.FB[fn] === 'function' ? window.FB[fn](...a) : null);
@@ -300,7 +308,7 @@ const defaultSp = () => { const me = window.FB && window.FB.mySpender ? window.F
 const mem = (id) => members().find((m) => m.id === id) || { id, color: '#8B95A1' };
 const nm = (id) => (id === '공동' ? '공동' : mem(id).n || id);
 const mcol = (id) => mem(id).color || '#8B95A1';
-const av = (p, cls = '') => { const m = mem(p); return m.photo ? `<span class="av ph ${cls}" style="--c:${esc(m.color || '#8B95A1')};background:${esc(m.color || '#8B95A1')} url('${m.photo}') center/cover"></span>` : `<span class="av ${cls}" style="background:${esc(m.color || '#8B95A1')}">${esc((nm(p) || '?').charAt(0))}</span>`; };
+const av = (p, cls = '') => { const m = mem(p); return m.photo ? `<span class="av ph ${cls}" style="--c:${esc(m.color || '#8B95A1')};background:${esc(m.color || '#8B95A1')} url('${m.photo}') center/cover"></span>` : `<span class="av ${cls}" style="background:${esc(m.color || '#8B95A1')};color:${onColor(m.color)}">${esc((nm(p) || '?').charAt(0))}</span>`; };
 const pair = () => members().slice(0, 2).map((m) => m.id);
 const otag = (a) => `<span class="otag">${avs(a.owner)}</span>`;
 const firstMem = () => (members()[0] ? members()[0].id : '');
@@ -1462,7 +1470,7 @@ function viewMemberEditor() {
   const e = S.memEd;
   const used = e.isNew ? 0 : S.rows.filter((r) => sps(r.sp).includes(e.id)).length;
   const ownA = e.isNew ? 0 : S.assets.filter((a) => a.owner.includes(e.id)).length;
-  const face = e.photo ? `<span class="av ph xl" style="--c:${esc(e.color)};background:${esc(e.color)} url('${e.photo}') center/cover"></span>` : `<span class="av xl" style="background:${esc(e.color)}">${esc((e.n || '?').charAt(0))}</span>`;
+  const face = e.photo ? `<span class="av ph xl" style="--c:${esc(e.color)};background:${esc(e.color)} url('${e.photo}') center/cover"></span>` : `<span class="av xl" style="background:${esc(e.color)};color:${onColor(e.color)}">${esc((e.n || '?').charAt(0))}</span>`;
   return `<div class="screen" role="dialog" aria-label="구성원" style="z-index:50">
   <header><button class="icon-btn" data-act="mem-close" aria-label="닫기">${BACK}</button><h1>${e.isNew ? '구성원 추가' : '구성원 수정'}</h1><span style="width:44px"></span></header>
   <div class="body">
@@ -1473,7 +1481,8 @@ function viewMemberEditor() {
     </div>
     <div class="card" style="padding:0 16px">
       <div class="field"><span class="k">이름</span><input id="mem-name" class="v" value="${esc(e.n)}" placeholder="예: 엄마, 첫째" maxlength="10" data-act="mem-f"></div>
-      <div class="field" style="flex-wrap:wrap;padding:12px 0;gap:10px"><span class="k">색</span><div class="row" style="flex-wrap:wrap;gap:10px">${MCOLORS.map((c) => `<button data-act="mem-color" data-v="${c}" aria-label="색 ${c}" aria-pressed="${e.color === c}" style="width:32px;height:32px;border-radius:16px;background:${c};border:0;box-shadow:${e.color === c ? '0 0 0 2px var(--bg),0 0 0 4px var(--ink)' : 'none'}"></button>`).join('')}</div></div>
+      <div class="field" style="flex-wrap:wrap;padding:12px 0;gap:10px"><span class="k">색</span><div class="mcolors">${MCOLORS.map((c) => `<button data-act="mem-color" data-v="${c}" aria-label="색 ${c}" aria-pressed="${e.color === c}" style="background:${c};box-shadow:${e.color === c ? '0 0 0 2px var(--bg),0 0 0 4px var(--ink)' : 'none'}"></button>`).join('')}
+        <label class="mc-pick" aria-label="색 직접 고르기" style="${MCOLORS.includes(e.color) ? '' : `background:${esc(e.color)};box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ink)`}"><input type="color" value="${esc(e.color)}" data-act="mem-pick">${MCOLORS.includes(e.color) ? svg('M12 5v14M5 12h14', 16, 2.4) : ''}</label></div></div>
     </div>
     <p class="faint" style="line-height:1.6;margin:0">사진이 없으면 이 색에 이름 첫 글자가 보여요.</p>
     ${e.isNew ? '' : `<p class="faint" style="line-height:1.6;margin:0">내역 ${won(used)}건 · 자산 ${ownA}개${used || ownA ? '<br>내역이나 자산이 있는 구성원은 지울 수 없어요.' : ''}</p>`}
@@ -1704,6 +1713,7 @@ document.addEventListener('change', (ev) => {
   if (act === 'ae-kind') { const [g, k] = el.value.split('|'); S.assetEd.gid = g; S.assetEd.kind = k; renderLayer(); return; }
   if (act === 'ae-f' && el.tagName === 'SELECT') { S.assetEd[el.dataset.k] = el.value; return; }
   if (act === 'mp-hid') { S.sheet.hid = el.checked; renderLayer(); return; }
+  if (act === 'mem-pick') { S.memEd.color = el.value.toUpperCase(); renderLayer(); return; }
   if (act === 'mem-photo') { const f = el.files && el.files[0]; if (f) readPhoto(f); return; }
   if (act === 'imp-file') { const f = el.files && el.files[0]; if (f) readFile(f); return; }
   if (act === 'imp-map') { const k = el.dataset.k; if (el.value === '') delete S.imp.map[k]; else S.imp.map[k] = +el.value; if (k === 'card' || k === 'date' || k === 'amount') S.imp.cardMap = guessCardMap(S.imp); renderLayer(); return; }
