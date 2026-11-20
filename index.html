@@ -268,6 +268,8 @@ nav.tabs .badge{position:absolute;top:-5px;right:-11px;min-width:16px;height:16p
 .icon-btn:disabled{opacity:.25}
 .fav-row{display:flex;flex-shrink:0;min-height:44px;gap:8px;overflow-x:auto;margin:0 -16px 12px;padding:2px 16px;scrollbar-width:none;align-items:center}.fav-row::-webkit-scrollbar{display:none}.fav-k{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--sub);white-space:nowrap;flex-shrink:0}.fav-chip{flex-shrink:0;gap:6px;white-space:nowrap;padding:0 14px}.fav-chip[aria-pressed=true]{border-color:var(--accent);background:var(--soft);color:var(--ink)}.fav-chip b{font-weight:600}.fav-chip span{font-size:13px;font-weight:600}
 .dtp{position:relative;display:inline-flex;align-items:center;min-width:0;flex:0 1 auto}.dtp input{padding:0 28px 0 8px;width:100%}.dtp svg{position:absolute;right:9px;pointer-events:none;color:var(--sub)}@media (max-width:359px){.dtp input{padding:0 6px}.dtp svg{display:none}}.dtp input::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;opacity:0;cursor:pointer}
+.exbtn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border:0;background:transparent;padding:6px 0 2px;margin:-2px 0 -4px;font:inherit;font-size:13px;color:var(--sub);cursor:pointer}.exbtn .box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--line2);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}.exbtn[aria-checked=true] .box{background:var(--accent);border-color:var(--accent)}.exbtn[aria-checked=true]{color:var(--ink)}
+.icon-btn.eye{color:var(--accent);flex-shrink:0;margin-right:-10px}.icon-btn.eye.off{color:var(--faint)}
 .infobox{display:flex;gap:10px;align-items:flex-start;background:var(--soft);color:var(--sub);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.6}.infobox svg{flex-shrink:0;margin-top:1px;color:var(--accent)}.infobox b{color:var(--ink)}
 .warnbox{background:var(--warn-bg);color:var(--warn-fg);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5}
 .bar{display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px;background:var(--soft)}
@@ -325,8 +327,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.20-1531";</script>
-<script src="fb.js?v=2026.11.20-1531"></script>
+window.APP_VERSION = "2026.11.20-1553";</script>
+<script src="fb.js?v=2026.11.20-1553"></script>
 <script>
 (() => {
 'use strict';
@@ -1435,7 +1437,7 @@ function viewAssets() {
       <span class="ic"><span class="bubble">${faces ? avs(faces, '') : svg(icon)}</span></span>
       <span class="grow"><b style="font-weight:500">${esc(title)}</b> <span class="faint">${list.length}개${hid ? ` · 숨김 ${hid}개 포함` : ''}</span></span><b>${sgn(tot).replace('+', '')}</b>
       <span class="chev" style="color:var(--sub);${open ? 'transform:rotate(90deg)' : ''}">${CHEV}</span></button>
-      ${open ? `<div style="margin:0 0 10px 10px;background:var(--bg);border-radius:12px;padding:0 12px">${list.map((a) => `<button class="arow" data-act="asset-open" data-v="${a.id}" style="border-top-color:var(--line2)">
+      ${open ? `<div style="margin:0 0 10px 10px;background:var(--bg);border-radius:12px;padding:0 12px">${list.map((a) => `<button class="arow" data-act="asset-edit" data-v="${a.id}" style="border-top-color:var(--line2)">
         ${otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere">${esc(a.name)}</span><span style="white-space:nowrap;text-align:right;${a.kind === '체크카드' ? 'color:var(--sub);font-size:13px' : ''}">${a.kind === '체크카드' ? '통장에서 바로 빠져요' : isFx(a.id) ? `${fmtCur(S.bal[a.id] || 0, curOf(a.id))}<span class="faint" style="display:block;font-size:12px">약 ${won(bal(a))}원</span>` : sgn(bal(a)).replace('+', '')}</span>${CHEV}</button>`).join('')}${hid ? `<p class="faint" style="margin:0;padding:10px 0;border-top:1px solid var(--line2);font-size:12px">숨긴 자산 ${hid}개도 합계에 더해져 있어요.</p>` : ''}</div>` : ''}</div>`;
   };
   let lists;
@@ -1462,7 +1464,7 @@ function viewAssets() {
 const KEBAB = svg('M12 5h.01M12 12h.01M12 19h.01', 22, 3);
 function viewAssetMode() {
   const m = S.assetMode;
-  const T = { del: ['자산 삭제', '내역이 없는 자산만 지울 수 있어요. 내역이 있으면 숨겨 주세요.'], hide: ['표시/숨김', '숨긴 자산은 목록에서 빠져요. 이름을 누르면 자산 합계에서 제외할지 고를 수 있어요.'], order: ['순서 변경', '⠿를 끌어서 순서를 바꿔요. 놓으면 바로 저장돼요. 대분류를 누르면 접히고 펼쳐져요.'] }[m];
+  const T = { del: ['자산 삭제', '내역이 없는 자산만 지울 수 있어요. 내역이 있으면 숨겨 주세요.'], hide: ['표시/숨김', '눈 아이콘을 누르면 목록에서 숨겨요.<br>숨긴 자산은 자산 합계에서도 뺄지 고를 수 있어요.'], order: ['순서 변경', '⠿를 끌어서 순서를 바꿔요. 놓으면 바로 저장돼요. 대분류를 누르면 접히고 펼쳐져요.'] }[m];
   const list = m === 'hide' ? S.assets : S.assets.filter((a) => !a.hidden);
   const cnt = {}; if (m === 'del') S.rows.forEach((r) => { cnt[r.a] = (cnt[r.a] || 0) + 1; if (r.to) cnt[r.to] = (cnt[r.to] || 0) + 1; });
   const groups = S.assetView === 'owner'
@@ -1478,7 +1480,7 @@ function viewAssetMode() {
   const row = (a) => {
     const nm = `${S.assetView === 'owner' ? '' : otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere;${m === 'hide' && a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>`;
     if (m === 'order') return kindView ? `<div class="row ce-s" data-id="${a.id}"><span class="drag" data-drag="a" aria-label="${esc(a.name)} 순서 바꾸기">${GRIP}</span>${nm}</div>` : `<div class="row ce-s" style="padding-left:4px"><span class="faint" style="font-size:12px;width:60px;flex-shrink:0">${esc((S.cfg.kinds.find((k) => k.id === a.gid) || {}).n || '')}</span>${nm}</div>`;
-    if (m === 'hide') return `<div class="row ce-s"><button class="row grow" style="border:0;background:transparent;padding:0;text-align:left;min-height:48px;min-width:0;gap:8px" data-act="asset-edit" data-v="${a.id}">${nm}${CHEV}</button><span class="faint" style="font-size:12px">${a.hidden ? (a.exTotal ? '숨김 · 합계 제외' : '숨김') : '표시'}</span><button class="switch" role="switch" aria-checked="${!a.hidden}" aria-label="${esc(a.name)} 표시" data-act="am-hide" data-v="${a.id}"></button></div>`;
+    if (m === 'hide') return `<div class="row ce-s" style="gap:8px"><div class="row grow" style="padding:0;min-height:52px;min-width:0;gap:8px">${S.assetView === 'owner' ? '' : `<span style="width:30px;flex-shrink:0;display:flex">${otag(a)}</span>`}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:1px"><span style="line-height:1.35;overflow-wrap:anywhere;${a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>${a.hidden ? `<button class="exbtn" role="checkbox" aria-checked="${!!a.exTotal}" data-act="am-ex" data-v="${a.id}"><span class="box">${a.exTotal ? svg('M5 12l5 5 9-10', 12, 3) : ''}</span>자산 합계에서도 빼기</button>` : ''}</span></div><button class="icon-btn eye ${a.hidden ? 'off' : ''}" role="switch" aria-checked="${!a.hidden}" aria-label="${esc(a.name)} ${a.hidden ? '숨김' : '표시'}" data-act="am-hide" data-v="${a.id}">${svg(a.hidden ? 'M2.5 12S6 5.5 12 5.5c1.6 0 3 .4 4.3 1.1M21.5 12S18 18.5 12 18.5c-1.6 0-3-.4-4.3-1.1M9.9 14.1a3 3 0 0 1 4.2-4.2M4 20L20 4' : 'M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z', 22, 1.9)}</button></div>`;
     const n = cnt[a.id] || 0;
     return `<div class="row ce-s">${nm}${n ? `<span class="faint" style="font-size:12px;white-space:nowrap">내역 ${won(n)}건</span>` : ''}<button class="icon-btn" style="width:40px;color:${n ? 'var(--field)' : 'var(--sub)'}" data-act="am-del" data-v="${a.id}" data-n="${n}" aria-label="${esc(a.name)} 삭제">${svg('M6 6l12 12M18 6L6 18', 16, 2)}</button></div>`;
   };
@@ -1486,7 +1488,7 @@ function viewAssetMode() {
   <p class="sub" style="margin:0 0 12px;line-height:1.6">${T[1]}</p>
   <div class="seg">${[['kind', '분류별'], ['owner', '소유자별']].map(([v, n]) => `<button data-act="av" data-v="${v}" aria-pressed="${S.assetView === v}">${n}</button>`).join('')}</div>
   ${m === 'order' ? `<div class="row" style="padding-top:10px"><span class="faint grow" style="line-height:1.5">${kindView ? '대분류도 ⠿를 끌어 순서를 바꿀 수 있어요.' : '소유자 순서만 바꿀 수 있어요. 자산은 분류별 순서를 따라요.'}</span><button class="btn sm ghost" data-act="ord-all">${groups.some((g) => g.items.length && !shut[g.id]) ? '모두 접기' : '모두 펼치기'}</button></div>` : ''}
-  <div class="stack" style="margin-top:12px" ${m === 'order' ? `data-box="${kindView ? 'k' : 'o'}"` : ''}>${groups.filter((g) => g.items.length).map((g) => `<div class="card" data-id="${g.id}" style="padding:4px 16px 8px">${head(g)}${m === 'order' && shut[g.id] ? '' : `<div data-box="a" style="margin-left:${m === 'order' ? 26 : 28}px">${g.items.map(row).join('')}</div>`}</div>`).join('')}</div>`;
+  <div class="stack" style="margin-top:12px" ${m === 'order' ? `data-box="${kindView ? 'k' : 'o'}"` : ''}>${groups.filter((g) => g.items.length).map((g) => `<div class="card" data-id="${g.id}" style="padding:4px 16px 8px">${head(g)}${m === 'order' && shut[g.id] ? '' : `<div data-box="a" style="margin-left:${m === 'order' ? 26 : 0}px">${g.items.map(row).join('')}</div>`}</div>`).join('')}</div>`;
 }
 function netAt(ym) { const keys = S._netKeys || (S._netKeys = Object.keys(S.netHist).sort()); let v = null; for (const k of keys) { if (k <= ym) v = S.netHist[k]; else break; } return v; }
 const eok = (v) => { const neg = v < 0; v = Math.abs(v); const e = Math.trunc(v / 1e8), m = Math.round((v % 1e8) / 1e4); return (neg ? '-' : '') + ((e ? e + '억 ' : '') + (m ? m.toLocaleString() + '만' : '') || '0'); };
@@ -1592,7 +1594,7 @@ function viewLedger() {
   mrows.forEach(([r, v]) => { const k = r.ts.slice(0, 8); if (!cur || cur.k !== k) { cur = { k, items: [] }; days.push(cur); } cur.items.push([r, v, run]); run -= v; });
   const linkedN = d.set.size - 1;
   return `<div class="screen" role="dialog" aria-label="${esc(a.name)} 내역">
-  <header><button class="icon-btn" data-act="ledger-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px">${esc(a.name)}</h1><button class="btn sm ghost" data-act="ledger-edit">수정</button></header>
+  <header><button class="icon-btn" data-act="ledger-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px">${esc(a.name)}</h1><button class="icon-btn" data-act="ledger-edit" aria-label="자산 수정">${svg('M4 20h4l10-10-4-4L4 16zM13.5 6.5l4 4', 22, 2)}</button></header>
   <div class="body" data-keep="ledger">
     <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span class="row" style="font-size:13px;opacity:.75;gap:6px">${otag(a)}${esc(kindLabel(a.gid, a.kind))}${a.hidden ? ' · 숨김' : ''}</span>
       <b style="font-size:26px">${check ? '통장에서 바로 빠져요' : (fx ? fmtCur(bal, curOf(L.id)) : sgn(bal).replace('+', '') + '원')}</b>
@@ -2317,6 +2319,7 @@ document.addEventListener('click', async (ev) => {
     case 'ord-tg': S.ordShut[v] = !S.ordShut[v]; render(); break;
     case 'ord-all': { const ids = S.assetView === 'owner' ? owners().map((g) => 'o:' + g) : kindsOrd().map((k) => k.id); const any = ids.some((id) => !S.ordShut[id]); ids.forEach((id) => { S.ordShut[id] = any; }); render(); break; }
     case 'am-done': S.assetMode = null; if (S.modeOverlay) { S.modeOverlay = false; renderLayer(); } else render(); break;
+    case 'am-ex': await saveAssets(S.assets.map((a) => (a.id === v ? { ...a, exTotal: !a.exTotal } : a))); break;
     case 'am-hide': await saveAssets(S.assets.map((a) => (a.id === v ? { ...a, hidden: !a.hidden } : a))); break;
     case 'am-del': if (+el.dataset.n) { toast('내역이 있는 자산은 지울 수 없어요. 표시/숨김에서 숨겨 주세요.'); break; }
       askConfirm({ title: `'${(A(v) || {}).name || '이'}' 자산을 지울까요?`, ok: '지우기' }, async () => { await saveAssets(S.assets.filter((a) => a.id !== v)); toast('자산을 지웠어요.'); }); break;
@@ -2326,13 +2329,13 @@ document.addEventListener('click', async (ev) => {
     case 'ledger-y': S.ledger.y = String(+S.ledger.y + +v); renderLayer(); { const lb = $('[data-keep="ledger"]'); if (lb) lb.scrollTop = 0; } break;
     case 'ledger-goday': S.ledger.unit = 'day'; S.ledger.ym = v; renderLayer(); { const lb = $('[data-keep="ledger"]'); if (lb) lb.scrollTop = 0; } break;
     case 'ledger-gomonth': S.ledger.unit = 'month'; S.ledger.y = v; renderLayer(); { const lb = $('[data-keep="ledger"]'); if (lb) lb.scrollTop = 0; } break;
-    case 'ledger-close': S.ledger = null; renderLayer(); break;
+    case 'ledger-close': S.ledger = null; if (S.edBack) { S.assetEd = S.edBack; S.edBack = null; } renderLayer(); break;
     case 'stat-open': { const ds = el.dataset; const t = S.statKind === 'e' ? '지출' : '수입';
       const title = ds.p ? nm(ds.p) + ' ' + t : ds.c === 'rest' ? '그 밖의 분류' : ds.s ? (CAT[ds.c] ? CAT[ds.c].n + ' > ' : '') + (SUB[ds.s] ? SUB[ds.s].n : '') : CAT[ds.c] ? CAT[ds.c].n : '미분류';
       S.statOpen = { title, p: ds.p || '', c: ds.c === 'rest' ? '' : (ds.c || ''), s: ds.s, rest: ds.c === 'rest', top: S._statTop || [] }; renderLayer(); break; }
     case 'stat-close': S.statOpen = null; renderLayer(); break;
     case 'ledger-ym': S.ledger.ym = ymAdd(S.ledger.ym, +v); renderLayer(); const lb = $('[data-keep="ledger"]'); if (lb) lb.scrollTop = 0; break;
-    case 'ledger-edit': { const a = A(S.ledger.id); if (a) { S.assetEd = { ...a, owner: a.owner.slice() }; renderLayer(); } break; }
+    case 'ledger-edit': { if (S.edBack) { S.ledger = null; S.assetEd = S.edBack; S.edBack = null; renderLayer(); break; } const a = A(S.ledger.id); if (a) { S.assetEd = { ...a, owner: a.owner.slice() }; renderLayer(); } break; }
     case 'ledger-new': openEditor({ id: '', ts: nowTs(), t: 'e', sp: (A(S.ledger.id) || { owner: [members()[0].id] }).owner[0], a: S.ledger.id, to: '', c: '', s: '', amt: 0, ct: '', m: '' }, 'new'); break;
     case 'asset-edit': { const a = A(v); if (a) { S.assetEd = { ...a, owner: a.owner.slice() }; renderLayer(); } break; }
     case 'ae-close': S.assetEd = null; renderLayer(); break;
@@ -2342,7 +2345,7 @@ document.addEventListener('click', async (ev) => {
     case 'ae-hide': S.assetEd.hidden = !S.assetEd.hidden; renderLayer(); break;
     case 'ae-save': saveAssetEditor(); break;
     case 'ae-del': { const id = S.assetEd.id; askConfirm({ title: `'${S.assetEd.name || '이'}' 자산을 지울까요?`, ok: '지우기' }, async () => { S.assetEd = null; await saveAssets(S.assets.filter((a) => a.id !== id)); toast('자산을 지웠어요.'); }); break; }
-    case 'ae-history': { const id = S.assetEd.id; S.searchBack = { tab: S.tab, assetEd: S.assetEd, assetMode: S.assetMode, modeOverlay: S.modeOverlay, sheet: S.sheet, ed: S.ed, scroll: $('#main').scrollTop }; S.assetEd = null; S.sheet = null; S.ed = null; S.modeOverlay = false; S.tab = 'list'; S.search = { q: '', t: '', sp: '', c: [], a: [id], from: '', to: '', min: '', max: '' }; render(); break; }
+    case 'ae-history': { S.edBack = S.assetEd; S.ledger = { id: S.assetEd.id, ym: null }; S.assetEd = null; renderLayer(); break; }
     case 'ae-import': { const id = S.assetEd.id; S.assetEd = null; S.imp = { step: 0, asset: id }; renderLayer(); break; }
     case 'su': S.statUnit = v; render(); break;
     case 'sp': if (S.statUnit === 'month') S.statYm = ymAdd(S.statYm, +v); else S.statY = String(+S.statY + +v); render(); break;
