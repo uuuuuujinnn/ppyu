@@ -232,7 +232,7 @@ nav.tabs button[aria-current="page"]{color:var(--accent);font-weight:700}
 nav.tabs .badge{position:absolute;top:-5px;right:-11px;min-width:16px;height:16px;border-radius:8px;background:var(--ink);color:var(--on-ink);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
 .empty{padding:40px 8px;text-align:center;color:var(--sub);font-size:13px;line-height:1.6}
 /* 덮는 화면 */
-.screen{position:absolute;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column}
+.screen{position:absolute;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column}.screen.ghost{pointer-events:none;animation:ghostOut .36s cubic-bezier(.2,.8,.2,1) forwards}.screen.copy-in{animation:copyIn .36s cubic-bezier(.2,.8,.2,1)}@keyframes copyIn{from{transform:translateX(100%);box-shadow:-12px 0 32px rgba(0,0,0,.18)}to{transform:none;box-shadow:-12px 0 32px rgba(0,0,0,0)}}@keyframes ghostOut{to{transform:translateX(-25%);opacity:.5}}
 .screen header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px));flex-shrink:0}
 .screen header h1{font-size:16px}
 .screen .body{flex:1;overflow-y:auto;padding:4px max(16px,env(safe-area-inset-right,0px)) 120px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
@@ -327,8 +327,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.23-1845";</script>
-<script src="fb.js?v=2026.11.23-1845"></script>
+window.APP_VERSION = "2026.11.23-2300";</script>
+<script src="fb.js?v=2026.11.23-2300"></script>
 <script>
 (() => {
 'use strict';
@@ -701,13 +701,14 @@ function slideIn(dir, dist) {
   document.addEventListener('touchcancel', end, { passive: true });
 })();
 
-function navLayers() { return [...$('#layer').children].filter((el) => el.matches('.screen, .sheet-wrap')); }
+function navLayers() { return [...$('#layer').children].filter((el) => el.matches('.screen:not(.ghost), .sheet-wrap')); }
 function navDepth() {
   let d = navLayers().length;
   if (document.querySelector('.crop')) d++;
   if ($('#main').querySelector('[data-act="search-close"], [data-act="am-done"]')) d++;
   if (S.tab !== 'list') d++;
   if (S.edBack && S.ledger) d++; // 자산 수정 → 이 자산 내역: 화면을 바꿔 끼우지만 뒤로가기는 한 단계 더
+  if (S.search && S.searchBack && S.searchBack.depth) d += S.searchBack.depth; // 다른 화면에서 연 검색은 그 화면보다 한 단계 깊어요
   return d;
 }
 function navSync() {
@@ -1663,7 +1664,7 @@ function viewLedger() {
   mrows.forEach(([r, v]) => { const k = r.ts.slice(0, 8); if (!cur || cur.k !== k) { cur = { k, items: [] }; days.push(cur); } cur.items.push([r, v, run]); run -= v; });
   const linkedN = d.set.size - 1;
   return `<div class="screen" role="dialog" aria-label="${esc(a.name)} 내역">
-  <header><button class="icon-btn" data-act="ledger-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px">${esc(a.name)}</h1><button class="icon-btn" data-act="ledger-edit" aria-label="자산 수정">${svg('M4 20h4l10-10-4-4L4 16zM13.5 6.5l4 4', 22, 2)}</button></header>
+  <header><button class="icon-btn" data-act="ledger-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:calc(100% - 152px)">${esc(a.name)}</h1><span class="row" style="gap:0"><button class="icon-btn" data-act="ledger-search" aria-label="이 자산 내역 검색">${svg('M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4', 22, 2)}</button><button class="icon-btn" data-act="ledger-edit" aria-label="자산 수정">${svg('M4 20h4l10-10-4-4L4 16zM13.5 6.5l4 4', 22, 2)}</button></span></header>
   <div class="body" data-keep="ledger">
     <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span class="row" style="font-size:13px;opacity:.75;gap:6px">${otag(a)}${esc(kindLabel(a.gid, a.kind))}${a.hidden ? ' · 숨김' : ''}</span>
       <b style="font-size:26px">${check ? '통장에서 바로 빠져요' : (fx ? fmtCur(bal, curOf(L.id)) : sgn(bal).replace('+', '') + '원')}</b>
@@ -2277,7 +2278,11 @@ document.addEventListener('click', async (ev) => {
       else { const list = S.assets.filter((a) => !a.hidden || sh.hid || arr.includes(a.id)); const all = list.every((a) => arr.includes(a.id)); arr = all ? arr.filter((id) => !list.some((a) => a.id === id)) : Array.from(new Set(arr.concat(list.map((a) => a.id)))); }
       S.search[sh.k] = arr; render(); break; }
     case 'mp-clear': S.search[S.sheet.k] = []; render(); break;
-    case 'search-close': { S.search = null; const b = S.searchBack; S.searchBack = null; if (b) { S.tab = b.tab; S.assetMode = b.assetMode; S.modeOverlay = b.modeOverlay; S.sheet = b.sheet; S.ed = b.ed; S.assetEd = b.assetEd; render.sameTab = null; render(); $('#main').scrollTop = b.scroll || 0; } else render(); break; }
+    case 'ledger-search': { // 자산 내역에서 검색: 그 자산이 골라진 검색을 열고, 닫으면 내역 화면으로 돌아와요
+      S.searchBack = { depth: navDepth(), tab: S.tab, assetMode: S.assetMode, modeOverlay: S.modeOverlay, sheet: S.sheet, ed: S.ed, assetEd: S.assetEd, ledger: S.ledger, edBack: S.edBack, scroll: $('#main').scrollTop };
+      S.search = { q: '', t: '', sp: '', c: [], a: [S.ledger.id], from: '', to: '', min: '', max: '' }; S.ledger = null; S.edBack = null; S.assetEd = null; S.tab = 'list'; S.statOpen = null;
+      render.sameTab = null; render(); renderLayer(); $('#main').scrollTop = 0; setTimeout(() => $('#sf-q') && $('#sf-q').focus(), 0); break; }
+    case 'search-close': { S.search = null; const b = S.searchBack; S.searchBack = null; if (b) { S.tab = b.tab; S.assetMode = b.assetMode; S.modeOverlay = b.modeOverlay; S.sheet = b.sheet; S.ed = b.ed; S.assetEd = b.assetEd; if (b.ledger) { S.ledger = b.ledger; S.edBack = b.edBack || null; } render.sameTab = null; render(); renderLayer(); $('#main').scrollTop = b.scroll || 0; } else render(); break; }
     case 'search-reset': S.search = { q: '', t: '', sp: '', c: [], a: [], from: '', to: '', min: '', max: '' }; render(); break;
     case 'export': exportRows(searchRows(S.search), '쀼가계부_검색결과.xlsx'); break;
     case 'export-all': S.xport = { pre: 'all', from: '', to: '' }; renderLayer(); break;
@@ -2313,7 +2318,11 @@ document.addEventListener('click', async (ev) => {
     case 'fav-use': { const f = favsOf().find((x) => x.id === v); if (!f) break;
       Object.assign(e, { t: f.t, a: A(f.a) ? f.a : e.a, to: f.to, c: f.c, s: f.s, amt: f.amt, ct: f.ct, m: f.m, sp: f.sp || e.sp, fav: true, favId: f.id, sugOff: true, fx: 0, fxc: '', amtTouched: false });
       renderLayer(); break; }
-    case 'ed-copy': { const d = new Date(); S.ed = { ...e, mode: 'new', origYm: null, id: '', date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, time: `${pad(d.getHours())}:${pad(d.getMinutes())}` }; renderLayer(); $('[data-keep="ed"]') && ($('[data-keep="ed"]').scrollTop = 0); toast('복사했어요. 날짜는 오늘로 바꿨어요.'); break; }
+    case 'ed-copy': { const d = new Date(); S.ed = { ...e, mode: 'new', origYm: null, id: '', date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, time: `${pad(d.getHours())}:${pad(d.getMinutes())}` }; const oldScr = $('[data-keep="ed"]') && $('[data-keep="ed"]').closest('.screen'); const oldHTML = oldScr ? oldScr.outerHTML : '';
+      toast('복사했어요. 날짜는 오늘로 바꿨어요.'); const nb = $('[data-keep="ed"]'); if (nb) nb.scrollTop = 0;
+      // 복사본이 새 화면으로 들어오는 게 보이게: 원래 화면은 왼쪽으로 밀려나고 새 화면이 오른쪽에서 들어와요
+      const ns = nb && nb.closest('.screen'); if (ns && oldHTML && !matchMedia('(prefers-reduced-motion: reduce)').matches) { ns.insertAdjacentHTML('beforebegin', oldHTML); const g = ns.previousElementSibling; g.classList.add('ghost'); g.setAttribute('aria-hidden', 'true'); ns.classList.add('copy-in'); setTimeout(() => { g.remove(); ns.classList.remove('copy-in'); }, 380); }
+      break; }
     case 'bd-open': { const ym = S.tab === 'budget' ? (S.bdYm || nowTs().slice(0, 6)) : nowTs().slice(0, 6); const b = S.cfg.budget || {}; const m = (b.months || {})[ym]; S.bdEd = { ym, total: +b.total || 0, only: m !== undefined && m !== null, month: m !== undefined && m !== null ? +m : 0 }; renderLayer(); break; }
     case 'bd-close': S.bdEd = null; renderLayer(); break;
     case 'cb-new': S.cbEd = { ym: S.bdYm || nowTs().slice(0, 6), c: '', amt: 0, only: false, month: 0 }; renderLayer(); break;
