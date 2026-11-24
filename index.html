@@ -57,7 +57,7 @@ body.has-install .fab{bottom:calc(176px + env(safe-area-inset-bottom,0px))}
 <body>
 <style>
 /* 레이아웃: 휴대폰 한 화면 앱. 가운데 480px 기둥 + 아래 탭, 시트는 아래에서 올라옴 */
-:root{
+:root{--fz:1;--t-xs:calc(12px*var(--fz));--t-sm:calc(13px*var(--fz));--t-md:calc(16px*var(--fz));--t-lg:calc(18px*var(--fz));--t-xl:calc(20px*var(--fz));--t-2xl:calc(22px*var(--fz));--t-3xl:calc(26px*var(--fz));--h-field:56px;--h-row:52px;--pad-card:16px;--gap-card:12px;--pad-tx:12px;
   /* Things 스타일: 연한 회청색 바탕 + 흰 카드 + 파란색 하나만 강조 */
   --bg:#F2F5F7; --surface:#FFFFFF; --ink:#303336; --ink2:#44474B; --sub:#55606E; --faint:#838B96;
   --line:#EEF1F4; --line2:#DFE3E8; --track:#E8ECF0; --field:#CBD2DA; --soft:#EEF2F6;
@@ -80,7 +80,7 @@ body.has-install .fab{bottom:calc(176px + env(safe-area-inset-bottom,0px))}
   --accent:#5C9CF5; --accent-soft:#1B2A40; --on-accent:#0F1216; --card-shadow:none;
   --on-ink:#0F1216; --scrim:rgba(0,0,0,.55); --p1:#2DD4BF; --p2:#FB923C; --p3:#A78BFA; color-scheme:dark}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:anywhere}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--t-md);font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:anywhere}
 *{box-sizing:border-box}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
@@ -89,34 +89,34 @@ button{cursor:pointer}
 html,body{overflow:hidden;overscroll-behavior:none}
 #app{position:fixed;top:0;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
 main{flex:1;overflow-y:auto;overflow-x:hidden;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
-.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 0 8px;min-height:60px}
-h1{margin:0;font-size:22px;font-weight:700}
-h2{margin:0;font-size:14px;font-weight:700}
-.sub{color:var(--sub);font-size:13px}
-.faint{color:var(--faint);font-size:13px}
-.card{background:var(--surface);border-radius:16px;padding:14px 16px;box-shadow:var(--card-shadow)}
-.stack{display:flex;flex-direction:column;gap:10px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 0 8px;min-height:64px}
+h1{margin:0;font-size:var(--t-2xl);font-weight:700}
+h2{margin:0;font-size:var(--t-md);font-weight:700}
+.sub{color:var(--sub);font-size:var(--t-sm)}
+.faint{color:var(--faint);font-size:var(--t-sm)}
+.card{background:var(--surface);border-radius:16px;padding:var(--pad-card);box-shadow:var(--card-shadow)}
+.stack{display:flex;flex-direction:column;gap:var(--gap-card)}
 .row{display:flex;align-items:center;gap:8px}
 .grow{flex:1;min-width:0}
-.btn{height:44px;border-radius:12px;border:1px solid var(--field);background:var(--surface);padding:0 14px;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
-.btn.sm{height:36px;border-radius:10px;font-size:13px;padding:0 12px}
-.btn.lg{height:52px;border-radius:14px;font-size:15px;font-weight:700}
+.btn{height:44px;border-radius:12px;border:1px solid var(--field);background:var(--surface);padding:0 14px;font-size:var(--t-md);display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.sm{height:36px;border-radius:10px;font-size:var(--t-sm);padding:0 12px}
+.btn.lg{height:52px;border-radius:14px;font-size:var(--t-md);font-weight:700}
 .btn.ink{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700}
 .btn.ghost{border-color:transparent;background:transparent}
 .btn.danger{color:var(--danger)}
 .btn:disabled{opacity:.45;cursor:default}
 .icon-btn{width:44px;height:44px;border:0;background:transparent;display:inline-flex;align-items:center;justify-content:center;border-radius:12px}
 .seg{display:flex;background:var(--track);border-radius:12px;padding:4px;gap:4px}
-.seg button{flex:1;height:36px;border:0;border-radius:9px;background:transparent;color:var(--sub);font-size:13px}
+.seg button{flex:1;height:36px;border:0;border-radius:9px;background:transparent;color:var(--sub);font-size:var(--t-sm)}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.08)}
 .seg.type button[data-v="i"][aria-pressed="true"]{background:var(--income);color:#fff}
 .seg.type button[data-v="e"][aria-pressed="true"]{background:var(--expense);color:#fff}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{height:36px;border-radius:18px;border:1px solid var(--field);background:var(--surface);padding:0 12px 0 6px;display:inline-flex;align-items:center;gap:6px;font-size:13px}
+.chip{height:36px;border-radius:18px;border:1px solid var(--field);background:var(--surface);padding:0 12px 0 6px;display:inline-flex;align-items:center;gap:6px;font-size:var(--t-sm)}
 .chip.plain{padding:0 12px}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
 .av{width:24px;height:24px;border-radius:12px;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid var(--surface)}
-.av.lg{width:40px;height:40px;border-radius:20px;font-size:14px;border:0}
+.av.lg{width:40px;height:40px;border-radius:20px;font-size:var(--t-md);border:0}
 .av.xl{width:96px;height:96px;border-radius:48px;font-size:34px;border:0}
 .av.ph{border-style:solid!important;border-color:var(--c)!important;border-width:2px!important}.av.ph.xl{border-width:3px!important}
 .mcolors{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px 6px;width:100%;justify-items:center}
@@ -127,7 +127,7 @@ h2{margin:0;font-size:14px;font-weight:700}
 .avs{display:inline-flex}.ic .avs .av{position:static;width:16px;height:16px;font-size:8px;border-width:1.5px}.ic .avs .av+.av{margin-left:-6px}.otag{width:29px;flex-shrink:0;display:inline-flex}.avs .av+.av{margin-left:-7px}
 .amt-i{color:var(--income)}.amt-e{color:var(--expense)}.amt-x{color:var(--sub)}
 .period{display:flex;align-items:center;justify-content:center;gap:4px;padding:4px 0 12px}
-.period .label{font-size:16px;font-weight:700;min-width:140px;text-align:center;border:0;background:transparent;color:var(--ink);font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:4px;min-height:40px;border-radius:10px;cursor:pointer;padding:0 8px}
+.period .label{font-size:var(--t-lg);font-weight:700;min-width:140px;text-align:center;border:0;background:transparent;color:var(--ink);font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:4px;min-height:40px;border-radius:10px;cursor:pointer;padding:0 8px}
 .period .label svg{color:var(--sub)}
 .rp-btn{width:40px;height:40px;flex-shrink:0;border-radius:10px;border:1px solid var(--field);background:var(--surface);color:var(--sub);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .rp-card .field{border-bottom:0}
@@ -136,67 +136,67 @@ h2{margin:0;font-size:14px;font-weight:700}
 .rp-btn.sg{height:auto;align-self:stretch;width:48px;border:0;background:var(--track);border-radius:12px}
 .rp-btn.sg[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
 .rp-btn[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.rp-line{display:flex;align-items:center;gap:6px;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:0 0 12px;margin-top:-4px;text-align:left}
+.rp-line{display:flex;align-items:center;gap:6px;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--accent);font:inherit;font-size:var(--t-sm);font-weight:600;padding:0 0 12px;margin-top:-4px;text-align:left}
 .field:has(+ .rp-line){border-bottom:0}
 .dt-pill{position:relative;flex:1;min-width:0;height:40px;border:1px solid var(--field);border-radius:10px;background:var(--surface);display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--ink);cursor:pointer;white-space:nowrap;overflow:hidden}
 .dt-pill svg{color:var(--sub);flex-shrink:0}
 .dt-pill input{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;padding:0;cursor:pointer}
 .pill.tm{width:68px;flex-shrink:0;height:40px;text-align:center;padding:0 4px}
 .rp-mark{display:inline-flex;vertical-align:-1px;margin-left:5px;color:var(--faint)}
-.rp-txt{min-width:0;display:flex;flex-direction:column;gap:2px}.rp-t{font-weight:500;font-size:15px;line-height:1.4;margin-bottom:2px}.rp-s{color:var(--sub);font-size:13px;line-height:1.4}.rp-n{font-size:13px;line-height:1.4;font-weight:500}
+.rp-txt{min-width:0;display:flex;flex-direction:column;gap:2px}.rp-t{font-weight:500;font-size:var(--t-md);line-height:1.4;margin-bottom:2px}.rp-s{color:var(--sub);font-size:var(--t-sm);line-height:1.4}.rp-n{font-size:var(--t-sm);line-height:1.4;font-weight:500}
 .rp-row{display:flex;align-items:center;gap:12px;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:12px 0;text-align:left;color:inherit;font:inherit;cursor:pointer}
 .rp-row:last-child{border-bottom:0}
 .rp-off{opacity:.5}
 .mp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.mp-grid button{min-height:46px;border-radius:12px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;position:relative;cursor:pointer}
+.mp-grid button{min-height:var(--h-row);border-radius:12px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:var(--t-md);position:relative;cursor:pointer}
 .mp-grid button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
 .mp-grid button.now:not([aria-pressed=true]){border-color:var(--accent);color:var(--accent)}
 .bd-card,.bd-empty{width:100%;border:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
 .bd-empty{gap:10px;padding:14px 16px;color:var(--ink)}
 .bd-bar{display:flex;height:10px;border-radius:5px;background:var(--track);overflow:hidden;gap:0}
-.bd-bar span{height:100%}.cb-row{display:flex;flex-direction:column;gap:6px;width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer}.cb-ic{width:40px;height:40px;border-radius:20px;background:var(--soft);display:inline-flex;align-items:center;justify-content:center;color:var(--sub);flex-shrink:0}.cb-ic svg{width:20px;height:20px}.cb-rest{min-height:44px}.cb-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px}.cb-cat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:inherit;font-size:12px;color:var(--ink);cursor:pointer}.cb-cat.on{border-color:var(--accent);background:var(--accent-soft,rgba(43,116,228,.08));color:var(--accent)}.cb-cat.on .cb-ic{color:var(--accent)}.cb-cat:disabled{opacity:.35;cursor:default}
-.fx-rules{margin:0;padding:0 4px 0 22px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.55;color:var(--sub)}
+.bd-bar span{height:100%}.cb-row{display:flex;flex-direction:column;gap:6px;width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer}.cb-ic{width:40px;height:40px;border-radius:20px;background:var(--soft);display:inline-flex;align-items:center;justify-content:center;color:var(--sub);flex-shrink:0}.cb-ic svg{width:20px;height:20px}.cb-rest{min-height:var(--h-row)}.cb-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px}.cb-cat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:inherit;font-size:var(--t-xs);color:var(--ink);cursor:pointer}.cb-cat.on{border-color:var(--accent);background:var(--accent-soft,rgba(43,116,228,.08));color:var(--accent)}.cb-cat.on .cb-ic{color:var(--accent)}.cb-cat:disabled{opacity:.35;cursor:default}
+.fx-rules{margin:0;padding:0 4px 0 22px;display:flex;flex-direction:column;gap:6px;font-size:var(--t-sm);line-height:1.55;color:var(--sub)}
 .fx-rules b{color:var(--ink);font-weight:600}
-.cur-pill{display:inline-flex;align-items:center;gap:2px;height:40px;padding:0 8px 0 10px;border-radius:10px;border:1px solid var(--field);background:var(--surface);color:var(--ink);font:inherit;font-size:13px;cursor:pointer;flex-shrink:0}
+.cur-pill{display:inline-flex;align-items:center;gap:2px;height:40px;padding:0 8px 0 10px;border-radius:10px;border:1px solid var(--field);background:var(--surface);color:var(--ink);font:inherit;font-size:var(--t-sm);cursor:pointer;flex-shrink:0}
 .rq-grid{display:grid;gap:6px}
-.rq-grid button{height:38px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:13px;cursor:pointer;padding:0}
+.rq-grid button{height:38px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font:inherit;font-size:var(--t-sm);cursor:pointer;padding:0}
 .rq-grid button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
-.rq-row{display:flex;align-items:center;gap:12px;min-height:46px;font-size:14px;border-bottom:1px solid var(--line);cursor:pointer}
+.rq-row{display:flex;align-items:center;gap:12px;min-height:var(--h-row);font-size:var(--t-md);border-bottom:1px solid var(--line);cursor:pointer}
 .rq-row:last-child{border-bottom:0}
 .rq-row .rd{width:22px;height:22px;border-radius:50%;border:2px solid var(--faint);flex-shrink:0;box-sizing:border-box}
 .rq-row[aria-pressed=true] .rd{border:7px solid var(--accent)}
-.rq-label{font-size:15px;display:flex;align-items:center;gap:6px}
-.rq-num{width:44px;height:34px;border:0;border-bottom:2px solid var(--ink);background:transparent;text-align:center;font-size:16px;color:var(--ink);border-radius:0;padding:0}
+.rq-label{font-size:var(--t-md);display:flex;align-items:center;gap:6px}
+.rq-num{width:44px;height:34px;border:0;border-bottom:2px solid var(--ink);background:transparent;text-align:center;font-size:var(--t-lg);color:var(--ink);border-radius:0;padding:0}
 .rq-num.off{display:inline-flex;align-items:center;justify-content:center;border-bottom-color:var(--line2);color:var(--faint)}
 .rq-extra{padding:4px 0 16px;border-bottom:1px solid var(--line)}
 .rq-wd{display:flex;justify-content:space-between}
-.rq-wd button{width:38px;height:38px;border-radius:50%;border:1px solid transparent;background:transparent;font-size:14px;color:var(--ink);cursor:pointer;padding:0}
+.rq-wd button{width:38px;height:38px;border-radius:50%;border:1px solid transparent;background:transparent;font-size:var(--t-md);color:var(--ink);cursor:pointer;padding:0}
 .rq-wd button[aria-pressed=true]{border-color:var(--accent);color:var(--accent) !important;font-weight:700;background:var(--accent-soft)}
-.rq-pill{width:100%;min-height:44px;border-radius:22px;border:1px solid var(--line2);background:var(--surface);color:var(--sub);font:inherit;font-size:14px;cursor:pointer;padding:0 18px}
+.rq-pill{width:100%;min-height:var(--h-row);border-radius:22px;border:1px solid var(--line2);background:var(--surface);color:var(--sub);font:inherit;font-size:var(--t-md);cursor:pointer;padding:0 18px}
 .rq-pill[aria-pressed=true]{border:2px solid var(--accent);color:var(--accent);font-weight:700}
-.rp-tabs button{font-size:13px;padding:0 2px}
+.rp-tabs button{font-size:var(--t-sm);padding:0 2px}
 .rp-sec{background:var(--soft);border-radius:14px;padding:14px 16px}
-.rp-radio{display:flex;align-items:center;gap:12px;width:100%;min-height:46px;border:0;border-bottom:1px solid var(--line2);background:transparent;color:var(--ink);font:inherit;font-size:14px;padding:0;text-align:left;cursor:pointer}
+.rp-radio{display:flex;align-items:center;gap:12px;width:100%;min-height:var(--h-row);border:0;border-bottom:1px solid var(--line2);background:transparent;color:var(--ink);font:inherit;font-size:var(--t-md);padding:0;text-align:left;cursor:pointer}
 .rp-radio:last-child{border-bottom:0}
 .rp-radio .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--faint);flex-shrink:0;box-sizing:border-box}
 .rp-radio[aria-pressed=true] .rd{border:6px solid var(--accent)}
 .rp-radio input{height:36px}
-.rp-grid button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;padding:4px 2px}
-.rp-grid button b{font-weight:600;font-size:13px}
-.rp-grid button small{font-size:12px;opacity:.75}
+.rp-grid button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:var(--h-field);padding:4px 2px}
+.rp-grid button b{font-weight:600;font-size:var(--t-sm)}
+.rp-grid button small{font-size:var(--t-xs);opacity:.75}
 .mp-grid button .dot{position:absolute;left:50%;bottom:7px;width:4px;height:4px;margin-left:-2px;border-radius:2px;background:currentColor;opacity:.5}
 .xp-row{display:flex;align-items:center;gap:8px}
 .xp-row input{flex:1;min-width:0}
 .cf-ok{background:var(--danger);border-color:var(--danger);color:#fff;font-weight:700}
-.tag{font-size:12px;color:var(--sub);border:1px solid var(--line2);border-radius:6px;padding:0 5px;margin-left:2px;font-weight:400}
+.tag{font-size:var(--t-xs);color:var(--sub);border:1px solid var(--line2);border-radius:6px;padding:0 5px;margin-left:2px;font-weight:400}
 .crop{position:fixed;inset:0;z-index:90;background:rgb(14,16,20);display:flex;align-items:center;justify-content:center;padding:16px}
 .crop-in{display:flex;flex-direction:column;align-items:center;gap:14px;color:#fff;text-align:center}
-.crop-hint{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;max-width:300px}
+.crop-hint{font-size:var(--t-sm);color:rgba(255,255,255,.75);line-height:1.5;max-width:300px}
 .crop-view{position:relative;overflow:hidden;border-radius:16px;touch-action:none;cursor:grab;background:#000}
 .crop-view img{position:absolute;left:0;top:0;max-width:none;user-select:none;-webkit-user-select:none;pointer-events:none;transform-origin:0 0}
 .crop-ring{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 999px rgba(0,0,0,.55);outline:2px solid rgba(255,255,255,.9);pointer-events:none}
 .crop-zoom{width:min(300px,100%);accent-color:var(--accent)}
-.crop .btn{min-height:44px}
+.crop .btn{min-height:var(--h-row)}
 .crop .btn:not(.ink){background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
 .statrow{border:0;background:transparent;width:100%;text-align:left;padding:6px 0;min-height:40px;gap:8px;color:inherit;font:inherit;cursor:pointer;border-radius:8px}
 .statrow.sm{min-height:34px;padding:2px 0}
@@ -206,74 +206,74 @@ h2{margin:0;font-size:14px;font-weight:700}
 .day.sel span:first-child{background:var(--soft);border-radius:8px;padding:2px 8px;margin-left:-8px}
 /* 달력 칸 금액은 줄 맞출 필요가 없어서 숫자 폭을 글자마다 다르게 (1 앞이 벌어져 보이지 않게) */
 .calc{font-variant-numeric:proportional-nums;letter-spacing:0!important}
-input[type="date"],input[type="time"]{min-width:0;font-size:13px}
+input[type="date"],input[type="time"]{min-width:0;font-size:var(--t-sm)}
 .calg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px}
-.calw{text-align:center;font-size:12px;color:var(--sub);padding:4px 0 6px}
-.calc{min-height:50px;border:0;border-radius:10px;background:transparent;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;font-size:10px;line-height:1.25;min-width:0;overflow:hidden;letter-spacing:-.3px}
+.calw{text-align:center;font-size:var(--t-xs);color:var(--sub);padding:4px 0 6px}
+.calc{min-height:var(--h-field);border:0;border-radius:10px;background:transparent;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;font-size:10px;line-height:1.25;min-width:0;overflow:hidden;letter-spacing:-.3px}
 .calc[aria-pressed="true"]{background:var(--accent-soft);box-shadow:inset 0 0 0 1.5px var(--accent)}
-.calnum{font-size:13px;font-weight:500;width:24px;height:24px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1px}
+.calnum{font-size:var(--t-sm);font-weight:500;width:24px;height:24px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1px}
 .sum3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .sum3 div{display:flex;flex-direction:column;gap:2px;min-width:0}
 .sum3 b{font-size:clamp(12px,3.7vw,15px);white-space:nowrap;letter-spacing:-.3px;overflow:hidden;text-overflow:ellipsis}
 .sum3 .sub{white-space:nowrap}
-.day{display:flex;justify-content:space-between;padding:14px 0 4px;font-size:13px;color:var(--sub)}.day-add{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;padding:0;margin:0;position:relative;line-height:inherit;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}.day-add:active{opacity:.6}@media (max-width:999px){html.kb #tabs,html.kb .fab{display:none!important}}html[data-tab=assets] #main .bubble{width:40px;height:40px;border-radius:20px}html[data-tab=assets] #main .otag .av{width:20px;height:20px;font-size:10px}html[data-tab=assets] #main .otag{width:33px}.day-add::after{content:'';position:absolute;top:-14px;bottom:-14px;left:-6px;right:-14px}.day-plus{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:4px;border:1px solid var(--line2);font-size:11px;box-sizing:border-box;line-height:1;color:var(--sub)}
-.tx{display:flex;align-items:center;gap:10px;padding:10px 0;width:100%;border:0;background:transparent;text-align:left}
+.day{display:flex;justify-content:space-between;padding:16px 0 4px;font-size:var(--t-sm);color:var(--sub)}.day-add{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;padding:0;margin:0;position:relative;line-height:inherit;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}.day-add:active{opacity:.6}@media (max-width:999px){html.kb #tabs,html.kb .fab{display:none!important}}html[data-tab=assets] #main .bubble{width:40px;height:40px;border-radius:20px}html[data-tab=assets] #main .otag .av{width:20px;height:20px;font-size:10px}html[data-tab=assets] #main .otag{width:33px}.day-add::after{content:'';position:absolute;top:-14px;bottom:-14px;left:-6px;right:-14px}.day-plus{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:4px;border:1px solid var(--line2);font-size:11px;box-sizing:border-box;line-height:1;color:var(--sub)}
+.tx{display:flex;align-items:center;gap:12px;padding:var(--pad-tx) 0;width:100%;border:0;background:transparent;text-align:left}
 .tx+.tx{border-top:1px solid var(--line)}
 .ic{position:relative;width:40px;height:40px;flex-shrink:0}
 .ic .bubble{width:40px;height:40px;border-radius:20px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--sub)}
 .ic .av{position:absolute;right:-4px;bottom:-3px;width:18px;height:18px;font-size:9px;border-width:2px}
-.tx .t1{font-size:14px;font-weight:500;line-height:1.35;overflow-wrap:anywhere}
-.tx .t2{font-size:13px;color:var(--sub);line-height:1.4;overflow-wrap:anywhere}
-.tx .amt{font-size:14px;font-weight:700;white-space:nowrap}
+.tx .t1{font-size:var(--t-md);font-weight:500;line-height:1.35;overflow-wrap:anywhere}
+.tx .t2{font-size:var(--t-sm);color:var(--sub);line-height:1.4;overflow-wrap:anywhere}
+.tx .amt{font-size:var(--t-md);font-weight:700;white-space:nowrap}
 .fab{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(92px + env(safe-area-inset-bottom,0px));width:56px;height:56px;border-radius:28px;background:var(--accent);color:var(--on-accent);box-shadow:0 6px 18px rgba(37,118,235,.3);border:0;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.18);z-index:5}
 nav.tabs{position:absolute;left:0;right:0;bottom:0;height:calc(68px + env(safe-area-inset-bottom,0px));padding:8px max(8px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(8px,env(safe-area-inset-left,0px));background:var(--surface);border-top:1px solid var(--line2);display:flex;z-index:6}
-nav.tabs button{flex:1;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;color:var(--faint)}
+nav.tabs button{flex:1;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:var(--t-xs);color:var(--faint)}
 nav.tabs button[aria-current="page"]{color:var(--accent);font-weight:700}
 nav.tabs .badge{position:absolute;top:-5px;right:-11px;min-width:16px;height:16px;border-radius:8px;background:var(--ink);color:var(--on-ink);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
-.empty{padding:40px 8px;text-align:center;color:var(--sub);font-size:13px;line-height:1.6}
+.empty{padding:40px 8px;text-align:center;color:var(--sub);font-size:var(--t-sm);line-height:1.6}
 /* 덮는 화면 */
 .screen{position:absolute;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column}.screen.ghost{pointer-events:none;animation:ghostOut .36s cubic-bezier(.2,.8,.2,1) forwards}.screen.copy-in{animation:copyIn .36s cubic-bezier(.2,.8,.2,1)}@keyframes copyIn{from{transform:translateX(100%);box-shadow:-12px 0 32px rgba(0,0,0,.18)}to{transform:none;box-shadow:-12px 0 32px rgba(0,0,0,0)}}@keyframes ghostOut{to{transform:translateX(-25%);opacity:.5}}
 .screen header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px));flex-shrink:0}
-.screen header h1{font-size:16px}
-.screen .body{flex:1;overflow-y:auto;padding:4px max(16px,env(safe-area-inset-right,0px)) 120px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
+.screen header h1{font-size:var(--t-lg)}
+.screen .body{flex:1;overflow-y:auto;padding:4px max(16px,env(safe-area-inset-right,0px)) 120px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:var(--gap-card)}
 .screen .foot{position:absolute;left:0;right:0;bottom:0;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(transparent,var(--bg) 30%);display:flex;gap:8px}
-.field{display:flex;align-items:center;min-height:48px;gap:8px;border-bottom:1px solid var(--line)}
+.field{display:flex;align-items:center;min-height:var(--h-field);gap:8px;border-bottom:1px solid var(--line)}
 .field:last-child{border-bottom:0}
-.field>.k{width:72px;flex-shrink:0;color:var(--sub);font-size:14px}
-.field input.v,.field select.v{flex:1;min-width:0;border:0;outline:none;background:transparent;text-align:right;font-size:14px;padding:8px 0}
-.field button.v{flex:1;min-width:0;border:0;background:transparent;text-align:right;font-size:14px;display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:8px 0}
-.pill{height:36px;border:1px solid var(--field);border-radius:10px;background:var(--surface);padding:0 10px;font-size:14px}
+.field>.k{width:72px;flex-shrink:0;color:var(--sub);font-size:var(--t-md)}
+.field input.v,.field select.v{flex:1;min-width:0;border:0;outline:none;background:transparent;text-align:right;font-size:var(--t-md);padding:8px 0}
+.field button.v{flex:1;min-width:0;border:0;background:transparent;text-align:right;font-size:var(--t-md);display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:8px 0}
+.pill{height:36px;border:1px solid var(--field);border-radius:10px;background:var(--surface);padding:0 10px;font-size:var(--t-md)}
 .sheet-wrap{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;justify-content:flex-end}
 .scrim{position:absolute;inset:0;background:var(--scrim);border:0}
 .sheet{position:relative;background:var(--surface);border-radius:20px 20px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px;max-height:88%}
 .sheet .handle{width:36px;height:4px;border-radius:2px;background:var(--field);align-self:center}
 .split{display:flex;height:440px;max-height:60vh;margin:0 -20px calc(-20px - env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
 .split .l{width:146px;flex-shrink:0;background:var(--bg);overflow-y:auto;display:flex;flex-direction:column}
-.split .l button{min-height:46px;flex-shrink:0;border:0;background:transparent;padding:8px 10px 8px 16px;display:flex;align-items:center;gap:8px;text-align:left;font-size:13px;color:var(--sub);line-height:1.3}
+.split .l button{min-height:var(--h-row);flex-shrink:0;border:0;background:transparent;padding:8px 10px 8px 16px;display:flex;align-items:center;gap:8px;text-align:left;font-size:var(--t-sm);color:var(--sub);line-height:1.3}
 .split .l button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:inset 3px 0 0 var(--ink)}
 .split .r{flex:1;min-width:0;overflow-y:auto;padding:0 16px 24px;display:flex;flex-direction:column}
-.opt{min-height:46px;flex-shrink:0;border:0;border-bottom:1px solid var(--line);background:transparent;padding:8px 4px;display:flex;align-items:center;gap:6px;text-align:left;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+.opt{min-height:var(--h-row);flex-shrink:0;border:0;border-bottom:1px solid var(--line);background:transparent;padding:8px 4px;display:flex;align-items:center;gap:6px;text-align:left;font-size:var(--t-md);line-height:1.35;overflow-wrap:anywhere}
 .opt[aria-pressed="true"]{font-weight:700}
 .opt .chk{margin-left:auto;flex-shrink:0;visibility:hidden}
 .opt[aria-pressed="true"] .chk{visibility:visible}
-.grp-h{font-size:13px;font-weight:700;color:var(--sub);padding:12px 0 2px}
-.grp-tg{display:flex;align-items:center;gap:6px;width:100%;min-height:44px;flex-shrink:0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;padding:8px 0}
-.toast{position:absolute;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-size:13px;z-index:60;max-width:90%;text-align:center}
+.grp-h{font-size:var(--t-sm);font-weight:700;color:var(--sub);padding:12px 0 2px}
+.grp-tg{display:flex;align-items:center;gap:6px;width:100%;min-height:var(--h-row);flex-shrink:0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;padding:8px 0}
+.toast{position:absolute;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-size:var(--t-sm);z-index:60;max-width:90%;text-align:center}
 .agrp{border-top:1px solid var(--line)}
 .agrp:first-child{border-top:0}
 .agrp>button{width:100%;height:56px;border:0;background:transparent;display:flex;align-items:center;gap:10px;padding:0;text-align:left}
-.arow{display:flex;align-items:center;gap:8px;min-height:44px;padding:4px 0;border:0;border-top:1px solid var(--line);background:transparent;width:100%;text-align:left}
+.arow{display:flex;align-items:center;gap:8px;min-height:var(--h-row);padding:4px 0;border:0;border-top:1px solid var(--line);background:transparent;width:100%;text-align:left}
 .sec-h{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px;background:var(--bg);margin:-16px -16px 0;border-radius:16px 16px 0 0;border-bottom:1px solid var(--line2)}
 .chev{transition:transform .15s}
 .icon-btn:disabled{opacity:.25}
-.fav-row{display:flex;flex-shrink:0;min-height:44px;gap:8px;overflow-x:auto;margin:0 -16px 12px;padding:2px 16px;scrollbar-width:none;align-items:center}.fav-row::-webkit-scrollbar{display:none}.fav-k{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--sub);white-space:nowrap;flex-shrink:0}.fav-chip{flex-shrink:0;gap:6px;white-space:nowrap;padding:0 14px}.fav-chip[aria-pressed=true]{border-color:var(--accent);background:var(--soft);color:var(--ink)}.fav-chip b{font-weight:600}.fav-chip span{font-size:13px;font-weight:600}
+.fav-row{display:flex;flex-shrink:0;min-height:var(--h-row);gap:8px;overflow-x:auto;margin:0 -16px 12px;padding:2px 16px;scrollbar-width:none;align-items:center}.fav-row::-webkit-scrollbar{display:none}.fav-k{display:flex;align-items:center;gap:4px;font-size:var(--t-xs);color:var(--sub);white-space:nowrap;flex-shrink:0}.fav-chip{flex-shrink:0;gap:6px;white-space:nowrap;padding:0 14px}.fav-chip[aria-pressed=true]{border-color:var(--accent);background:var(--soft);color:var(--ink)}.fav-chip b{font-weight:600}.fav-chip span{font-size:var(--t-sm);font-weight:600}
 
-.exbtn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border:0;background:transparent;padding:6px 0 2px;margin:-2px 0 -4px;font:inherit;font-size:13px;color:var(--sub);cursor:pointer}.exbtn .box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--line2);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}.exbtn[aria-checked=true] .box{background:var(--accent);border-color:var(--accent)}.exbtn[aria-checked=true]{color:var(--ink)}
+.exbtn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border:0;background:transparent;padding:6px 0 2px;margin:-2px 0 -4px;font:inherit;font-size:var(--t-sm);color:var(--sub);cursor:pointer}.exbtn .box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--line2);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}.exbtn[aria-checked=true] .box{background:var(--accent);border-color:var(--accent)}.exbtn[aria-checked=true]{color:var(--ink)}
 .icon-btn.eye{color:var(--accent);flex-shrink:0;margin-right:-10px}.icon-btn.eye.off{color:var(--faint)}
-.infobox{display:flex;gap:10px;align-items:flex-start;background:var(--soft);color:var(--sub);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.6}.infobox svg{flex-shrink:0;margin-top:1px;color:var(--accent)}.infobox b{color:var(--ink)}
-.warnbox{background:var(--warn-bg);color:var(--warn-fg);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5}
+.infobox{display:flex;gap:10px;align-items:flex-start;background:var(--soft);color:var(--sub);border-radius:12px;padding:12px 14px;font-size:var(--t-sm);line-height:1.6}.infobox svg{flex-shrink:0;margin-top:1px;color:var(--accent)}.infobox b{color:var(--ink)}
+.warnbox{background:var(--warn-bg);color:var(--warn-fg);border-radius:12px;padding:12px 14px;font-size:var(--t-sm);line-height:1.5}
 .bar{display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px;background:var(--soft)}
-table.map{width:100%;border-collapse:collapse;font-size:13px}
+table.map{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
 table.map td{padding:6px 4px;border-bottom:1px solid var(--line);white-space:nowrap}
 .scrollx{overflow-x:auto}
 .switch{width:48px;height:28px;border-radius:14px;background:var(--field);position:relative;flex-shrink:0;border:0}
@@ -287,16 +287,16 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 .dt input::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;opacity:0;cursor:pointer}
 .dt:focus-within{outline:2px solid var(--expense);outline-offset:2px}
 .drag{touch-action:none;cursor:grab;color:var(--faint);display:inline-flex;align-items:center;justify-content:center;width:28px;height:44px;flex-shrink:0;margin-left:-6px}
-.ce-s{min-height:48px;border-bottom:1px solid var(--line);gap:4px;background:var(--surface)}
-.ce-s input{border:0;outline:none;background:transparent;font-size:14px;padding:8px 0;min-width:0}
+.ce-s{min-height:var(--h-field);border-bottom:1px solid var(--line);gap:4px;background:var(--surface)}
+.ce-s input{border:0;outline:none;background:transparent;font-size:var(--t-md);padding:8px 0;min-width:0}
 .ce-dragging{opacity:.55}
-.inline-msg{background:var(--warn-bg);color:var(--warn-fg);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5;margin-bottom:8px}
+.inline-msg{background:var(--warn-bg);color:var(--warn-fg);border-radius:10px;padding:10px 12px;font-size:var(--t-sm);line-height:1.5;margin-bottom:8px}
 @media (prefers-reduced-motion: reduce){.chev,.switch::after{transition:none}}
 /* 태블릿·PC: 왼쪽 세로 탭, 넓은 화면 2단 */
 @media (min-width:720px){
   #app{max-width:none;padding-left:calc(84px + env(safe-area-inset-left,0px))}
   nav.tabs{position:fixed;top:0;bottom:0;left:0;right:auto;width:calc(84px + env(safe-area-inset-left,0px));height:auto;flex-direction:column;justify-content:flex-start;gap:6px;padding:calc(20px + env(safe-area-inset-top,0px)) 6px calc(16px + env(safe-area-inset-bottom,0px)) calc(6px + env(safe-area-inset-left,0px));border-top:0;border-right:1px solid var(--line2)}
-  nav.tabs button{flex:0 0 auto;min-height:56px;border-radius:14px;justify-content:center;padding:8px 0}
+  nav.tabs button{flex:0 0 auto;min-height:60px;border-radius:14px;justify-content:center;padding:8px 0}
   nav.tabs button[aria-current="page"]{background:var(--soft)}
   main{padding-left:max(24px,calc((100% - 760px) / 2));padding-right:max(24px,calc((100% - 760px) / 2));padding-bottom:48px}
   .fab{position:fixed;bottom:calc(32px + env(safe-area-inset-bottom,0px));right:max(32px,env(safe-area-inset-right,0px))}
@@ -327,8 +327,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ink);margin:0;fle
 <script>window.FB_CONFIG = {"apiKey": "AIzaSyDSn7_SoLfwlu7xgGGWSbLOktSv_hyq8rM", "authDomain": "ppyu-gagyebu.firebaseapp.com", "projectId": "ppyu-gagyebu", "storageBucket": "ppyu-gagyebu.firebasestorage.app", "messagingSenderId": "88955801577", "appId": "1:88955801577:web:e88b42e4480cf702d54578"};
 window.FB_DEFAULTS = { "categories": {  "expense": [   {    "id": "e1",    "n": "식비",    "subs": [     {      "id": "e1.1",      "n": "외식"     },     {      "id": "e1.2",      "n": "식료품"     },     {      "id": "e1.3",      "n": "음료"     },     {      "id": "e1.4",      "n": "간식"     }    ]   },   {    "id": "e2",    "n": "데이트",    "subs": []   },   {    "id": "e3",    "n": "문화생활",    "subs": [     {      "id": "e3.1",      "n": "영화/공연"     },     {      "id": "e3.2",      "n": "음악/도서"     },     {      "id": "e3.3",      "n": "여행"     },     {      "id": "e3.4",      "n": "취미"     },     {      "id": "e3.5",      "n": "모임"     }    ]   },   {    "id": "e4",    "n": "교통/차량",    "subs": [     {      "id": "e4.1",      "n": "대중교통"     },     {      "id": "e4.2",      "n": "택시"     },     {      "id": "e4.3",      "n": "주차"     },     {      "id": "e4.4",      "n": "주유"     },     {      "id": "e4.5",      "n": "정비"     }    ]   },   {    "id": "e5",    "n": "패션/미용",    "subs": [     {      "id": "e5.1",      "n": "의류"     },     {      "id": "e5.2",      "n": "패션잡화"     },     {      "id": "e5.3",      "n": "헤어/뷰티"     },     {      "id": "e5.4",      "n": "세탁비"     }    ]   },   {    "id": "e6",    "n": "생활용품",    "subs": [     {      "id": "e6.1",      "n": "가구/가전"     },     {      "id": "e6.2",      "n": "주방/욕실"     },     {      "id": "e6.3",      "n": "잡화소모"     }    ]   },   {    "id": "e7",    "n": "주거/통신",    "subs": [     {      "id": "e7.1",      "n": "관리비"     },     {      "id": "e7.2",      "n": "공과금"     },     {      "id": "e7.3",      "n": "통신비"     },     {      "id": "e7.4",      "n": "대출이자"     },     {      "id": "e7.5",      "n": "세금"     },     {      "id": "e7.6",      "n": "구독료"     },     {      "id": "e7.7",      "n": "수수료"     }    ]   },   {    "id": "e8",    "n": "육아",    "subs": []   },   {    "id": "e9",    "n": "경조사비",    "subs": [     {      "id": "e9.1",      "n": "경조사비"     },     {      "id": "e9.2",      "n": "선물"     }    ]   },   {    "id": "e10",    "n": "건강",    "subs": [     {      "id": "e10.1",      "n": "운동"     },     {      "id": "e10.2",      "n": "병원"     },     {      "id": "e10.3",      "n": "약국"     }    ]   },   {    "id": "e11",    "n": "교육",    "subs": [     {      "id": "e11.1",      "n": "학비"     },     {      "id": "e11.2",      "n": "학원비"     },     {      "id": "e11.3",      "n": "교재비"     }    ]   },   {    "id": "e12",    "n": "기타",    "subs": []   }  ],  "income": [   {    "id": "i1",    "n": "월급",    "subs": []   },   {    "id": "i2",    "n": "상여",    "subs": []   },   {    "id": "i3",    "n": "부수입",    "subs": []   },   {    "id": "i4",    "n": "용돈",    "subs": []   },   {    "id": "i5",    "n": "금융소득",    "subs": []   },   {    "id": "i7",    "n": "빌려준 돈",    "subs": []   },   {    "id": "i8",    "n": "세금 환급",    "subs": []   },   {    "id": "i9",    "n": "기타",    "subs": []   }  ] }, "kinds": [  {   "id": "cash",   "n": "현금",   "subs": [    "현금"   ]  },  {   "id": "bank",   "n": "은행",   "subs": [    "은행"   ]  },  {   "id": "credit",   "n": "신용카드",   "subs": [    "신용카드"   ]  },  {   "id": "check",   "n": "체크카드",   "subs": [    "체크카드"   ]  },  {   "id": "prepaid",   "n": "선불식카드",   "subs": [    "선불식카드"   ]  },  {   "id": "save",   "n": "저축",   "subs": [    "저축"   ]  },  {   "id": "invest",   "n": "투자",   "subs": [    "투자"   ]  },  {   "id": "estate",   "n": "부동산",   "subs": [    "부동산"   ]  },  {   "id": "dep",   "n": "보증금",   "subs": [    "보증금"   ]  },  {   "id": "pension",   "n": "연금",   "subs": [    "연금"   ]  },  {   "id": "insure",   "n": "보험",   "subs": [    "보험"   ]  },  {   "id": "loan",   "n": "대출",   "subs": [    "대출"   ]  },  {   "id": "etc",   "n": "기타",   "subs": [    "기타"   ]  } ], "months": [], "rates": {  "USD": 1350 }, "seq": 0, "spenders": []};
 window.FB_LEGACY = {"book": "ppyu", "ownerHash": "dff9ea7b6f29e0f3a892e760573a52025ab4c5cd741bd213c3e7dc1db73dd719"};
-window.APP_VERSION = "2026.11.24-0018";</script>
-<script src="fb.js?v=2026.11.24-0018"></script>
+window.APP_VERSION = "2026.11.24-1109";</script>
+<script src="fb.js?v=2026.11.24-1109"></script>
 <script>
 (() => {
 'use strict';
@@ -594,6 +594,11 @@ async function runRecurring() {
   } catch (e) { S._rpDay = null; } finally { S._rpBusy = false; }
 }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') setTimeout(runRecurring, 800); else saveResume(); });
+// ---------- 글자 크기 (기기마다 따로) ----------
+const FZ = { s: 0.92, m: 1, l: 1.1 };
+const fzNow = () => { try { return localStorage.getItem('ppyu.fz') || 'm'; } catch (e) { return 'm'; } };
+const fzApply = () => document.documentElement.style.setProperty('--fz', FZ[fzNow()] || 1);
+fzApply();
 // ---------- 키보드가 올라오면 아래 탭 바·+ 버튼 숨기기 ----------
 // 화면이 키보드만큼 줄어들 때(resizes-content) 탭 바가 키보드 위로 딸려 올라오지 않게 해요
 (() => {
@@ -755,7 +760,7 @@ function viewConfirm() {
   const c = S.confirm;
   return `<div class="sheet-wrap" style="z-index:70"><button class="scrim" data-act="cf-close" aria-label="취소"></button>
   <div class="sheet" role="alertdialog" aria-modal="true" aria-labelledby="cf-t" style="gap:10px"><span class="handle"></span>
-    <h2 id="cf-t" style="font-size:16px;margin-top:4px">${esc(c.title)}</h2>${c.body ? `<p class="sub" style="margin:0;line-height:1.6">${esc(c.body)}</p>` : ''}
+    <h2 id="cf-t" style="font-size:var(--t-lg);margin-top:4px">${esc(c.title)}</h2>${c.body ? `<p class="sub" style="margin:0;line-height:1.6">${esc(c.body)}</p>` : ''}
     <div class="row" style="gap:8px;margin-top:10px"><button class="btn grow" data-act="cf-close">취소</button><button class="btn grow cf-ok" data-act="cf-yes">${esc(c.ok || '확인')}</button></div>
   </div></div>`;
 }
@@ -814,7 +819,7 @@ function txRow(r, showDate) {
   return `<button class="tx" data-act="edit" data-id="${r.id}" data-ym="${r.ts.slice(0, 6)}">
     <span class="ic"><span class="bubble">${svg(icon)}</span>${spFace(r.sp)}</span>
     <span class="grow"><span class="t1" style="display:block">${esc(r.ct || catLabel(r))}${r.id.startsWith('R_') ? `<span class="rp-mark" aria-label="반복 내역">${svg(REPEAT, 13, 2)}</span>` : ''}</span><span class="t2" style="display:block">${showDate ? `${d.getMonth() + 1}.${d.getDate()} · ` : ''}${esc(sub)}${r.m ? ' · ' + esc(r.m) : ''}</span></span>
-    <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${cls}">${amt}</span>${fxRow ? `<span class="faint" style="font-size:12px">${won(r.amt)}원</span>` : r.fxc && r.fx && CUR[r.fxc] && r.t !== 'x' ? `<span class="faint" style="font-size:12px">${fmtCur(r.fx, r.fxc)}</span>` : r.t === 'x' && r.fx ? `<span class="faint" style="font-size:12px">${fmtCur(r.fx, isFx(r.a) ? curOf(r.a) : curOf(r.to))}</span>` : r.t === 'x' && r.fee ? `<span class="faint" style="font-size:12px">수수료 ${won(r.fee)}원</span>` : ''}</span></button>`;
+    <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${cls}">${amt}</span>${fxRow ? `<span class="faint" style="font-size:var(--t-xs)">${won(r.amt)}원</span>` : r.fxc && r.fx && CUR[r.fxc] && r.t !== 'x' ? `<span class="faint" style="font-size:var(--t-xs)">${fmtCur(r.fx, r.fxc)}</span>` : r.t === 'x' && r.fx ? `<span class="faint" style="font-size:var(--t-xs)">${fmtCur(r.fx, isFx(r.a) ? curOf(r.a) : curOf(r.to))}</span>` : r.t === 'x' && r.fee ? `<span class="faint" style="font-size:var(--t-xs)">수수료 ${won(r.fee)}원</span>` : ''}</span></button>`;
 }
 
 // ---------- 내역 ----------
@@ -874,7 +879,7 @@ function searchResHtml() {
   const inc = res.filter((r) => r.t === 'i').reduce((s, r) => s + r.amt, 0);
   const exp = res.reduce((s, r) => s + expOf(r), 0);
   const shown = res.slice(0, 300);
-  return `  <div class="row" style="padding:12px 4px 0"><b>${won(res.length)}건</b><span class="grow"></span><span class="amt-i" style="font-size:13px">수입 ${won(inc)}</span><span class="amt-e" style="font-size:13px">지출 ${won(exp)}</span></div>
+  return `  <div class="row" style="padding:12px 4px 0"><b>${won(res.length)}건</b><span class="grow"></span><span class="amt-i" style="font-size:var(--t-sm)">수입 ${won(inc)}</span><span class="amt-e" style="font-size:var(--t-sm)">지출 ${won(exp)}</span></div>
   ${res.length ? `<div class="card" style="padding:4px 16px;margin-top:8px">${shown.map((r) => txRow(r, true)).join('')}</div>${res.length > shown.length ? `<p class="faint" style="text-align:center">처음 ${shown.length}건만 보여줘요. 조건을 좁히거나 엑셀로 받아 보세요.</p>` : ''}` : `<div class="empty">조건에 맞는 내역이 없어요.</div>`}`;
 }
 function viewSearch() {
@@ -905,18 +910,18 @@ function viewMulti(sh) {
       ${(() => { const all = S.cfg.categories[kind].every((c) => sel.has('c:' + c.id)); const some = S.cfg.categories[kind].some((c) => sel.has('c:' + c.id) || (c.subs || []).some((x) => sel.has('s:' + x.id))); return `<button class="opt" style="width:100%;gap:12px;border-bottom:2px solid var(--line2)" data-act="mp-all">${BOX(all || (some ? 'some' : false))}<b class="grow">${kind === 'expense' ? '지출' : '수입'} 전체</b></button>`; })()}
       <div data-keep="mp" style="overflow-y:auto;margin:0 -20px;padding:0 20px;max-height:48vh">${S.cfg.categories[kind].map((c) => { const on = sel.has('c:' + c.id); const some = !on && (c.subs || []).some((x) => sel.has('s:' + x.id));
         return `<button class="opt" style="width:100%;gap:12px" data-act="mp-t" data-v="c:${c.id}" aria-pressed="${on}">${BOX(on || (some ? 'some' : false))}<span style="color:var(--sub);display:flex">${svg(ICON[c.n] || DOTS, 18)}</span><span class="grow">${esc(c.n)}</span></button>
-        ${(c.subs || []).map((x) => `<button class="opt" style="width:100%;gap:12px;padding-left:36px;min-height:44px;font-size:13px" data-act="mp-t" data-v="s:${x.id}" aria-pressed="${on || sel.has('s:' + x.id)}" ${on ? 'disabled' : ''}>${BOX(on || sel.has('s:' + x.id))}<span class="grow" style="${on ? 'color:var(--faint)' : ''}">${esc(x.n)}</span></button>`).join('')}`; }).join('')}</div>`;
+        ${(c.subs || []).map((x) => `<button class="opt" style="width:100%;gap:12px;padding-left:36px;min-height:var(--h-row);font-size:var(--t-sm)" data-act="mp-t" data-v="s:${x.id}" aria-pressed="${on || sel.has('s:' + x.id)}" ${on ? 'disabled' : ''}>${BOX(on || sel.has('s:' + x.id))}<span class="grow" style="${on ? 'color:var(--faint)' : ''}">${esc(x.n)}</span></button>`).join('')}`; }).join('')}</div>`;
   } else {
     const list = S.assets.filter((a) => !a.hidden || sh.hid || sel.has(a.id));
     const allA = list.length && list.every((a) => sel.has(a.id)), someA = list.some((a) => sel.has(a.id));
     body = `<button class="opt" style="width:100%;gap:12px;border-bottom:2px solid var(--line2)" data-act="mp-all">${BOX(allA || (someA ? 'some' : false))}<b class="grow">자산 전체</b><span class="faint">${list.length}</span></button>
       <div data-keep="mp" style="overflow-y:auto;margin:0 -20px;padding:0 20px;max-height:52vh">${kindsOrd().map((k) => { const items = byKind(list.filter((a) => a.gid === k.id)); if (!items.length) return ''; const all = items.every((a) => sel.has(a.id)), some = items.some((a) => sel.has(a.id));
         return `<button class="opt" style="width:100%;gap:12px" data-act="mp-grp" data-v="${k.id}">${BOX(all || (some ? 'some' : false))}<span style="color:var(--sub);display:flex">${svg(KICON[k.id] || DOTS, 18)}</span><b class="grow">${esc(k.n)}</b><span class="faint">${items.length}</span></button>
-        ${items.map((a) => `<button class="opt" style="width:100%;gap:10px;padding-left:36px;min-height:44px;font-size:13px" data-act="mp-t" data-v="${a.id}" aria-pressed="${sel.has(a.id)}">${BOX(sel.has(a.id))}${otag(a)}<span class="grow">${esc(a.name)}${a.hidden ? ' <span class="faint">숨김</span>' : ''}</span></button>`).join('')}`; }).join('')}
-      <label class="row" style="min-height:44px;font-size:13px;color:var(--sub)"><input type="checkbox" id="mp-hid" ${sh.hid ? 'checked' : ''} data-act="mp-hid">숨긴 자산도 보기</label></div>`;
+        ${items.map((a) => `<button class="opt" style="width:100%;gap:10px;padding-left:36px;min-height:var(--h-row);font-size:var(--t-sm)" data-act="mp-t" data-v="${a.id}" aria-pressed="${sel.has(a.id)}">${BOX(sel.has(a.id))}${otag(a)}<span class="grow">${esc(a.name)}${a.hidden ? ' <span class="faint">숨김</span>' : ''}</span></button>`).join('')}`; }).join('')}
+      <label class="row" style="min-height:var(--h-row);font-size:var(--t-sm);color:var(--sub)"><input type="checkbox" id="mp-hid" ${sh.hid ? 'checked' : ''} data-act="mp-hid">숨긴 자산도 보기</label></div>`;
   }
   return `<div class="sheet-wrap"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="${sh.k === 'c' ? '분류' : '자산'} 고르기" style="gap:12px"><span class="handle"></span>
-    <div class="row"><h2 style="font-size:16px" class="grow">${sh.k === 'c' ? '분류' : '자산'} <span class="faint" style="font-weight:400">${sel.size ? sel.size + '개 선택' : '전체'}</span></h2><button class="btn sm ghost" data-act="mp-clear" ${sel.size ? '' : 'disabled'}>선택 해제</button></div>
+    <div class="row"><h2 style="font-size:var(--t-lg)" class="grow">${sh.k === 'c' ? '분류' : '자산'} <span class="faint" style="font-weight:400">${sel.size ? sel.size + '개 선택' : '전체'}</span></h2><button class="btn sm ghost" data-act="mp-clear" ${sel.size ? '' : 'disabled'}>선택 해제</button></div>
     ${body}
     <button class="btn lg ink" data-act="sheet-close">완료</button></div></div>`;
 }
@@ -960,7 +965,7 @@ function sugList(e) {
 }
 function sugHtml(e) {
   const l = sugList(e); S._sug = l; if (!l.length) return '';
-  return `<div style="display:flex;flex-direction:column;border-top:1px solid var(--line);padding:4px 0 8px" role="listbox" aria-label="전에 쓴 내용">${l.map((x, i) => `<button class="row" data-act="ct-sug" data-v="${i}" role="option" style="border:0;background:transparent;min-height:44px;text-align:left;gap:8px;padding:4px 0"><span style="color:var(--faint);display:flex">${svg('M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 16)}</span><span class="grow" style="min-width:0;overflow-wrap:anywhere">${esc(x.ct)}</span><span class="faint" style="font-size:12px;white-space:nowrap">${esc(x.r.t === 'x' ? '→ ' + aName(x.r.to) : catLabel(x.r))}</span></button>`).join('')}</div>`;
+  return `<div style="display:flex;flex-direction:column;border-top:1px solid var(--line);padding:4px 0 8px" role="listbox" aria-label="전에 쓴 내용">${l.map((x, i) => `<button class="row" data-act="ct-sug" data-v="${i}" role="option" style="border:0;background:transparent;min-height:var(--h-row);text-align:left;gap:8px;padding:4px 0"><span style="color:var(--faint);display:flex">${svg('M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 16)}</span><span class="grow" style="min-width:0;overflow-wrap:anywhere">${esc(x.ct)}</span><span class="faint" style="font-size:var(--t-xs);white-space:nowrap">${esc(x.r.t === 'x' ? '→ ' + aName(x.r.to) : catLabel(x.r))}</span></button>`).join('')}</div>`;
 }
 const normM = (x) => String(x || '').replace(/\s+/g, '').toLowerCase();
 function openEditor(o, mode, extra) {
@@ -1019,9 +1024,9 @@ function viewEditor() {
       <div class="field"><span class="k">${isX ? '보낸 자산' : '자산'}</span><button class="v" data-act="pick-asset" data-v="a" style="${A(e.a) ? '' : 'color:var(--warn-fg)'}">${A(e.a) ? esc(aName(e.a)) : '선택하기'}${CHEV}</button></div>
       ${isX ? `<div class="field"><span class="k">받는 자산</span><button class="v" data-act="pick-asset" data-v="to">${esc(e.to ? aName(e.to) : '선택하기')}${CHEV}</button></div>`
       : `<div class="field"><span class="k">분류</span><button class="v" data-act="pick-cat" style="${CAT[e.c] ? '' : 'color:var(--warn-fg)'}">${esc(cat)}${CHEV}</button></div>`}
-      ${showFx ? `<div class="field" style="${curPill ? 'gap:6px' : ''}"><span class="k" style="${curPill ? 'width:auto;min-width:42px' : ''}">${curPill ? '금액' : CUR[edCur(e)].sh}</span>${curPill}<input id="ed-fx" class="v" style="font-size:16px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}" inputmode="decimal" autocomplete="off" placeholder="${CUR[edCur(e)].dec ? '0.00' : '0'}" value="${e.fx || ''}" data-act="ed-fx"><span style="font-weight:700">${CUR[edCur(e)].sh}</span></div>` : ''}
-      <div class="field" style="${!showFx && curPill ? 'gap:6px' : ''}"><span class="k" style="${!showFx && curPill ? 'width:auto;min-width:42px' : ''}">${showFx ? '원화' : e.rp === 'inst' ? '전체 금액' : '금액'}</span>${showFx ? '' : curPill}${showFx ? `<span class="faint" style="font-size:12px;white-space:nowrap">${rateText(edCur(e))}</span>` : ''}<input id="ed-amt" class="v" inputmode="numeric" autocomplete="off" placeholder="0" value="${e.amt ? won(e.amt) : ''}" data-act="ed-amt" style="font-size:16px;font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}"><span style="font-weight:700">원</span></div>
-      ${isX ? `<div class="field"><span class="k">수수료</span><input id="ed-fee" class="v" inputmode="numeric" autocomplete="off" placeholder="없음" value="${e.fee ? won(e.fee) : ''}" data-act="ed-fee"><span>원</span></div><div id="fee-hint" class="faint" style="font-size:12px;padding:0 0 10px;text-align:right" ${feeHint(e) ? '' : 'hidden'}>${feeHint(e)}</div>` : ''}
+      ${showFx ? `<div class="field" style="${curPill ? 'gap:6px' : ''}"><span class="k" style="${curPill ? 'width:auto;min-width:42px' : ''}">${curPill ? '금액' : CUR[edCur(e)].sh}</span>${curPill}<input id="ed-fx" class="v" style="font-size:var(--t-lg);font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}" inputmode="decimal" autocomplete="off" placeholder="${CUR[edCur(e)].dec ? '0.00' : '0'}" value="${e.fx || ''}" data-act="ed-fx"><span style="font-weight:700">${CUR[edCur(e)].sh}</span></div>` : ''}
+      <div class="field" style="${!showFx && curPill ? 'gap:6px' : ''}"><span class="k" style="${!showFx && curPill ? 'width:auto;min-width:42px' : ''}">${showFx ? '원화' : e.rp === 'inst' ? '전체 금액' : '금액'}</span>${showFx ? '' : curPill}${showFx ? `<span class="faint" style="font-size:var(--t-xs);white-space:nowrap">${rateText(edCur(e))}</span>` : ''}<input id="ed-amt" class="v" inputmode="numeric" autocomplete="off" placeholder="0" value="${e.amt ? won(e.amt) : ''}" data-act="ed-amt" style="font-size:var(--t-lg);font-weight:700;color:${e.t === 'i' ? 'var(--income)' : e.t === 'e' ? 'var(--expense)' : 'var(--ink)'}"><span style="font-weight:700">원</span></div>
+      ${isX ? `<div class="field"><span class="k">수수료</span><input id="ed-fee" class="v" inputmode="numeric" autocomplete="off" placeholder="없음" value="${e.fee ? won(e.fee) : ''}" data-act="ed-fee"><span>원</span></div><div id="fee-hint" class="faint" style="font-size:var(--t-xs);padding:0 0 10px;text-align:right" ${feeHint(e) ? '' : 'hidden'}>${feeHint(e)}</div>` : ''}
       <div class="field"><span class="k">내용</span><input id="ed-ct" class="v" placeholder="${e.t === 'i' ? '어디서 받았나요?' : isX ? '예: 카드값 결제' : '어디에 썼나요?'}" value="${esc(e.ct)}" data-act="ed-f" data-k="ct" autocomplete="off"></div>
       <div id="ct-sug">${sugHtml(e)}</div>
       <div class="field"><span class="k">메모</span><input id="ed-m" class="v" placeholder="메모 입력" value="${esc(e.m)}" data-act="ed-f" data-k="m"></div>
@@ -1078,13 +1083,13 @@ function viewFx() {
   const auto = S.cfg.rateAuto !== false; const used = new Set(S.assets.map((a) => a.cur).filter((c) => CUR[c]));
   const list = CURS.map((x) => x[0]).sort((a, b) => (used.has(b) ? 1 : 0) - (used.has(a) ? 1 : 0));
   const row = (c) => { const k = CUR[c]; const u = k.unit; const v = Math.round(rate(c) * u * 100) / 100;
-    return `<div class="row" style="min-height:50px;gap:10px;border-bottom:1px solid var(--line)"><span class="grow" style="min-width:0"><span style="display:block">${k.n}${used.has(c) ? ' <span class="chip plain" style="height:20px;font-size:11px;padding:0 6px">쓰는 중</span>' : ''}</span><span class="faint" style="font-size:12px">${u} ${k.c} (${k.sym}${u === 1 ? '1' : u})</span></span>
+    return `<div class="row" style="min-height:var(--h-field);gap:10px;border-bottom:1px solid var(--line)"><span class="grow" style="min-width:0"><span style="display:block">${k.n}${used.has(c) ? ' <span class="chip plain" style="height:20px;font-size:11px;padding:0 6px">쓰는 중</span>' : ''}</span><span class="faint" style="font-size:var(--t-xs)">${u} ${k.c} (${k.sym}${u === 1 ? '1' : u})</span></span>
       ${auto ? `<b style="white-space:nowrap">${v.toLocaleString('ko-KR')}원</b>` : `<input class="pill" style="width:104px;text-align:right" inputmode="decimal" value="${v}" data-act="set-rate" data-c="${c}" aria-label="${k.n} 환율"><span>원</span>`}</div>`; };
   const d = S.cfg.rateDate;
   return `<div class="screen" role="dialog" aria-label="환율" style="z-index:19">
   <header><button class="icon-btn" data-act="fx-close" aria-label="뒤로">${BACK}</button><h1>환율</h1><span style="width:44px"></span></header>
   <div class="body">
-    <div class="card" style="padding:0 16px"><div class="row" style="min-height:52px;gap:12px"><span class="grow"><span style="display:block">자동으로 맞추기</span><span class="faint" style="font-size:12px">${auto ? (d ? `${+d.slice(4, 6)}월 ${+d.slice(6)}일 환율` : '인터넷에 연결되면 받아 와요') : '아래 숫자를 직접 적어요'}</span></span><button class="switch" role="switch" aria-checked="${auto}" aria-label="자동으로 맞추기" data-act="fx-auto"></button></div></div>
+    <div class="card" style="padding:0 16px"><div class="row" style="min-height:var(--h-row);gap:12px"><span class="grow"><span style="display:block">자동으로 맞추기</span><span class="faint" style="font-size:var(--t-xs)">${auto ? (d ? `${+d.slice(4, 6)}월 ${+d.slice(6)}일 환율` : '인터넷에 연결되면 받아 와요') : '아래 숫자를 직접 적어요'}</span></span><button class="switch" role="switch" aria-checked="${auto}" aria-label="자동으로 맞추기" data-act="fx-auto"></button></div></div>
     <ul class="fx-rules">
       <li><b>내역</b>은 적는 날 환율로 원화를 계산해 저장해요. 나중에 환율이 바뀌어도 이미 적은 내역은 그대로예요.</li>
       <li><b>외화 자산 잔액</b>은 오늘 환율로 원화로 바꿔 보여 줘요.</li>
@@ -1167,7 +1172,7 @@ function budgetCard(ym) {
   return `<button class="card stack bd-card" data-act="bd-open" style="gap:10px">
     <span class="row"><span class="sub grow">${+ym.slice(4)}월 예산</span><b>${won(B)}원</b>${CHEV}</span>
     <span class="bd-bar"><span style="width:${w(spent)}%;background:${col}"></span>${plan ? `<span style="width:${w(plan)}%;background:${col};opacity:.3"></span>` : ''}</span>
-    <span class="row" style="font-size:13px;gap:12px"><span class="sub">쓴 돈 <b style="color:var(--ink);font-weight:600">${won(spent)}원</b></span>${plan ? `<span class="sub">나갈 예정 <b style="color:var(--ink);font-weight:600">${won(plan)}원</b></span>` : ''}<span class="grow"></span><span class="sub">${Math.round(pct * 100)}%</span></span>
+    <span class="row" style="font-size:var(--t-sm);gap:12px"><span class="sub">쓴 돈 <b style="color:var(--ink);font-weight:600">${won(spent)}원</b></span>${plan ? `<span class="sub">나갈 예정 <b style="color:var(--ink);font-weight:600">${won(plan)}원</b></span>` : ''}<span class="grow"></span><span class="sub">${Math.round(pct * 100)}%</span></span>
     <span class="row" style="justify-content:space-between;gap:8px;flex-wrap:wrap">${foot}</span></button>`;
 }
 function catBudgetSection(ym) {
@@ -1183,14 +1188,14 @@ function catBudgetSection(ym) {
     return `<button class="cb-row" data-act="cb-open" data-v="${b.id}">
       <span class="row" style="gap:10px"><span class="cb-ic">${svg((c && ICON[c.n]) || DOTS)}</span><span class="grow" style="min-width:0">${esc(c ? c.n : '지운 분류')}</span>${right}</span>
       <span class="bd-bar" style="height:6px;margin-left:50px"><span style="width:${w(sp)}%;background:${col}"></span>${plan ? `<span style="width:${w(plan)}%;background:${col};opacity:.3"></span>` : ''}</span>
-      <span class="sub" style="font-size:12px;margin-left:50px">쓴 돈 ${won(sp)}원${plan ? ` · 나갈 예정 ${won(plan)}원` : ''} · 예산 ${won(B)}원</span></button>`; }).join('');
+      <span class="sub" style="font-size:var(--t-xs);margin-left:50px">쓴 돈 ${won(sp)}원${plan ? ` · 나갈 예정 ${won(plan)}원` : ''} · 예산 ${won(B)}원</span></button>`; }).join('');
   let rest = '';
   if (list.length) { const inB = new Set(list.flatMap((b) => b.cats)); const other = (S.byYm[ym] || []).reduce((t, r) => t + (r.t === 'e' && !inB.has(r.c) ? r.amt : 0), 0);
     rest = `<div class="row cb-rest"><span class="grow sub">예산 없는 지출</span><span class="sub">${won(other)}원</span></div>`; }
   const T = budgetOf(ym); const sum = list.reduce((t, b) => t + cbPlan(b, ym), 0);
-  const warn = T && sum > T ? `<p class="faint" style="margin:6px 4px 0;font-size:12px">분류 예산을 더하면 한 달 예산보다 ${won(sum - T)}원 많아요.</p>` : '';
-  return `<div class="row" style="margin:8px 4px 0"><h3 class="sub grow" style="font-size:13px;margin:0;font-weight:500">분류별 예산</h3><button class="btn sm" data-act="cb-new">+ 추가</button></div>
-  ${list.length ? `<div class="card" style="padding:0 16px">${rows}${rest}</div>${warn}` : `<button class="card row" data-act="cb-new" style="gap:10px;text-align:left"><span class="grow"><span style="display:block">식비·주거비처럼 분류마다 예산을 정해요</span><span class="sub" style="font-size:12px">분류별로 얼마나 남았는지 따로 볼 수 있어요.</span></span>${CHEV}</button>`}`;
+  const warn = T && sum > T ? `<p class="faint" style="margin:6px 4px 0;font-size:var(--t-xs)">분류 예산을 더하면 한 달 예산보다 ${won(sum - T)}원 많아요.</p>` : '';
+  return `<div class="row" style="margin:8px 4px 0"><h3 class="sub grow" style="font-size:var(--t-sm);margin:0;font-weight:500">분류별 예산</h3><button class="btn sm" data-act="cb-new">+ 추가</button></div>
+  ${list.length ? `<div class="card" style="padding:0 16px">${rows}${rest}</div>${warn}` : `<button class="card row" data-act="cb-new" style="gap:10px;text-align:left"><span class="grow"><span style="display:block">식비·주거비처럼 분류마다 예산을 정해요</span><span class="sub" style="font-size:var(--t-xs)">분류별로 얼마나 남았는지 따로 볼 수 있어요.</span></span>${CHEV}</button>`}`;
 }
 function viewCatBudget() {
   const b = S.cbEd; const ym = b.ym; const used = new Set(catBudgets().filter((x) => x.id !== b.id).flatMap((x) => x.cats));
@@ -1199,11 +1204,11 @@ function viewCatBudget() {
   return `<div class="screen" role="dialog" aria-label="분류 예산" style="z-index:30">
   <header><button class="icon-btn" data-act="cb-close" aria-label="닫기">${CLOSE}</button><h1>${b.id ? esc(c ? c.n : '') + ' 예산' : '분류 예산 추가'}</h1><span style="width:44px"></span></header>
   <div class="body">
-    ${b.id ? '' : `<h3 class="sub" style="font-size:13px;margin:0 4px;font-weight:500">분류</h3><div class="cb-cats">${pick}</div>`}
+    ${b.id ? '' : `<h3 class="sub" style="font-size:var(--t-sm);margin:0 4px;font-weight:500">분류</h3><div class="cb-cats">${pick}</div>`}
     <div class="card" style="padding:0 16px">
-      <div class="field"><span class="k" style="width:auto">매달 예산</span><input id="cb-amt" class="v" inputmode="numeric" placeholder="0" value="${b.amt ? won(b.amt) : ''}" data-act="cb-amt" data-k="amt" style="font-size:16px;font-weight:700"><span style="font-weight:700">원</span></div>
+      <div class="field"><span class="k" style="width:auto">매달 예산</span><input id="cb-amt" class="v" inputmode="numeric" placeholder="0" value="${b.amt ? won(b.amt) : ''}" data-act="cb-amt" data-k="amt" style="font-size:var(--t-lg);font-weight:700"><span style="font-weight:700">원</span></div>
       <label class="field" style="gap:10px;cursor:pointer"><span class="k" style="width:auto;flex:1">${+ym.slice(4)}월만 다르게</span><input type="checkbox" data-act="cb-only" ${b.only ? 'checked' : ''} style="width:20px;height:20px;accent-color:var(--accent)"></label>
-      ${b.only ? `<div class="field"><span class="k" style="width:auto">${+ym.slice(4)}월 예산</span><input class="v" inputmode="numeric" placeholder="0" value="${b.month ? won(b.month) : ''}" data-act="cb-amt" data-k="month" style="font-size:16px;font-weight:700"><span style="font-weight:700">원</span></div>` : ''}
+      ${b.only ? `<div class="field"><span class="k" style="width:auto">${+ym.slice(4)}월 예산</span><input class="v" inputmode="numeric" placeholder="0" value="${b.month ? won(b.month) : ''}" data-act="cb-amt" data-k="month" style="font-size:var(--t-lg);font-weight:700"><span style="font-weight:700">원</span></div>` : ''}
     </div>
     ${avg ? `<button class="card row" data-act="cb-avg" style="gap:10px;text-align:left"><span class="grow"><span style="display:block">지난 3개월 평균 ${esc(c.n)} 지출</span><span class="sub">${won(avg)}원을 매달 예산으로 쓰기</span></span><span class="btn sm">쓰기</span></button>` : ''}
     <ul class="fx-rules">
@@ -1218,11 +1223,11 @@ function viewBudgetTab() {
   const period = `<div class="period"><button class="icon-btn" data-act="bym" data-v="-1" aria-label="이전 달">${BACK}</button><button class="label" data-act="mpick" data-v="budget" aria-label="달 고르기">${ymLabel(ym)}${CARET}</button><button class="icon-btn" data-act="bym" data-v="1" aria-label="다음 달" style="transform:scaleX(-1)">${BACK}</button></div>`;
   const hasT = !!((S.cfg.budget || {}).total || Object.keys((S.cfg.budget || {}).months || {}).length); const has = hasT || catBudgets().length > 0;
   const months = []; for (let k = 1; k <= 6; k++) { const m = ymAdd(nowYm, -k); if ((S.byYm[m] || []).length) months.push(m); }
-  const hist = hasT && months.length ? `<h3 class="sub" style="font-size:13px;margin:8px 4px 0;font-weight:500">지난 달 결과</h3><div class="card" style="padding:0 16px">${months.map((m) => { const B = budgetOf(m), sp = spentOf(m); const d = B - sp;
-      return `<button class="row" data-act="bym-go" data-v="${m}" style="width:100%;min-height:52px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font:inherit;color:inherit;gap:8px"><span style="width:40px;flex-shrink:0">${+m.slice(4)}월</span><span class="grow sub" style="font-size:13px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:right">${won(sp)}원 씀</span><b style="white-space:nowrap;flex-shrink:0;color:${!B ? 'var(--faint)' : d >= 0 ? 'var(--accent)' : 'var(--danger)'};font-size:14px">${!B ? '예산 없음' : d >= 0 ? won(d) + '원 남김' : won(-d) + '원 넘음'}</b>${CHEV}</button>`; }).join('')}</div>` : '';
+  const hist = hasT && months.length ? `<h3 class="sub" style="font-size:var(--t-sm);margin:8px 4px 0;font-weight:500">지난 달 결과</h3><div class="card" style="padding:0 16px">${months.map((m) => { const B = budgetOf(m), sp = spentOf(m); const d = B - sp;
+      return `<button class="row" data-act="bym-go" data-v="${m}" style="width:100%;min-height:var(--h-row);border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font:inherit;color:inherit;gap:8px"><span style="width:40px;flex-shrink:0">${+m.slice(4)}월</span><span class="grow sub" style="font-size:var(--t-sm);white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:right">${won(sp)}원 씀</span><b style="white-space:nowrap;flex-shrink:0;color:${!B ? 'var(--faint)' : d >= 0 ? 'var(--accent)' : 'var(--danger)'};font-size:var(--t-md)">${!B ? '예산 없음' : d >= 0 ? won(d) + '원 남김' : won(-d) + '원 넘음'}</b>${CHEV}</button>`; }).join('')}</div>` : '';
   return `<div class="top"><h1>예산</h1>${has ? `<button class="icon-btn" data-act="bd-open" aria-label="예산 고치기">${svg('M4 20h4l10-10-4-4L4 16zM13.5 6.5l4 4', 22, 2)}</button>` : ''}</div>
   ${period}
-  ${has ? budgetCard(ym) + catBudgetSection(ym) : `<div class="card stack" style="align-items:center;text-align:center;gap:12px;padding:28px 16px"><span style="color:var(--accent);display:flex">${svg('M11.5 4a8.5 8.5 0 1 0 8.5 8.5h-8.5zM14.5 3v6.5H21A6.5 6.5 0 0 0 14.5 3z', 36, 1.8)}</span><b style="font-size:17px">한 달 예산을 정해 볼까요?</b><span class="sub" style="line-height:1.6">정해 두면 남은 돈과 하루에 쓸 수 있는 돈을 보여 줘요.<br>둘이 같은 예산을 함께 봐요.</span><button class="btn ink" data-act="bd-open" style="min-width:160px">예산 정하기</button><button class="btn sm" data-act="cb-new" style="background:transparent;border:0;color:var(--sub)">분류별로만 정하기</button></div>`}
+  ${has ? budgetCard(ym) + catBudgetSection(ym) : `<div class="card stack" style="align-items:center;text-align:center;gap:12px;padding:28px 16px"><span style="color:var(--accent);display:flex">${svg('M11.5 4a8.5 8.5 0 1 0 8.5 8.5h-8.5zM14.5 3v6.5H21A6.5 6.5 0 0 0 14.5 3z', 36, 1.8)}</span><b style="font-size:var(--t-xl)">한 달 예산을 정해 볼까요?</b><span class="sub" style="line-height:1.6">정해 두면 남은 돈과 하루에 쓸 수 있는 돈을 보여 줘요.<br>둘이 같은 예산을 함께 봐요.</span><button class="btn ink" data-act="bd-open" style="min-width:160px">예산 정하기</button><button class="btn sm" data-act="cb-new" style="background:transparent;border:0;color:var(--sub)">분류별로만 정하기</button></div>`}
   ${hist}`;
 }
 function viewBudget() {
@@ -1231,9 +1236,9 @@ function viewBudget() {
   <header><button class="icon-btn" data-act="bd-close" aria-label="닫기">${CLOSE}</button><h1>예산</h1><span style="width:44px"></span></header>
   <div class="body">
     <div class="card" style="padding:0 16px">
-      <div class="field"><span class="k" style="width:auto">매달 예산</span><input id="bd-total" class="v" inputmode="numeric" placeholder="0" value="${b.total ? won(b.total) : ''}" data-act="bd-amt" data-k="total" style="font-size:16px;font-weight:700"><span style="font-weight:700">원</span></div>
+      <div class="field"><span class="k" style="width:auto">매달 예산</span><input id="bd-total" class="v" inputmode="numeric" placeholder="0" value="${b.total ? won(b.total) : ''}" data-act="bd-amt" data-k="total" style="font-size:var(--t-lg);font-weight:700"><span style="font-weight:700">원</span></div>
       <label class="field" style="gap:10px;cursor:pointer"><span class="k" style="width:auto;flex:1">${+ym.slice(4)}월만 다르게</span><input type="checkbox" data-act="bd-only" ${b.only ? 'checked' : ''} style="width:20px;height:20px;accent-color:var(--accent)"></label>
-      ${b.only ? `<div class="field"><span class="k" style="width:auto">${+ym.slice(4)}월 예산</span><input class="v" inputmode="numeric" placeholder="0" value="${b.month ? won(b.month) : ''}" data-act="bd-amt" data-k="month" style="font-size:16px;font-weight:700"><span style="font-weight:700">원</span></div>` : ''}
+      ${b.only ? `<div class="field"><span class="k" style="width:auto">${+ym.slice(4)}월 예산</span><input class="v" inputmode="numeric" placeholder="0" value="${b.month ? won(b.month) : ''}" data-act="bd-amt" data-k="month" style="font-size:var(--t-lg);font-weight:700"><span style="font-weight:700">원</span></div>` : ''}
     </div>
     ${avg ? `<button class="card row" data-act="bd-avg" style="gap:10px;text-align:left"><span class="grow"><span style="display:block">지난 3개월 평균 지출</span><span class="sub">${won(avg)}원을 매달 예산으로 쓰기</span></span><span class="btn sm">쓰기</span></button>` : ''}
     <ul class="fx-rules">
@@ -1347,31 +1352,31 @@ function viewRpSheet() {
   const unit = { d: '일마다', w: '주마다', m: '개월마다', y: '년마다' }[rp];
   const pill = (act, v, cur, txt) => `<button class="rq-pill" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${txt}</button>`;
   const grid = (act, items, sel, cols) => `<div class="rq-grid" style="grid-template-columns:repeat(${cols},1fr)">${items.map(([v, n]) => `<button data-act="${act}" data-v="${v}" aria-pressed="${sel.includes(v)}">${n}</button>`).join('')}</div>`;
-  const every = `<div class="row" style="gap:8px"><input class="rq-num" inputmode="numeric" value="${e.every || 1}" data-act="rp-f" data-k="every" aria-label="간격"><span style="font-size:15px">${unit}</span></div>`;
+  const every = `<div class="row" style="gap:8px"><input class="rq-num" inputmode="numeric" value="${e.every || 1}" data-act="rp-f" data-k="every" aria-label="간격"><span style="font-size:var(--t-md)">${unit}</span></div>`;
   let body = '';
   if (rp === 'd') body = every;
   if (rp === 'w') { const wds = e.wds && e.wds.length ? e.wds : [s0.getDay()];
     body = every + `<div class="rq-wd">${[1, 2, 3, 4, 5, 6, 0].map((x) => `<button data-act="rp-wd" data-v="${x}" aria-pressed="${wds.includes(x)}" style="${x === 6 ? 'color:var(--expense)' : x === 0 ? 'color:var(--income)' : ''}">${WD[x]}</button>`).join('')}</div>`; }
   if (rp === 'm') { const mm = e.mmode || 'day'; const days = e.mdays && e.mdays.length ? e.mdays : [sd];
     body = every + `<div class="stack" style="gap:8px">${pill('rp-mm', 'day', mm, `${sd}일마다`)}${pill('rp-mm', 'nth', mm, `${nthTxt}마다`)}${pill('rp-mm', 'eom', mm, '말일마다')}${pill('rp-mm', 'days', mm, mm === 'days' ? `${days.slice().sort((a, b) => a - b).join('·')}일마다` : '날짜 여러 개 고르기')}</div>
-      ${mm === 'days' ? grid('rp-md', Array.from({ length: 31 }, (_, i) => [i + 1, i + 1]), days, 7) + '<p class="faint" style="margin:0;font-size:12px">29~31일은 그날이 없는 달에는 말일에 들어가요.</p>' : ''}`; }
+      ${mm === 'days' ? grid('rp-md', Array.from({ length: 31 }, (_, i) => [i + 1, i + 1]), days, 7) + '<p class="faint" style="margin:0;font-size:var(--t-xs)">29~31일은 그날이 없는 달에는 말일에 들어가요.</p>' : ''}`; }
   if (rp === 'y') { const ym = e.ymode || 'day'; const l = lunarOf(s0); const ms = e.ymonths && e.ymonths.length ? e.ymonths : [s0.getMonth() + 1];
     body = every + `<div class="stack" style="gap:8px">${pill('rp-ym', 'day', ym, `${s0.getMonth() + 1}월 ${sd}일`)}${pill('rp-ym', 'nth', ym, `${s0.getMonth() + 1}월 ${nthTxt}`)}${l ? pill('rp-ym', 'lunar', ym, `음력 ${l.m}월 ${l.d}일`) : ''}${pill('rp-ym', 'months', ym, ym === 'months' ? `${ms.slice().sort((a, b) => a - b).join('·')}월 ${sd}일` : `${sd}일에 들어갈 달 고르기`)}</div>
       ${ym === 'months' ? grid('rp-yms', Array.from({ length: 12 }, (_, i) => [i + 1, (i + 1) + '월']), ms, 4) : ''}`; }
-  if (rp === 'inst') body = `<div class="row" style="gap:8px"><span class="grow" style="font-size:15px">몇 개월로 나눌까요?</span><input class="rq-num" style="width:56px" inputmode="numeric" value="${e.instN || ''}" data-act="rp-f" data-k="instN" aria-label="할부 개월 수" placeholder="12"><span>개월</span></div>
+  if (rp === 'inst') body = `<div class="row" style="gap:8px"><span class="grow" style="font-size:var(--t-md)">몇 개월로 나눌까요?</span><input class="rq-num" style="width:56px" inputmode="numeric" value="${e.instN || ''}" data-act="rp-f" data-k="instN" aria-label="할부 개월 수" placeholder="12"><span>개월</span></div>
     <div class="seg">${[['none', '무이자'], ['rate', '수수료율'], ['amount', '수수료 직접']].map(([v, n]) => `<button data-act="rp-fee" data-v="${v}" aria-pressed="${(e.feeMode || 'none') === v}">${n}</button>`).join('')}</div>
-    ${e.feeMode === 'rate' ? `<div class="row" style="gap:8px"><span class="grow" style="font-size:14px">연 수수료율</span><input class="rq-num" style="width:64px" inputmode="decimal" value="${e.feeRate || ''}" data-act="rp-f" data-k="feeRate" aria-label="연 수수료율" placeholder="15"><span>%</span></div>` : ''}
-    ${e.feeMode === 'amount' ? `<div class="row" style="gap:8px"><span class="grow" style="font-size:14px">수수료 합계</span><input class="rq-num" style="width:96px" inputmode="numeric" value="${e.feeTotal || ''}" data-act="rp-f" data-k="feeTotal" aria-label="수수료 합계" placeholder="0"><span>원</span></div>` : ''}
-    <p class="sub" id="inst-hint" style="margin:0;line-height:1.6;font-size:13px">${instHintText(e)}</p>`;
+    ${e.feeMode === 'rate' ? `<div class="row" style="gap:8px"><span class="grow" style="font-size:var(--t-md)">연 수수료율</span><input class="rq-num" style="width:64px" inputmode="decimal" value="${e.feeRate || ''}" data-act="rp-f" data-k="feeRate" aria-label="연 수수료율" placeholder="15"><span>%</span></div>` : ''}
+    ${e.feeMode === 'amount' ? `<div class="row" style="gap:8px"><span class="grow" style="font-size:var(--t-md)">수수료 합계</span><input class="rq-num" style="width:96px" inputmode="numeric" value="${e.feeTotal || ''}" data-act="rp-f" data-k="feeTotal" aria-label="수수료 합계" placeholder="0"><span>원</span></div>` : ''}
+    <p class="sub" id="inst-hint" style="margin:0;line-height:1.6;font-size:var(--t-sm)">${instHintText(e)}</p>`;
   const end = (v, label, extra) => `<div class="rq-row" data-act="rp-end" data-v="${v}" aria-pressed="${(e.endKind || 'none') === v}"><span class="rd"></span><span class="grow">${label}</span>${(e.endKind || 'none') === v ? extra || '' : ''}</div>`;
   const sum = rp === 'none' ? '반복하지 않는 내역이에요.' : rp === 'inst' ? `${+e.instN || 0}개월 할부로 매달 ${sd}일에 들어가요.` : `${rpOptLabel(e)}에 들어가요.`;
   return `<div class="sheet-wrap" style="z-index:60"><button class="scrim" data-act="rp-done" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="반복" style="gap:12px;max-height:88vh"><span class="handle"></span>
-    <div class="row"><h2 style="font-size:16px" class="grow">반복</h2><button class="icon-btn" data-act="rp-done" aria-label="완료">${svg('M5 12l5 5 9-10', 22, 2.2)}</button></div>
+    <div class="row"><h2 style="font-size:var(--t-lg)" class="grow">반복</h2><button class="icon-btn" data-act="rp-done" aria-label="완료">${svg('M5 12l5 5 9-10', 22, 2.2)}</button></div>
     <div class="seg rp-tabs">${tabs.map(([v, n]) => `<button data-act="rp-set" data-v="${v}" aria-pressed="${rp === v}">${n}</button>`).join('')}</div>
     <div data-keep="rps" style="overflow-y:auto;margin:0 -20px;padding:0 20px 8px;display:flex;flex-direction:column;gap:12px">
-      <p style="margin:0 2px;font-size:13px;color:var(--accent);font-weight:600" id="rp-sum">${esc(sum)}</p>
+      <p style="margin:0 2px;font-size:var(--t-sm);color:var(--accent);font-weight:600" id="rp-sum">${esc(sum)}</p>
       ${body ? `<div class="rp-sec stack" style="gap:14px">${body}</div>` : ''}
-      ${rp !== 'none' && rp !== 'inst' ? `<div><h3 class="sub" style="font-size:13px;margin:4px 4px 6px;font-weight:500">기간</h3>
+      ${rp !== 'none' && rp !== 'inst' ? `<div><h3 class="sub" style="font-size:var(--t-sm);margin:4px 4px 6px;font-weight:500">기간</h3>
       <div class="rp-sec" style="padding:0 16px">${end('none', '계속 반복')}${end('count', '반복 횟수', `<input class="rq-num" style="width:52px" inputmode="numeric" value="${e.endCount || ''}" data-act="rp-f" data-k="endCount" aria-label="횟수" placeholder="12"><span style="margin-left:4px">번</span>`)}${end('date', '종료 날짜', `<input type="date" class="pill" style="height:36px" value="${e.endDate || ''}" data-act="rp-f" data-k="endDate" aria-label="종료 날짜">`)}</div></div>` : ''}
     </div></div></div>`;
 }
@@ -1431,7 +1436,7 @@ function viewMonthPick() {
       <div class="mp-grid">${Array.from({ length: 12 }, (_, i) => p.y + pad(i + 1)).map((ym) => `<button data-act="mp-go" data-v="${ym}" aria-pressed="${ym === cur}" class="${ym === nowYm ? 'now' : ''}">${+ym.slice(4)}월</button>`).join('')}</div>`;
   }
   return `<div class="sheet-wrap" style="z-index:62"><button class="scrim" data-act="mp-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="${p.unit === 'year' ? '연도' : '달'} 고르기" style="gap:12px"><span class="handle"></span>
-    <div class="row"><h2 style="font-size:16px" class="grow">${p.unit === 'year' ? '연도 고르기' : '달 고르기'}</h2><button class="btn sm" data-act="mp-go" data-v="${p.unit === 'year' ? nowYm.slice(0, 4) : nowYm}">${p.unit === 'year' ? '올해' : '이번 달'}</button></div>
+    <div class="row"><h2 style="font-size:var(--t-lg)" class="grow">${p.unit === 'year' ? '연도 고르기' : '달 고르기'}</h2><button class="btn sm" data-act="mp-go" data-v="${p.unit === 'year' ? nowYm.slice(0, 4) : nowYm}">${p.unit === 'year' ? '올해' : '이번 달'}</button></div>
     ${body}</div></div>`;
 }
 // ---------- 내역 엑셀로 받기: 기간 고르기 ----------
@@ -1439,11 +1444,11 @@ function viewExport() {
   const x = S.xport; const n = xportRows().length;
   const pre = [['all', '전체'], ['year', '올해'], ['month', '이번 달'], ['last', '지난달']];
   return `<div class="sheet-wrap" style="z-index:62"><button class="scrim" data-act="xp-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="내역 엑셀로 받기" style="gap:14px"><span class="handle"></span>
-    <h2 style="font-size:16px">내역 엑셀로 받기</h2>
+    <h2 style="font-size:var(--t-lg)">내역 엑셀로 받기</h2>
     <div class="chips">${pre.map(([v, t]) => `<button class="chip plain" data-act="xp-pre" data-v="${v}" aria-pressed="${x.pre === v}" style="${x.pre === v ? 'background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700' : ''}">${t}</button>`).join('')}</div>
     <div class="xp-row"><input type="date" class="pill" data-act="xp-d" data-k="from" value="${x.from}" aria-label="시작 날짜"><span class="sub">~</span><input type="date" class="pill" data-act="xp-d" data-k="to" value="${x.to}" aria-label="끝 날짜"></div>
     <p class="sub" style="margin:0">${x.from || x.to ? '' : '전체 기간 · '}내역 <b style="color:var(--ink)">${won(n)}건</b></p>
-    <button class="btn ink" data-act="xp-go" ${n ? '' : 'disabled'} style="min-height:44px">${n ? '엑셀 받기' : '이 기간에는 내역이 없어요'}</button></div></div>`;
+    <button class="btn ink" data-act="xp-go" ${n ? '' : 'disabled'} style="min-height:var(--h-row)">${n ? '엑셀 받기' : '이 기간에는 내역이 없어요'}</button></div></div>`;
 }
 const isoD = (d) => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
 function xportPreset(v) {
@@ -1461,14 +1466,14 @@ function xportRows() {
 function viewSheet() {
   const sh = S.sheet;
   if (sh.kind === 'cur') { const cur = S.ed && CUR[S.ed.fxc] ? S.ed.fxc : 'KRW';
-    return `<div class="sheet-wrap" style="z-index:60"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="통화" style="gap:12px"><span class="handle"></span><h2 style="font-size:16px">어떤 돈으로 썼나요?</h2>
+    return `<div class="sheet-wrap" style="z-index:60"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="통화" style="gap:12px"><span class="handle"></span><h2 style="font-size:var(--t-lg)">어떤 돈으로 썼나요?</h2>
       <div class="rq-grid" style="grid-template-columns:repeat(3,1fr)">${[['KRW', '원']].concat(CURS.map((x) => [x[0], x[2]])).map(([c, n]) => `<button data-act="ed-cur-set" data-v="${c}" aria-pressed="${cur === c}" style="height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2"><span>${n}</span><small style="font-size:11px;opacity:.7">${c === 'KRW' ? '₩' : CUR[c].sym}</small></button>`).join('')}</div>
-      <p class="faint" style="margin:0;font-size:12px;line-height:1.6">외화를 고르면 그 금액을 적고, 원화는 오늘 환율로 자동 계산돼요. 카드 명세서가 나오면 원화 금액만 실제 청구액으로 고치면 돼요.</p></div></div>`; }
+      <p class="faint" style="margin:0;font-size:var(--t-xs);line-height:1.6">외화를 고르면 그 금액을 적고, 원화는 오늘 환율로 자동 계산돼요. 카드 명세서가 나오면 원화 금액만 실제 청구액으로 고치면 돼요.</p></div></div>`; }
   if (sh.kind === 'multi') return viewMulti(sh);
   if (sh.kind === 'akind') {
     const ed = S.assetEd || {};
     return `<div class="sheet-wrap" style="z-index:60"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="자산 분류" style="gap:4px"><span class="handle"></span>
-      <h2 style="font-size:16px;padding:4px 0 8px">${sh.isNew ? '어떤 자산을 추가할까요?' : '분류'}</h2>
+      <h2 style="font-size:var(--t-lg);padding:4px 0 8px">${sh.isNew ? '어떤 자산을 추가할까요?' : '분류'}</h2>
       <div data-keep="sr" style="overflow-y:auto;margin:0 -20px;padding:0 20px">${kindsOrd().map((k) => `<button class="opt" style="width:100%;gap:14px" data-act="ak-major" data-v="${k.id}" aria-pressed="${!sh.isNew && ed.gid === k.id}"><span style="color:var(--sub);display:flex">${svg(KICON[k.id] || DOTS)}</span><span class="grow">${esc(k.n)}</span>${sh.isNew ? CHEV : CHECK}</button>`).join('')}</div></div></div>`;
   }
   if (sh.kind === 'menu') {
@@ -1482,7 +1487,7 @@ function viewSheet() {
     const cur = CAT[sh.sel] ? sh.sel : (CAT[S.ed.c] && CAT[S.ed.c].kind === kind ? S.ed.c : list[0].id);
     const c = CAT[cur];
     return `<div class="sheet-wrap"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="분류"><span class="handle"></span>
-      <div class="row"><h2 style="font-size:16px" class="grow">분류</h2><button class="btn sm" data-act="cat-edit" data-v="${kind}">분류 편집</button></div>
+      <div class="row"><h2 style="font-size:var(--t-lg)" class="grow">분류</h2><button class="btn sm" data-act="cat-edit" data-v="${kind}">분류 편집</button></div>
       <div class="split"><div class="l" data-keep="sl">${list.map((x) => `<button data-act="cat-major" data-v="${x.id}" aria-pressed="${x.id === cur}">${svg(ICON[x.n] || DOTS, 18)}<span>${esc(x.n)}</span></button>`).join('')}</div>
       <div class="r" data-keep="sr">${(c.subs || []).length ? '' : '<p class="faint" style="padding:16px 4px">소분류가 없어요.</p>'}
       ${(c.subs || []).map((s) => `<button class="opt" data-act="cat-pick" data-c="${c.id}" data-s="${s.id}" aria-pressed="${S.ed.s === s.id}">${esc(s.n)}${CHECK}</button>`).join('')}</div></div></div></div>`;
@@ -1498,7 +1503,7 @@ function viewSheet() {
   const cg = gs.find((g) => g.key === selKey) || gs[0];
   const kinds = cg ? kindsOrd().filter((k) => cg.list.some((a) => a.gid === k.id)) : [];
   return `<div class="sheet-wrap"><button class="scrim" data-act="sheet-close" aria-label="닫기"></button><div class="sheet" role="dialog" aria-label="자산"><span class="handle"></span>
-    <div class="row"><h2 style="font-size:16px" class="grow">${target === 'to' ? '받는 자산' : '자산'}</h2><button class="btn sm" data-act="as-edit">자산 관리</button></div>
+    <div class="row"><h2 style="font-size:var(--t-lg)" class="grow">${target === 'to' ? '받는 자산' : '자산'}</h2><button class="btn sm" data-act="as-edit">자산 관리</button></div>
     <div class="seg">${[['kind', '분류별'], ['owner', '소유자별']].map(([v, n]) => `<button data-act="as-view" data-v="${v}" aria-pressed="${sh.view === v}">${n}</button>`).join('')}</div>
     <div class="split"><div class="l" data-keep="sl">${gs.map((g) => `<button data-act="as-grp" data-v="${g.key}" aria-pressed="${g.key === selKey}">${g.faces ? avs(g.faces, '') : svg(g.icon, 18)}<span>${esc(g.name)}</span></button>`).join('')}</div>
     <div class="r" data-keep="sr">${sh.view === 'owner'
@@ -1522,7 +1527,7 @@ function viewAssets() {
       <span class="grow"><b style="font-weight:500">${esc(title)}</b> <span class="faint">${list.length}개${hid ? ` · 숨김 ${hid}개 포함` : ''}</span></span><b>${sgn(tot).replace('+', '')}</b>
       <span class="chev" style="color:var(--sub);${open ? 'transform:rotate(90deg)' : ''}">${CHEV}</span></button>
       ${open ? `<div style="margin:0 0 10px 10px;background:var(--bg);border-radius:12px;padding:0 12px">${list.map((a) => `<button class="arow" data-act="asset-edit" data-v="${a.id}" style="border-top-color:var(--line2)">
-        ${otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere">${esc(a.name)}</span><span style="white-space:nowrap;text-align:right;${a.kind === '체크카드' ? 'color:var(--sub);font-size:13px' : ''}">${a.kind === '체크카드' ? '통장에서 바로 빠져요' : isFx(a.id) ? `${fmtCur(S.bal[a.id] || 0, curOf(a.id))}<span class="faint" style="display:block;font-size:12px">약 ${won(bal(a))}원</span>` : sgn(bal(a)).replace('+', '')}</span>${CHEV}</button>`).join('')}${hid ? `<p class="faint" style="margin:0;padding:10px 0;border-top:1px solid var(--line2);font-size:12px">숨긴 자산 ${hid}개도 합계에 더해져 있어요.</p>` : ''}</div>` : ''}</div>`;
+        ${otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere">${esc(a.name)}</span><span style="white-space:nowrap;text-align:right;${a.kind === '체크카드' ? 'color:var(--sub);font-size:var(--t-sm)' : ''}">${a.kind === '체크카드' ? '통장에서 바로 빠져요' : isFx(a.id) ? `${fmtCur(S.bal[a.id] || 0, curOf(a.id))}<span class="faint" style="display:block;font-size:var(--t-xs)">약 ${won(bal(a))}원</span>` : sgn(bal(a)).replace('+', '')}</span>${CHEV}</button>`).join('')}${hid ? `<p class="faint" style="margin:0;padding:10px 0;border-top:1px solid var(--line2);font-size:var(--t-xs)">숨긴 자산 ${hid}개도 합계에 더해져 있어요.</p>` : ''}</div>` : ''}</div>`;
   };
   let lists;
   if (S.assetView === 'owner') {
@@ -1538,8 +1543,8 @@ function viewAssets() {
   const hidden = S.assets.filter((a) => a.hidden).length;
   if (S.assetMode && !S.modeOverlay) return viewAssetMode();
   return `<div class="top"><h1>자산</h1><span class="row" style="gap:0"><button class="icon-btn" data-act="net-open" aria-label="순자산 변화 보기">${svg('M4 19h16M6 15l4-4 3 3 5-6', 22, 2)}</button><button class="icon-btn" data-act="am-menu" aria-label="자산 메뉴">${KEBAB}</button></span></div>
-  <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span style="font-size:13px;opacity:.75">순자산</span><b style="font-size:26px">${won(tA + tD)}원</b>
-    <span style="font-size:13px;opacity:.75">자산 ${won(tA)} · 부채 ${won(Math.abs(tD))}</span></div>
+  <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span style="font-size:var(--t-sm);opacity:.75">순자산</span><b style="font-size:var(--t-3xl)">${won(tA + tD)}원</b>
+    <span style="font-size:var(--t-sm);opacity:.75">자산 ${won(tA)} · 부채 ${won(Math.abs(tD))}</span></div>
   <div style="height:12px"></div>
   <div class="seg">${[['kind', '분류별'], ['owner', '소유자별']].map(([v, n]) => `<button data-act="av" data-v="${v}" aria-pressed="${S.assetView === v}">${n}</button>`).join('')}</div>
   <div class="stack" style="margin-top:12px">${lists}</div>
@@ -1558,15 +1563,15 @@ function viewAssetMode() {
   const shut = S.ordShut || (S.ordShut = {});
   const head = (g) => {
     const ic = g.faces ? avs(g.faces, '') : `<span style="color:var(--sub);display:flex">${svg(g.icon)}</span>`;
-    if (m !== 'order') return `<div class="row" style="min-height:44px">${ic}<h2 class="grow">${esc(g.name)}</h2><span class="faint">${g.items.length}개</span></div>`;
-    return `<div class="row" style="min-height:44px;gap:4px">${m === 'order' ? `<span class="drag" data-drag="${kindView ? 'k' : 'o'}" aria-label="${esc(g.name)} 순서 바꾸기">${GRIP}</span>` : ''}<button class="row grow" style="border:0;background:transparent;padding:0;min-height:44px;text-align:left;gap:8px" data-act="ord-tg" data-v="${g.id}" aria-expanded="${!shut[g.id]}">${ic}<h2 class="grow">${esc(g.name)}</h2><span class="faint">${g.items.length}개</span><span class="chev" style="color:var(--sub);${shut[g.id] ? '' : 'transform:rotate(90deg)'}">${CHEV}</span></button></div>`;
+    if (m !== 'order') return `<div class="row" style="min-height:var(--h-row)">${ic}<h2 class="grow">${esc(g.name)}</h2><span class="faint">${g.items.length}개</span></div>`;
+    return `<div class="row" style="min-height:var(--h-row);gap:4px">${m === 'order' ? `<span class="drag" data-drag="${kindView ? 'k' : 'o'}" aria-label="${esc(g.name)} 순서 바꾸기">${GRIP}</span>` : ''}<button class="row grow" style="border:0;background:transparent;padding:0;min-height:var(--h-row);text-align:left;gap:8px" data-act="ord-tg" data-v="${g.id}" aria-expanded="${!shut[g.id]}">${ic}<h2 class="grow">${esc(g.name)}</h2><span class="faint">${g.items.length}개</span><span class="chev" style="color:var(--sub);${shut[g.id] ? '' : 'transform:rotate(90deg)'}">${CHEV}</span></button></div>`;
   };
   const row = (a) => {
-    const nm = `${S.assetView === 'owner' ? '' : otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere;${(m === 'hide' || m === 'order') && a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>${m === 'order' && a.hidden ? '<span class="faint" style="font-size:12px;white-space:nowrap">숨김</span>' : ''}`;
-    if (m === 'order') return kindView ? `<div class="row ce-s" data-id="${a.id}"><span class="drag" data-drag="a" aria-label="${esc(a.name)} 순서 바꾸기">${GRIP}</span>${nm}</div>` : `<div class="row ce-s" style="padding-left:4px"><span class="faint" style="font-size:12px;width:60px;flex-shrink:0">${esc((S.cfg.kinds.find((k) => k.id === a.gid) || {}).n || '')}</span>${nm}</div>`;
-    if (m === 'hide') return `<div class="row ce-s" style="gap:8px"><div class="row grow" style="padding:0;min-height:46px;min-width:0;gap:8px">${S.assetView === 'owner' ? '' : `<span style="width:33px;flex-shrink:0;display:flex">${otag(a)}</span>`}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:1px;padding:6px 0"><span class="row" style="padding:0;gap:8px;align-items:baseline"><span class="grow" style="line-height:1.35;overflow-wrap:anywhere;min-width:0;${a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>${a.kind === '체크카드' ? '' : `<span style="white-space:nowrap;font-size:13px;flex-shrink:0;color:${a.hidden ? 'var(--faint)' : 'var(--sub)'}">${isFx(a.id) ? fmtCur(S.bal[a.id] || 0, curOf(a.id)) : sgn(krwOf(a.id)).replace('+', '') + '원'}</span>`}</span>${a.hidden ? `<button class="exbtn" role="checkbox" aria-checked="${!!a.exTotal}" data-act="am-ex" data-v="${a.id}"><span class="box">${a.exTotal ? svg('M5 12l5 5 9-10', 12, 3) : ''}</span>자산 합계에서도 빼기</button>` : ''}</span></div><button class="icon-btn eye ${a.hidden ? 'off' : ''}" role="switch" aria-checked="${!a.hidden}" aria-label="${esc(a.name)} ${a.hidden ? '숨김' : '표시'}" data-act="am-hide" data-v="${a.id}">${svg(a.hidden ? 'M2.5 12S6 5.5 12 5.5c1.6 0 3 .4 4.3 1.1M21.5 12S18 18.5 12 18.5c-1.6 0-3-.4-4.3-1.1M9.9 14.1a3 3 0 0 1 4.2-4.2M4 20L20 4' : 'M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z', 22, 1.9)}</button></div>`;
+    const nm = `${S.assetView === 'owner' ? '' : otag(a)}<span class="grow" style="line-height:1.35;overflow-wrap:anywhere;${(m === 'hide' || m === 'order') && a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>${m === 'order' && a.hidden ? '<span class="faint" style="font-size:var(--t-xs);white-space:nowrap">숨김</span>' : ''}`;
+    if (m === 'order') return kindView ? `<div class="row ce-s" data-id="${a.id}"><span class="drag" data-drag="a" aria-label="${esc(a.name)} 순서 바꾸기">${GRIP}</span>${nm}</div>` : `<div class="row ce-s" style="padding-left:4px"><span class="faint" style="font-size:var(--t-xs);width:60px;flex-shrink:0">${esc((S.cfg.kinds.find((k) => k.id === a.gid) || {}).n || '')}</span>${nm}</div>`;
+    if (m === 'hide') return `<div class="row ce-s" style="gap:8px"><div class="row grow" style="padding:0;min-height:var(--h-row);min-width:0;gap:8px">${S.assetView === 'owner' ? '' : `<span style="width:33px;flex-shrink:0;display:flex">${otag(a)}</span>`}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:1px;padding:6px 0"><span class="row" style="padding:0;gap:8px;align-items:baseline"><span class="grow" style="line-height:1.35;overflow-wrap:anywhere;min-width:0;${a.hidden ? 'color:var(--faint)' : ''}">${esc(a.name)}</span>${a.kind === '체크카드' ? '' : `<span style="white-space:nowrap;font-size:var(--t-sm);flex-shrink:0;color:${a.hidden ? 'var(--faint)' : 'var(--sub)'}">${isFx(a.id) ? fmtCur(S.bal[a.id] || 0, curOf(a.id)) : sgn(krwOf(a.id)).replace('+', '') + '원'}</span>`}</span>${a.hidden ? `<button class="exbtn" role="checkbox" aria-checked="${!!a.exTotal}" data-act="am-ex" data-v="${a.id}"><span class="box">${a.exTotal ? svg('M5 12l5 5 9-10', 12, 3) : ''}</span>자산 합계에서도 빼기</button>` : ''}</span></div><button class="icon-btn eye ${a.hidden ? 'off' : ''}" role="switch" aria-checked="${!a.hidden}" aria-label="${esc(a.name)} ${a.hidden ? '숨김' : '표시'}" data-act="am-hide" data-v="${a.id}">${svg(a.hidden ? 'M2.5 12S6 5.5 12 5.5c1.6 0 3 .4 4.3 1.1M21.5 12S18 18.5 12 18.5c-1.6 0-3-.4-4.3-1.1M9.9 14.1a3 3 0 0 1 4.2-4.2M4 20L20 4' : 'M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z', 22, 1.9)}</button></div>`;
     const n = cnt[a.id] || 0;
-    return `<div class="row ce-s">${nm}${n ? `<span class="faint" style="font-size:12px;white-space:nowrap">내역 ${won(n)}건</span>` : ''}<button class="icon-btn" style="width:40px;color:${n ? 'var(--field)' : 'var(--sub)'}" data-act="am-del" data-v="${a.id}" data-n="${n}" aria-label="${esc(a.name)} 삭제">${svg('M6 6l12 12M18 6L6 18', 16, 2)}</button></div>`;
+    return `<div class="row ce-s">${nm}${n ? `<span class="faint" style="font-size:var(--t-xs);white-space:nowrap">내역 ${won(n)}건</span>` : ''}<button class="icon-btn" style="width:40px;color:${n ? 'var(--field)' : 'var(--sub)'}" data-act="am-del" data-v="${a.id}" data-n="${n}" aria-label="${esc(a.name)} 삭제">${svg('M6 6l12 12M18 6L6 18', 16, 2)}</button></div>`;
   };
   return `<div class="top"><h1>${T[0]}</h1><button class="btn sm ink" data-act="am-done">완료</button></div>
   <p class="sub" style="margin:0 0 12px;line-height:1.6">${T[1]}</p>
@@ -1607,8 +1612,8 @@ function viewNet() {
     ${first.slice(0, 4) >= end.slice(0, 4) && unit === 'year' ? `<div class="infobox">${svg('M12 8h.01M11 12h1v5h1M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 18, 2)}<span>아직 올해 기록만 있어요. <b>내년부터</b> 해마다 순자산이 어떻게 바뀌었는지 보여요.</span></div>` : ''}
     ${pts.length ? `<div class="card stack" style="gap:8px"><div class="row"><span class="sub grow">${unit === 'month' ? title + ' 동안' : pts[0].label + '부터 지금까지'}</span>${pts.length > 1 || pts[0].prev !== null ? `<b class="${tot >= 0 ? 'amt-i' : 'amt-e'}">${sgn(tot)}원</b>` : ''}</div>${lineChart(pts)}</div>
     <div class="card" style="padding:4px 16px">
-      <div class="row faint" style="min-height:36px;font-size:12px"><span style="width:76px">${unit === 'month' ? '월' : '연도'}</span><span class="grow" style="text-align:right">${unit === 'month' ? '월말' : '연말'} 순자산</span><span style="width:120px;text-align:right">증감</span></div>
-      ${pts.slice().reverse().map((p) => { const d = p.prev === null ? null : p.v - p.prev; return `<button class="row" data-act="net-go" data-v="${p.k}" aria-label="${esc(p.tl || p.label)} 통계 보기" style="width:100%;min-height:44px;border:0;border-top:1px solid var(--line);background:transparent;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer"><span style="width:76px;white-space:nowrap">${p.tl || p.label}</span><span class="grow" style="text-align:right">${eok(p.v)}</span><span style="width:112px;text-align:right;font-weight:700" class="${d === null ? 'faint' : d >= 0 ? 'amt-i' : 'amt-e'}">${d === null ? '–' : sgn(d)}</span><span style="color:var(--faint);display:flex;margin-left:4px">${svg('M9 6l6 6-6 6', 14, 2)}</span></button>`; }).join('')}
+      <div class="row faint" style="min-height:36px;font-size:var(--t-xs)"><span style="width:76px">${unit === 'month' ? '월' : '연도'}</span><span class="grow" style="text-align:right">${unit === 'month' ? '월말' : '연말'} 순자산</span><span style="width:120px;text-align:right">증감</span></div>
+      ${pts.slice().reverse().map((p) => { const d = p.prev === null ? null : p.v - p.prev; return `<button class="row" data-act="net-go" data-v="${p.k}" aria-label="${esc(p.tl || p.label)} 통계 보기" style="width:100%;min-height:var(--h-row);border:0;border-top:1px solid var(--line);background:transparent;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer"><span style="width:76px;white-space:nowrap">${p.tl || p.label}</span><span class="grow" style="text-align:right">${eok(p.v)}</span><span style="width:112px;text-align:right;font-weight:700" class="${d === null ? 'faint' : d >= 0 ? 'amt-i' : 'amt-e'}">${d === null ? '–' : sgn(d)}</span><span style="color:var(--faint);display:flex;margin-left:4px">${svg('M9 6l6 6-6 6', 14, 2)}</span></button>`; }).join('')}
     </div>` : `<div class="empty">이 기간에는 기록이 없어요.</div>`}
     <p class="faint" style="line-height:1.6;margin:0;text-align:center">외화 자산은 그 달 말일 환율로 계산해요.</p>
   </div></div>`;
@@ -1655,13 +1660,13 @@ function ledgerPeriods(L, d, a, fx, bal, check) {
   const tin = items.reduce((s, x) => s + x.inn, 0), tout = items.reduce((s, x) => s + x.out, 0);
   return `${head}
     <div class="card stack" style="gap:8px">
-      <div class="row"><span class="sub grow">${check ? '사용 합계' : (L.unit === 'month' ? '연말 잔액' : '지금 잔액')}</span><b style="font-size:16px">${check ? money(tout - tin) : money(L.unit === 'month' ? (items[0] ? items[0].end : bal) : bal)}</b></div>
-      <div class="row" style="font-size:13px"><span class="sub grow">들어온 돈</span><span class="amt-i">${money(tin)}</span></div>
-      <div class="row" style="font-size:13px"><span class="sub grow">나간 돈</span><span class="amt-e">${money(tout)}</span></div></div>
+      <div class="row"><span class="sub grow">${check ? '사용 합계' : (L.unit === 'month' ? '연말 잔액' : '지금 잔액')}</span><b style="font-size:var(--t-lg)">${check ? money(tout - tin) : money(L.unit === 'month' ? (items[0] ? items[0].end : bal) : bal)}</b></div>
+      <div class="row" style="font-size:var(--t-sm)"><span class="sub grow">들어온 돈</span><span class="amt-i">${money(tin)}</span></div>
+      <div class="row" style="font-size:var(--t-sm)"><span class="sub grow">나간 돈</span><span class="amt-e">${money(tout)}</span></div></div>
     <div class="card" style="padding:4px 16px">
-      ${items.map((x) => `<button class="row" data-act="${x.act}" data-v="${x.k}" style="width:100%;border:0;border-top:1px solid var(--line);background:transparent;min-height:52px;padding:8px 0;gap:10px;text-align:left">
+      ${items.map((x) => `<button class="row" data-act="${x.act}" data-v="${x.k}" style="width:100%;border:0;border-top:1px solid var(--line);background:transparent;min-height:var(--h-row);padding:8px 0;gap:10px;text-align:left">
         <b style="width:60px;font-weight:700;flex-shrink:0;white-space:nowrap">${x.label}</b>
-        <span class="grow" style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:0">${check ? `<b>${money(x.out - x.inn)}</b>` : `<b>${money(x.end)}</b>`}<span style="font-size:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end"><span class="amt-i">+${money(x.inn)}</span><span class="amt-e">−${money(x.out)}</span></span></span>
+        <span class="grow" style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:0">${check ? `<b>${money(x.out - x.inn)}</b>` : `<b>${money(x.end)}</b>`}<span style="font-size:var(--t-xs);display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end"><span class="amt-i">+${money(x.inn)}</span><span class="amt-e">−${money(x.out)}</span></span></span>
         <span style="color:var(--faint);display:flex">${svg('M9 6l6 6-6 6', 14, 2)}</span></button>`).join('') || '<p class="empty">기록이 없어요.</p>'}
     </div>`;
 }
@@ -1680,9 +1685,9 @@ function viewLedger() {
   return `<div class="screen" role="dialog" aria-label="${esc(a.name)} 내역">
   <header><button class="icon-btn" data-act="ledger-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:calc(100% - 152px)">${esc(a.name)}</h1><span class="row" style="gap:0"><button class="icon-btn" data-act="ledger-search" aria-label="이 자산 내역 검색">${svg('M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4', 22, 2)}</button><button class="icon-btn" data-act="ledger-edit" aria-label="자산 수정">${svg('M4 20h4l10-10-4-4L4 16zM13.5 6.5l4 4', 22, 2)}</button></span></header>
   <div class="body" data-keep="ledger">
-    <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span class="row" style="font-size:13px;opacity:.75;gap:6px">${otag(a)}${esc(kindLabel(a.gid, a.kind))}${a.hidden ? ' · 숨김' : ''}</span>
-      <b style="font-size:26px">${check ? '통장에서 바로 빠져요' : (fx ? fmtCur(bal, curOf(L.id)) : sgn(bal).replace('+', '') + '원')}</b>
-      ${fx ? `<span style="font-size:13px;opacity:.75">약 ${won(krwOf(a.id))}원</span>` : ''}${linkedN ? `<span style="font-size:13px;opacity:.75">연결된 체크카드 ${linkedN}개 내역 포함</span>` : ''}</div>
+    <div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:4px"><span class="row" style="font-size:var(--t-sm);opacity:.75;gap:6px">${otag(a)}${esc(kindLabel(a.gid, a.kind))}${a.hidden ? ' · 숨김' : ''}</span>
+      <b style="font-size:var(--t-3xl)">${check ? '통장에서 바로 빠져요' : (fx ? fmtCur(bal, curOf(L.id)) : sgn(bal).replace('+', '') + '원')}</b>
+      ${fx ? `<span style="font-size:var(--t-sm);opacity:.75">약 ${won(krwOf(a.id))}원</span>` : ''}${linkedN ? `<span style="font-size:var(--t-sm);opacity:.75">연결된 체크카드 ${linkedN}개 내역 포함</span>` : ''}</div>
     <div class="seg">${[['day', '일일'], ['month', '월별'], ['year', '연별']].map(([v, n]) => `<button data-act="ledger-unit" data-v="${v}" aria-pressed="${(L.unit || 'day') === v}">${n}</button>`).join('')}</div>
     ${(L.unit || 'day') !== 'day' ? ledgerPeriods(L, d, a, fx, bal, check) : `
     <div class="period" style="padding:0"><button class="icon-btn" data-act="ledger-ym" data-v="-1" aria-label="이전 달">${BACK}</button><span class="label">${ymLabel(L.ym)}</span><button class="icon-btn" data-act="ledger-ym" data-v="1" aria-label="다음 달" style="transform:scaleX(-1)">${BACK}</button></div>
@@ -1692,7 +1697,7 @@ function viewLedger() {
       const sub = r.t === 'x' ? (v < 0 ? '→ ' + aName(r.to) : '← ' + aName(r.a)) : catLabel(r) + (r.a !== L.id ? ' · ' + aName(r.a) : '');
       return `<button class="tx" data-act="edit" data-id="${r.id}" data-ym="${r.ts.slice(0, 6)}"><span class="ic"><span class="bubble">${svg(icon)}</span>${spFace(r.sp)}</span>
         <span class="grow"><span class="t1" style="display:block">${esc(r.ct || catLabel(r))}${r.id.startsWith('R_') ? `<span class="rp-mark" aria-label="반복 내역">${svg(REPEAT, 13, 2)}</span>` : ''}</span><span class="t2" style="display:block">${esc(sub)}</span></span>
-        <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${v > 0 ? 'amt-i' : v < 0 ? 'amt-e' : 'amt-x'}">${v > 0 ? '+' : v < 0 ? '-' : ''}${money(Math.abs(v))}</span>${check ? '' : `<span class="faint" style="font-size:12px">잔액 ${fx ? fmtCur(rb, curOf(L.id)) : won(rb)}</span>`}</span></button>`; }).join('')}</div>`; }).join('') : `<div class="empty">이 달에는 내역이 없어요.</div>`}`}
+        <span style="display:flex;flex-direction:column;align-items:flex-end"><span class="amt ${v > 0 ? 'amt-i' : v < 0 ? 'amt-e' : 'amt-x'}">${v > 0 ? '+' : v < 0 ? '-' : ''}${money(Math.abs(v))}</span>${check ? '' : `<span class="faint" style="font-size:var(--t-xs)">잔액 ${fx ? fmtCur(rb, curOf(L.id)) : won(rb)}</span>`}</span></button>`; }).join('')}</div>`; }).join('') : `<div class="empty">이 달에는 내역이 없어요.</div>`}`}
   </div>
   <button class="fab" style="bottom:calc(24px + env(safe-area-inset-bottom,0px))" data-act="ledger-new" aria-label="이 자산으로 내역 추가">${svg('M12 5v14M5 12h14', 24, 2.2)}</button></div>`;
 }
@@ -1706,8 +1711,8 @@ function viewAssetEditor() {
   return `<div class="screen" role="dialog" aria-label="자산" style="z-index:50">
   <header><button class="icon-btn" data-act="ae-close" aria-label="닫기">${BACK}</button><h1>${isNew ? '자산 추가' : '자산 수정'}</h1><span style="width:44px"></span></header>
   <div class="body" data-keep="ae">
-    ${isNew ? '' : `<div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:2px"><span style="font-size:13px;opacity:.75">지금 잔액</span><b style="font-size:26px">${e.kind === '체크카드' ? '통장에서 바로 빠져요' : isFx(e.id) ? fmtCur(S.bal[e.id] || 0, curOf(e.id)) + `<span style="font-size:13px;font-weight:400;opacity:.75"> · 약 ${won(krwOf(e.id))}원</span>` : sgn(S.bal[e.id] || 0).replace('+', '') + '원'}</b><span style="font-size:13px;opacity:.75">내역 ${won(cnt)}건</span></div>
-    <div class="card" style="padding:0 16px"><button class="arow" style="border-top:0;min-height:48px" data-act="ae-history">${svg('M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01')}<span class="grow">이 자산 내역 보기</span>${CHEV}</button></div>`}
+    ${isNew ? '' : `<div class="card stack" style="background:var(--ink);color:var(--on-ink);gap:2px"><span style="font-size:var(--t-sm);opacity:.75">지금 잔액</span><b style="font-size:var(--t-3xl)">${e.kind === '체크카드' ? '통장에서 바로 빠져요' : isFx(e.id) ? fmtCur(S.bal[e.id] || 0, curOf(e.id)) + `<span style="font-size:var(--t-sm);font-weight:400;opacity:.75"> · 약 ${won(krwOf(e.id))}원</span>` : sgn(S.bal[e.id] || 0).replace('+', '') + '원'}</b><span style="font-size:var(--t-sm);opacity:.75">내역 ${won(cnt)}건</span></div>
+    <div class="card" style="padding:0 16px"><button class="arow" style="border-top:0;min-height:var(--h-field)" data-act="ae-history">${svg('M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01')}<span class="grow">이 자산 내역 보기</span>${CHEV}</button></div>`}
     <div class="card" style="padding:0 16px">
       <div class="field"><span class="k">이름</span><input id="ae-name" class="v" value="${esc(e.name)}" placeholder="예: 생활비 통장" data-act="ae-f" data-k="name"></div>
       <div class="field"><span class="k">분류</span><button class="v" data-act="ae-kind-pick" style="${e.gid ? '' : 'color:var(--warn-fg)'}">${esc(kindLabel(e.gid, e.kind))}${CHEV}</button></div>
@@ -1715,7 +1720,7 @@ function viewAssetEditor() {
       ${e.kind === '체크카드' ? `<div class="field"><span class="k">연결 계좌</span><select id="ae-from" class="v" data-act="ae-f" data-k="payFrom"><option value="">선택 안 함</option>${accts.map((a) => `<option value="${a.id}" ${a.id === e.payFrom ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></div>` : ''}
       ${e.kind === '신용카드' ? `<div class="field"><span class="k">결제일</span><span class="grow"></span>매월 <input id="ae-pay" class="pill" style="width:56px;text-align:center" inputmode="numeric" value="${e.payDay || ''}" data-act="ae-f" data-k="payDay">일</div>
       <div class="field"><span class="k">출금 계좌</span><select id="ae-from" class="v" data-act="ae-f" data-k="payFrom"><option value="">선택 안 함</option>${accts.map((a) => `<option value="${a.id}" ${a.id === e.payFrom ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></div>` : ''}
-      <div class="field"><span class="k">통화</span><span class="grow"></span>${cnt ? `<span class="sub">${CUR[e.cur] ? CUR[e.cur].n + ' (' + CUR[e.cur].sym + ')' : '원'}</span><span class="faint" style="font-size:12px">· 내역이 있어 못 바꿔요</span>` : `<select class="pill" style="height:40px" data-act="ae-cur-sel" aria-label="통화"><option value="" ${!CUR[e.cur] ? 'selected' : ''}>원 (₩)</option>${CURS.map(([c, n, , sym]) => `<option value="${c}" ${e.cur === c ? 'selected' : ''}>${n} (${sym})</option>`).join('')}</select>`}</div>
+      <div class="field"><span class="k">통화</span><span class="grow"></span>${cnt ? `<span class="sub">${CUR[e.cur] ? CUR[e.cur].n + ' (' + CUR[e.cur].sym + ')' : '원'}</span><span class="faint" style="font-size:var(--t-xs)">· 내역이 있어 못 바꿔요</span>` : `<select class="pill" style="height:40px" data-act="ae-cur-sel" aria-label="통화"><option value="" ${!CUR[e.cur] ? 'selected' : ''}>원 (₩)</option>${CURS.map(([c, n, , sym]) => `<option value="${c}" ${e.cur === c ? 'selected' : ''}>${n} (${sym})</option>`).join('')}</select>`}</div>
       ${isNew ? `<div class="field"><span class="k">시작 잔액</span>${CUR[e.cur] ? `<span class="sub">${CUR[e.cur].sym}</span><input id="ae-initfx" class="v" inputmode="decimal" value="${e.init || ''}" placeholder="${CUR[e.cur].dec ? '0.00' : '0'}" data-act="ae-initfx" style="text-align:left">` : `<input id="ae-init" class="v" inputmode="numeric" value="${e.init ? won(e.init) : ''}" placeholder="0" data-act="ae-init"><span>원</span>`}</div>` : ''}
       <div class="field"><span class="k">메모</span><input id="ae-memo" class="v" value="${esc(e.memo || '')}" placeholder="메모" data-act="ae-f" data-k="memo"></div>
     </div>
@@ -1763,7 +1768,7 @@ function viewStatList() {
   return `<div class="screen" role="dialog" aria-label="${esc(L.title)} 내역">
   <header><button class="icon-btn" data-act="stat-close" aria-label="닫기">${BACK}</button><h1 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px">${esc(L.title)}</h1><span style="width:44px"></span></header>
   <div class="body" data-keep="statlist">
-    <div class="card row" style="gap:12px"><span class="grow stack" style="gap:2px"><span class="sub">${isM ? ymLabel(key) : key + '년'} · ${rows.length}건</span><b class="${t === 'e' ? 'amt-e' : 'amt-i'}" style="font-size:22px">${won(Math.round(total))}원</b></span></div>
+    <div class="card row" style="gap:12px"><span class="grow stack" style="gap:2px"><span class="sub">${isM ? ymLabel(key) : key + '년'} · ${rows.length}건</span><b class="${t === 'e' ? 'amt-e' : 'amt-i'}" style="font-size:var(--t-2xl)">${won(Math.round(total))}원</b></span></div>
     ${L.p ? `<p class="faint" style="margin:0;line-height:1.5">여럿이 함께 쓴 내역은 목록에 전체 금액이 보이고, 합계에는 사람 수로 나눈 몫만 더했어요.</p>` : ''}
     ${days.length ? days.map((d) => { const dt = tsDate(d.k + '0000'); return `<div class="day" style="padding-top:4px"><span>${isM ? '' : (dt.getMonth() + 1) + '월 '}${dt.getDate()}일 ${WD[dt.getDay()]}요일</span></div><div class="card" style="padding:4px 16px">${d.rows.map((r) => txRow(r)).join('')}</div>`; }).join('') : `<div class="empty">내역이 없어요.</div>`}
   </div></div>`;
@@ -1802,10 +1807,10 @@ function viewStats() {
   return `<div class="top"><h1>통계</h1><div class="seg" style="width:140px">${[['month', '월'], ['year', '년']].map(([v, n]) => `<button data-act="su" data-v="${v}" aria-pressed="${S.statUnit === v}">${n}</button>`).join('')}</div></div>
   <div class="period"><button class="icon-btn" data-act="sp" data-v="-1" aria-label="이전">${BACK}</button><button class="label" data-act="mpick" data-v="stats" aria-label="${isM ? '달' : '연도'} 고르기">${isM ? ymLabel(key) : key + '년'}${CARET}</button><button class="icon-btn" data-act="sp" data-v="1" aria-label="다음" style="transform:scaleX(-1)">${BACK}</button></div>
   <div class="seg type" style="margin-bottom:12px">${[['i', '수입'], ['e', '지출']].map(([v, n]) => `<button data-act="sk" data-v="${v}" aria-pressed="${t === v}">${n}</button>`).join('')}</div>
-  ${total ? `<div class="card stack" style="gap:14px"><div class="row" style="justify-content:space-between;gap:12px"><h2>분류별 ${t === 'e' ? '지출' : '수입'}</h2><span style="white-space:nowrap"><span class="sub">총 </span><b class="${t === 'e' ? 'amt-e' : 'amt-i'}" style="font-size:16px">${won(total)}원</b></span></div>
+  ${total ? `<div class="card stack" style="gap:14px"><div class="row" style="justify-content:space-between;gap:12px"><h2>분류별 ${t === 'e' ? '지출' : '수입'}</h2><span style="white-space:nowrap"><span class="sub">총 </span><b class="${t === 'e' ? 'amt-e' : 'amt-i'}" style="font-size:var(--t-lg)">${won(total)}원</b></span></div>
     <div style="display:flex;justify-content:center"><svg width="100%" style="max-width:420px;height:auto" viewBox="0 0 ${VW} ${VH}" role="img" aria-label="${slices.map(([c, v]) => nameOf(c) + ' ' + Math.round(v / total * 100) + '%').join(', ')}">${pie}</svg></div>
     <div class="stack" style="gap:10px">${slices.map(([c, v], i) => `<button class="row statrow" data-act="stat-open" data-c="${c}"><span style="width:10px;height:10px;border-radius:5px;background:${COLS[i]}"></span><span class="grow">${esc(nameOf(c))} <span class="faint">${Math.round(v / total * 100)}%</span></span><span>${won(v)}</span>${CHEV}</button>
-      ${(c === 'rest' ? restList : subsOf(c)).length ? `<div class="stack" style="gap:0;margin:-4px 0 2px 18px;padding-left:10px;border-left:2px solid var(--line2);font-size:13px;color:var(--sub)">${(c === 'rest' ? restList.map(([k, vv]) => [nameOf(k), vv, k, '']) : subsOf(c).map(([k, vv]) => [SUB[k.split('|')[1]] ? SUB[k.split('|')[1]].n : '', vv, c, k.split('|')[1]])).map(([n, vv, cc, ss]) => `<button class="row statrow sm" data-act="stat-open" data-c="${cc}" ${ss ? `data-s="${ss}"` : ''}><span class="grow">${esc(n)}</span><span>${won(vv)}</span>${CHEV_SM}</button>`).join('')}</div>` : ''}`).join('')}</div></div>
+      ${(c === 'rest' ? restList : subsOf(c)).length ? `<div class="stack" style="gap:0;margin:-4px 0 2px 18px;padding-left:10px;border-left:2px solid var(--line2);font-size:var(--t-sm);color:var(--sub)">${(c === 'rest' ? restList.map(([k, vv]) => [nameOf(k), vv, k, '']) : subsOf(c).map(([k, vv]) => [SUB[k.split('|')[1]] ? SUB[k.split('|')[1]].n : '', vv, c, k.split('|')[1]])).map(([n, vv, cc, ss]) => `<button class="row statrow sm" data-act="stat-open" data-c="${cc}" ${ss ? `data-s="${ss}"` : ''}><span class="grow">${esc(n)}</span><span>${won(vv)}</span>${CHEV_SM}</button>`).join('')}</div>` : ''}`).join('')}</div></div>
   <div class="card stack"><h2>사람별 ${t === 'e' ? '지출' : '수입'}</h2>
     <div class="bar">${Object.entries(byP).filter(([, v]) => v).map(([p, v]) => `<div style="width:${(v / total * 100).toFixed(1)}%;background:${mcol(p)}"></div>`).join('')}</div>
     ${Object.entries(byP).map(([p, v]) => `<button class="row statrow" data-act="stat-open" data-p="${p}" ${v ? '' : 'disabled'}>${av(p)}<span class="grow">${esc(nm(p))} <span class="faint">${Math.round(v / total * 100)}%</span></span><span>${won(Math.round(v))}</span>${v ? CHEV : '<span style="width:18px"></span>'}</button>`).join('')}</div>`
@@ -1840,8 +1845,8 @@ function viewInbox() {
       </div>
       <div style="padding:0 8px 0 16px">${b.rows.slice().sort((x, y) => (x.ts < y.ts ? 1 : -1)).map((r) => { const miss = r.t !== 'x' && !CAT[r.c]; const d = tsDate(r.ts); return `<div class="row" style="border-bottom:1px solid var(--line);gap:4px">
         <button class="row grow" style="border:0;background:transparent;padding:12px 0;text-align:left;gap:12px;min-width:0" data-act="draft-edit" data-b="${bid}" data-v="${r.id}">
-          <span style="width:36px;flex-shrink:0;text-align:center;line-height:1.2"><b style="display:block;font-size:14px">${d.getDate()}</b><span class="faint" style="font-size:11px">${d.getMonth() + 1}월</span></span>
-          <span class="grow" style="min-width:0"><span style="display:block;line-height:1.4;overflow-wrap:anywhere">${esc(r.ct || '내용 없음')}</span><span style="display:block;font-size:13px;line-height:1.4;color:${miss ? 'var(--warn-fg)' : 'var(--sub)'}">${miss ? '분류를 골라 주세요' : esc(catLabel(r))}</span></span>
+          <span style="width:36px;flex-shrink:0;text-align:center;line-height:1.2"><b style="display:block;font-size:var(--t-md)">${d.getDate()}</b><span class="faint" style="font-size:11px">${d.getMonth() + 1}월</span></span>
+          <span class="grow" style="min-width:0"><span style="display:block;line-height:1.4;overflow-wrap:anywhere">${esc(r.ct || '내용 없음')}</span><span style="display:block;font-size:var(--t-sm);line-height:1.4;color:${miss ? 'var(--warn-fg)' : 'var(--sub)'}">${miss ? '분류를 골라 주세요' : esc(catLabel(r))}</span></span>
           <b class="${r.t === 'i' ? 'amt-i' : r.t === 'e' ? 'amt-e' : 'amt-x'}" style="white-space:nowrap">${r.t === 'i' ? '+' : r.t === 'e' ? '-' : ''}${won(r.amt)}</b></button>
         <button class="icon-btn" style="width:36px;color:var(--faint);flex-shrink:0" data-act="draft-del" data-b="${bid}" data-v="${r.id}" aria-label="${esc(r.ct || '초안')} 버리기">${svg('M6 6l12 12M18 6L6 18', 16, 2)}</button></div>`; }).join('')}</div>
       <div class="row" style="padding:12px 16px 16px"><button class="btn danger" style="border-color:transparent" data-act="batch-del" data-b="${bid}">모두 버리기</button><span class="grow"></span><button class="btn ink" data-act="batch-up" data-b="${bid}" ${ok ? '' : 'disabled'}>${unk ? `${ok}건 올리기` : `${ok}건 모두 올리기`}</button></div>
@@ -2002,7 +2007,7 @@ function viewImport() {
   let body = '', foot = '';
   if (im.pdfPw) {
     body = `${steps}<div class="card stack"><h2>비밀번호가 걸린 PDF예요</h2><p class="sub" style="margin:0;line-height:1.6"><b style="overflow-wrap:anywhere">${esc(im.pdf.name)}</b><br>카드 명세서는 보통 생년월일 6자리(예: 920130)가 비밀번호예요. 비밀번호는 저장하지 않아요.</p>
-      <input type="password" id="imp-pw" class="pill" style="height:48px;font-size:16px" inputmode="numeric" autocomplete="off" placeholder="비밀번호" data-act="imp-pw">
+      <input type="password" id="imp-pw" class="pill" style="height:48px;font-size:var(--t-lg)" inputmode="numeric" autocomplete="off" placeholder="비밀번호" data-act="imp-pw">
       ${im.pwErr ? `<div class="warnbox" role="alert">${esc(im.pwErr)}</div>` : ''}</div>`;
     foot = `<button class="btn lg ink grow" data-act="imp-pw-go">열기</button>`;
   } else if (im.step === 0) {
@@ -2020,7 +2025,7 @@ function viewImport() {
         return `<div class="card" style="padding:4px 16px 8px"><h2 style="margin:12px 0 2px">카드별 자산</h2><p class="faint" style="margin:0 0 4px;line-height:1.5">한 파일에 카드가 ${cv.length}장 섞여 있어요. 이미 있는 내역과 맞춰서 골라 봤어요.</p>${cv.map((c) => `<div class="field"><span class="k" style="width:auto;max-width:120px;overflow-wrap:anywhere">${esc(c)}</span><button class="v" data-act="imp-card" data-v="${esc(c)}" style="${im.cardMap && im.cardMap[c] ? '' : 'color:var(--warn-fg)'}">${esc(im.cardMap && im.cardMap[c] ? aName(im.cardMap[c]) : '선택하기')}${CHEV}</button></div>`).join('')}</div>`; })()}
       <div class="card" style="padding:4px 16px 8px"><h2 style="margin:12px 0 4px">칸 맞추기</h2>${sel('date', '날짜')}${sel('time', '시간')}${sel('amount', '금액')}${sel('out', '출금')}${sel('in', '입금')}${sel('content', '내용')}${sel('card', '카드')}${sel('cancel', '취소')}
         <p class="faint" style="line-height:1.5">카드 파일은 '금액', 통장 파일은 '출금'과 '입금'을 맞춰 주세요.</p>
-        <label class="row" style="min-height:44px;font-size:13px"><input type="checkbox" id="imp-remember" ${im.remember ? 'checked' : ''} data-act="imp-remember">다음에도 같은 형식 파일은 이 칸으로 읽기</label></div>
+        <label class="row" style="min-height:var(--h-row);font-size:var(--t-sm)"><input type="checkbox" id="imp-remember" ${im.remember ? 'checked' : ''} data-act="imp-remember">다음에도 같은 형식 파일은 이 칸으로 읽기</label></div>
       <div class="card"><h2 class="sub" style="font-weight:500;margin-bottom:6px">이렇게 읽었어요 (처음 3행)</h2>${sample.length ? `<div class="scrollx"><table class="map">${sample.map(([ts, c, a]) => `<tr><td>${+ts.slice(4, 6)}.${+ts.slice(6, 8)} ${ts.slice(8, 10)}:${ts.slice(10, 12)}</td><td style="white-space:normal">${esc(c)}</td><td style="text-align:right">${esc(a)}</td></tr>`).join('')}</table></div>` : `<p class="warnbox" style="margin:0">날짜를 읽지 못했어요. 날짜 칸을 다시 골라 주세요.</p>`}</div>`;
     foot = `<button class="btn lg ink grow" data-act="imp-preview" ${sample.length && im.map.content !== undefined ? '' : 'disabled'}>미리보기</button>`;
   } else {
@@ -2031,10 +2036,10 @@ function viewImport() {
       <div class="sum3" style="grid-template-columns:1fr 1fr"><div><span class="sub">새 내역</span><b>${im.rows.length - dupN - canN}건</b></div><div><span class="sub">이미 있음·취소 · 건너뜀</span><b class="sub">${dupN + canN}건</b></div></div>
       <div class="row"><span class="sub grow">선택한 지출 합계</span><b class="amt-e">${won(on.filter((r) => r.t === 'e').reduce((s, r) => s + r.amt, 0))}원</b></div>
       <span class="faint" style="line-height:1.5">같은 자산·같은 날짜·같은 금액의 내역이 이미 있으면 그 수만큼 이미 있는 것으로 보고 뺐어요. 분류는 전에 같은 내용에 지정한 것으로 채웠어요.</span></div>
-      <div class="row" style="padding:0 4px"><label class="row grow"><input type="checkbox" id="imp-all" ${on.length === im.rows.length ? 'checked' : ''} data-act="imp-all">전체 선택</label>${unk ? `<span style="font-size:13px;color:var(--warn-fg)">분류 미지정 ${unk}건</span>` : ''}</div>
-      <div class="card" style="padding:0 16px">${im.rows.map((r) => `<label class="row" style="min-height:48px;padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer">
+      <div class="row" style="padding:0 4px"><label class="row grow"><input type="checkbox" id="imp-all" ${on.length === im.rows.length ? 'checked' : ''} data-act="imp-all">전체 선택</label>${unk ? `<span style="font-size:var(--t-sm);color:var(--warn-fg)">분류 미지정 ${unk}건</span>` : ''}</div>
+      <div class="card" style="padding:0 16px">${im.rows.map((r) => `<label class="row" style="min-height:var(--h-field);padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer">
         <input type="checkbox" id="imp-r-${r.id}" ${r.on ? 'checked' : ''} data-act="imp-row" data-v="${r.id}" aria-label="${esc(r.ct)} 선택">
-        <span class="grow"><span style="display:block;line-height:1.35;overflow-wrap:anywhere">${esc(r.ct || '내용 없음')}</span><span style="display:block;font-size:13px;color:${r.dup || r.cancel ? 'var(--faint)' : CAT[r.c] ? 'var(--sub)' : 'var(--warn-fg)'}">${+r.ts.slice(4, 6)}.${+r.ts.slice(6, 8)} · ${r.dup ? '이미 있어요' : r.cancel ? '취소된 결제' : CAT[r.c] ? esc(catLabel(r)) : '분류 미지정 · 알림함에서 골라요'}</span></span>
+        <span class="grow"><span style="display:block;line-height:1.35;overflow-wrap:anywhere">${esc(r.ct || '내용 없음')}</span><span style="display:block;font-size:var(--t-sm);color:${r.dup || r.cancel ? 'var(--faint)' : CAT[r.c] ? 'var(--sub)' : 'var(--warn-fg)'}">${+r.ts.slice(4, 6)}.${+r.ts.slice(6, 8)} · ${r.dup ? '이미 있어요' : r.cancel ? '취소된 결제' : CAT[r.c] ? esc(catLabel(r)) : '분류 미지정 · 알림함에서 골라요'}</span></span>
         <b class="${r.t === 'i' ? 'amt-i' : 'amt-e'}" style="white-space:nowrap">${r.t === 'i' ? '+' : '-'}${won(r.amt)}</b></label>`).join('') || '<p class="empty">읽은 내역이 없어요.</p>'}</div>`;
     foot = `<button class="btn lg" style="width:96px" data-act="imp-back">뒤로</button><button class="btn lg ink grow" data-act="imp-save" ${on.length ? '' : 'disabled'}>알림함에 ${on.length}건 넣기</button>`;
   }
@@ -2224,15 +2229,15 @@ function saveMember() {
 function viewSettings() {
   const first = S.rows.length ? S.rows[S.rows.length - 1].ts : '';
   const nE = S.cfg.categories.expense.length, nI = S.cfg.categories.income.length;
-  const sec = (t) => `<h2 class="sub" style="font-size:13px;margin:20px 4px 8px">${t}</h2>`;
-  const rowBtn = (act, icon, title, sub) => `<button class="row" data-act="${act}" style="width:100%;border:0;background:transparent;min-height:52px;padding:8px 0;text-align:left;gap:12px"><span style="color:var(--sub);display:flex">${svg(icon)}</span><span class="grow" style="min-width:0"><span style="display:block">${title}</span>${sub ? `<span class="faint" style="display:block;line-height:1.5">${sub}</span>` : ''}</span>${CHEV}</button>`;
+  const sec = (t) => `<h2 class="sub" style="font-size:var(--t-sm);margin:20px 4px 8px">${t}</h2>`;
+  const rowBtn = (act, icon, title, sub) => `<button class="row" data-act="${act}" style="width:100%;border:0;background:transparent;min-height:var(--h-row);padding:8px 0;text-align:left;gap:12px"><span style="color:var(--sub);display:flex">${svg(icon)}</span><span class="grow" style="min-width:0"><span style="display:block">${title}</span>${sub ? `<span class="faint" style="display:block;line-height:1.5">${sub}</span>` : ''}</span>${CHEV}</button>`;
   const usedC = [...new Set(S.assets.map((a) => a.cur).filter((c) => CUR[c]))];
   const RATE = `  ${sec('환율')}
-  <div class="card" style="padding:0 16px"><button class="row" data-act="fx-open" style="width:100%;border:0;background:transparent;min-height:52px;padding:8px 0;text-align:left;gap:12px"><span style="color:var(--sub);display:flex">${svg('M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6')}</span><span class="grow">환율</span><span class="sub">${S.cfg.rateAuto === false ? '직접 입력' : '자동'}${usedC.length ? ' · ' + rateText(usedC[0]) : ''}</span>${CHEV}</button></div>`;
+  <div class="card" style="padding:0 16px"><button class="row" data-act="fx-open" style="width:100%;border:0;background:transparent;min-height:var(--h-row);padding:8px 0;text-align:left;gap:12px"><span style="color:var(--sub);display:flex">${svg('M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6')}</span><span class="grow">환율</span><span class="sub">${S.cfg.rateAuto === false ? '직접 입력' : '자동'}${usedC.length ? ' · ' + rateText(usedC[0]) : ''}</span>${CHEV}</button></div>`;
   return `<div class="top"><h1>설정</h1></div>
   ${sec('구성원')}
-  <div class="card" style="padding:0 16px">${members().map((m) => { const acc = FBX('accountOf', m.id); return `<button class="row" data-act="mem-edit" data-v="${esc(m.id)}" style="width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;min-height:52px;padding:8px 0;text-align:left;gap:12px">${av(m.id, 'lg')}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:2px"><span>${esc(nm(m.id))}${acc && acc.me ? ' <span class="faint">(나)</span>' : ''}${acc && acc.role === 'owner' ? ' <span class="tag">주인</span>' : ''}</span>${window.FB ? `<span class="faint" style="overflow-wrap:anywhere">${acc ? esc(acc.email) : '계정 없음'}</span>` : ''}</span>${CHEV}</button>`; }).join('')}
-    <button class="row" data-act="mem-new" style="width:100%;border:0;background:transparent;min-height:48px;padding:8px 0;text-align:left;gap:12px;color:var(--sub)"><span class="av lg" style="background:var(--soft);color:var(--sub);border-color:var(--line2)">${svg('M12 5v14M5 12h14', 18, 2)}</span><span class="grow">구성원 추가</span></button></div>
+  <div class="card" style="padding:0 16px">${members().map((m) => { const acc = FBX('accountOf', m.id); return `<button class="row" data-act="mem-edit" data-v="${esc(m.id)}" style="width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;min-height:var(--h-row);padding:8px 0;text-align:left;gap:12px">${av(m.id, 'lg')}<span class="grow" style="min-width:0;display:flex;flex-direction:column;gap:2px"><span>${esc(nm(m.id))}${acc && acc.me ? ' <span class="faint">(나)</span>' : ''}${acc && acc.role === 'owner' ? ' <span class="tag">주인</span>' : ''}</span>${window.FB ? `<span class="faint" style="overflow-wrap:anywhere">${acc ? esc(acc.email) : '계정 없음'}</span>` : ''}</span>${CHEV}</button>`; }).join('')}
+    <button class="row" data-act="mem-new" style="width:100%;border:0;background:transparent;min-height:var(--h-field);padding:8px 0;text-align:left;gap:12px;color:var(--sub)"><span class="av lg" style="background:var(--soft);color:var(--sub);border-color:var(--line2)">${svg('M12 5v14M5 12h14', 18, 2)}</span><span class="grow">구성원 추가</span></button></div>
   ${FBX('autoMeHtml') || ''}
   ${FBX('inviteHtml') || ''}
   ${sec('예산 · 분류 · 자산')}
@@ -2241,9 +2246,12 @@ function viewSettings() {
     ${rowBtn('ce-open', 'M3 12V4h8l10 10-8 8zM7.5 7.5h.01', '분류 관리', '')}
     ${rowBtn('set-assets', 'M3 6h18v13H3zM3 10h18M16 14.5h2', '자산 관리', '')}
   </div>
+  ${sec('화면')}
+  <div class="card" style="padding:0 16px"><div class="row" style="min-height:var(--h-row);gap:12px"><span style="color:var(--sub);display:flex">${svg('M4 19L9 5l5 14M6 14h6M15 19l3-8 3 8M16 16.5h4')}</span><span class="grow">글자 크기</span><div class="seg" style="flex-shrink:0">${[['s', '작게'], ['m', '보통'], ['l', '크게']].map(([v, n]) => `<button data-act="fz" data-v="${v}" aria-pressed="${fzNow() === v}" style="padding:0 10px">${n}</button>`).join('')}</div></div>
+  <p class="faint" style="margin:-4px 0 12px;font-size:var(--t-xs)">이 기기에서만 바뀌어요.</p></div>
   ${sec('데이터')}
   <div class="card" style="padding:0 16px">
-    <div class="row" style="min-height:52px;gap:12px;border-bottom:1px solid var(--line)"><span style="color:var(--sub);display:flex">${svg('M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01')}</span><span class="grow">내역</span><span class="sub">${won(S.rows.length)}건${first ? ` · ${first.slice(0, 4)}년 ${+first.slice(4, 6)}월부터` : ''}</span></div>
+    <div class="row" style="min-height:var(--h-row);gap:12px;border-bottom:1px solid var(--line)"><span style="color:var(--sub);display:flex">${svg('M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01')}</span><span class="grow">내역</span><span class="sub">${won(S.rows.length)}건${first ? ` · ${first.slice(0, 4)}년 ${+first.slice(4, 6)}월부터` : ''}</span></div>
     ${rowBtn('inbox-open', 'M12 20V9M7 14l5-5 5 5M4 4h16', '내역 가져오기 (엑셀·PDF)', '')}
     ${rowBtn('export-all', 'M5 3h10l4 4v14H5zM14 3v5h5M8 12h8M8 16h8M12 11v7', '내역 엑셀로 받기', '')}
     ${rowBtn('fb-backup', 'M12 4v11M7 10l5 5 5-5M5 20h14', '백업 파일 받기', '')}
@@ -2297,6 +2305,7 @@ document.addEventListener('click', async (ev) => {
       S.search = { q: '', t: '', sp: '', c: [], a: [S.ledger.id], from: '', to: '', min: '', max: '' }; S.ledger = null; S.edBack = null; S.assetEd = null; S.tab = 'list'; S.statOpen = null;
       render.sameTab = null; render(); renderLayer(); $('#main').scrollTop = 0; setTimeout(() => $('#sf-q') && $('#sf-q').focus(), 0); break; }
     case 'search-close': { S.search = null; const b = S.searchBack; S.searchBack = null; if (b) { S.tab = b.tab; S.assetMode = b.assetMode; S.modeOverlay = b.modeOverlay; S.sheet = b.sheet; S.ed = b.ed; S.assetEd = b.assetEd; if (b.ledger) { S.ledger = b.ledger; S.edBack = b.edBack || null; } render.sameTab = null; render(); renderLayer(); $('#main').scrollTop = b.scroll || 0; } else render(); break; }
+    case 'fz': try { localStorage.setItem('ppyu.fz', v); } catch (e) {} fzApply(); render(); break;
     case 'search-reset': S.search = { q: '', t: '', sp: '', c: [], a: [], from: '', to: '', min: '', max: '' }; render(); break;
     case 'export': exportRows(searchRows(S.search), '쀼가계부_검색결과.xlsx'); break;
     case 'export-all': S.xport = { pre: 'all', from: '', to: '' }; renderLayer(); break;
